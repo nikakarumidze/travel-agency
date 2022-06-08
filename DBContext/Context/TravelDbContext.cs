@@ -12,6 +12,7 @@ public class TravelDbContext : IdentityDbContext<ApplicationUser>
     public TravelDbContext(DbContextOptions<TravelDbContext> options) : base(options){}
     
     public DbSet<Apartment> Apartments { get; set; }
+    public DbSet<Order> Orders { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -51,6 +51,19 @@ public static class TravelDbSeeds
             Lastname = "Natenadze",
             EmailConfirmed = true,
             PhoneNumberConfirmed = true,
+            Apartment = new Apartment
+            {
+                Address = "Viktor Dolidze 25",
+                BedsNumber = 2,
+                City = "Tbilisi",
+                Conditioner = true,
+                DistanceToCenter = "2",
+                Gym = false,
+                Image = null,
+                Parking = true, 
+                Wifi = true, 
+                Pool = false
+            }
         };
         var user = await userManager.FindByEmailAsync(defaultUser.Email);
         if (user == null)

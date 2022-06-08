@@ -11,8 +11,10 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
         builder.HasKey(x => x.Id);
 
         builder.HasOne(x => x.Guest)
-            .WithMany(x => x.MyTravels).OnDelete(DeleteBehavior.NoAction);
+            .WithMany(x => x.MyTravels)
+            .OnDelete(DeleteBehavior.NoAction);
         builder.HasOne(x => x.Host)
-            .WithMany(x => x.MyHosts).OnDelete(DeleteBehavior.NoAction);
+            .WithMany(x => x.MyHosts)
+            .OnDelete(DeleteBehavior.NoAction);
     }
 }

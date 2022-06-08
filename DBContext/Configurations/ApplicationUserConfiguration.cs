@@ -9,8 +9,7 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<Application
     public void Configure(EntityTypeBuilder<ApplicationUser> builder)
     {
         builder.HasOne(b => b.Apartment)
-            .WithOne(b => b.Host)
-            .HasForeignKey<Apartment>(b => b.HostId);
-        
+            .WithOne(b => b.Owner)
+            .HasForeignKey<Apartment>(b => b.OwnerId);
     }
 }

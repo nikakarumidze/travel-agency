@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Migrations
 {
-    public partial class init3 : Migration
+    public partial class init2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<byte[]>(
                 name: "Image",
-                table: "AspNetUsers",
+                table: "Apartments",
                 type: "varbinary(max)",
                 nullable: true,
                 oldClrType: typeof(byte[]),
@@ -22,7 +22,7 @@ namespace API.Migrations
         {
             migrationBuilder.AlterColumn<byte[]>(
                 name: "Image",
-                table: "AspNetUsers",
+                table: "Apartments",
                 type: "varbinary(max)",
                 nullable: false,
                 defaultValue: new byte[0],

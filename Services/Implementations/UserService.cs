@@ -9,18 +9,16 @@ namespace Services.Implementations;
 
 public class UserService : IUserService
 {
+    private readonly IJwtService _jwtService;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IJwtService _jwtService;
-
-
-        public UserService(IJwtService jwtService,UserManager<ApplicationUser> userManager)
+    public UserService(IJwtService jwtService,UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
             _jwtService = jwtService;
         }
 
-        public async Task<(string, DateTime?)> AuthenticationAsync(string username, string password)
+    public async Task<(string, DateTime?)> AuthenticationAsync(string username, string password)
         {
             var user = await _userManager.FindByNameAsync(username);
             if (user == null)
@@ -31,7 +29,7 @@ public class UserService : IUserService
             return _jwtService.GenerateSecurityToken(username);
         }
 
-        public async Task<IEnumerable<IdentityError>> CreateAsync(CreateUserServiceModel user)
+    public async Task<IEnumerable<IdentityError>> CreateAsync(CreateUserServiceModel user)
         {
             var entityByName = await _userManager.FindByNameAsync(user.Username);
             var entityByEmail = await _userManager.FindByEmailAsync(user.Email);
@@ -53,7 +51,7 @@ public class UserService : IUserService
             return null;
         }
 
-        public async Task<bool> ChangePasswordAsync(string username, string oldPassword, string newPassword)
+    public async Task<bool> ChangePasswordAsync(string username, string oldPassword, string newPassword)
         {
             var user = await _userManager.FindByNameAsync(username);
             var check = await _userManager.CheckPasswordAsync(user, oldPassword);

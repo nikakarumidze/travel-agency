@@ -51,13 +51,12 @@ namespace API.Migrations
                     b.Property<bool?>("Gym")
                         .HasColumnType("bit");
 
-                    b.Property<string>("HostId")
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("OwnerId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<byte[]>("Image")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
 
                     b.Property<bool?>("Parking")
                         .HasColumnType("bit");
@@ -70,7 +69,7 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HostId")
+                    b.HasIndex("OwnerId")
                         .IsUnique();
 
                     b.ToTable("Apartments");
@@ -160,9 +159,6 @@ namespace API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ApartmentId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Approved")
                         .HasColumnType("bit");
 
@@ -185,13 +181,11 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApartmentId");
-
                     b.HasIndex("GuestId");
 
                     b.HasIndex("HostId");
 
-                    b.ToTable("Order");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -333,23 +327,17 @@ namespace API.Migrations
 
             modelBuilder.Entity("Domain.POCOs.Apartment", b =>
                 {
-                    b.HasOne("Domain.POCOs.ApplicationUser", "Host")
+                    b.HasOne("Domain.POCOs.ApplicationUser", "Owner")
                         .WithOne("Apartment")
-                        .HasForeignKey("Domain.POCOs.Apartment", "HostId")
+                        .HasForeignKey("Domain.POCOs.Apartment", "OwnerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Host");
+                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("Domain.POCOs.Order", b =>
                 {
-                    b.HasOne("Domain.POCOs.Apartment", "Apartment")
-                        .WithMany()
-                        .HasForeignKey("ApartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Domain.POCOs.ApplicationUser", "Guest")
                         .WithMany("MyTravels")
                         .HasForeignKey("GuestId")
@@ -361,8 +349,6 @@ namespace API.Migrations
                         .HasForeignKey("HostId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-
-                    b.Navigation("Apartment");
 
                     b.Navigation("Guest");
 
