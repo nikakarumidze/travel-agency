@@ -14,12 +14,14 @@
         "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -31,6 +33,9 @@
               },
               "C:\\Users\\naten\\RiderProjects\\travel-agency\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\Domain\\Domain.csproj"
+              },
+              "C:\\Users\\naten\\RiderProjects\\travel-agency\\Services\\Services.csproj": {
+                "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\Services\\Services.csproj"
               }
             }
           }
@@ -45,7 +50,23 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.0.2, )"
+            },
+            "Mapster": {
+              "target": "Package",
+              "version": "[7.4.0-pre02, )"
+            },
             "Microsoft.AspNetCore.ApiAuthorization.IdentityServer": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.AspNetCore.Authorization": {
               "target": "Package",
               "version": "[6.0.5, )"
             },
@@ -122,12 +143,14 @@
         "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\DBContext\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -204,12 +227,14 @@
         "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -231,6 +256,78 @@
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
               "version": "[7.0.0-preview.4.22251.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\naten\\RiderProjects\\travel-agency\\Services\\Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\naten\\RiderProjects\\travel-agency\\Services\\Services.csproj",
+        "projectName": "Services",
+        "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\naten\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\naten\\RiderProjects\\travel-agency\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\Domain\\Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[7.0.0-preview.4.22251.1, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[7.0.0-preview.4.22229.4, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.10.0, )"
             }
           },
           "imports": [

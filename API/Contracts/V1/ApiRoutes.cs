@@ -24,13 +24,11 @@ public class ApiRoutes
     //     public const string Cancel = TicketBase + "/Cancel";
     // }
     //
-    // public static class User
-    // {
-    //     private const string UserBase = Base + "/User";
-    //     public const string SignIn = UserBase + "/SignIn";
-    //     public const string Register = UserBase + "/Register";
-    //     public const string GetBalance = UserBase + "/MyBalance";
-    //     public const string GetMyTickets = UserBase + "/GetMyTickets";
-    //     public const string ChangePassword = UserBase + "/ChangePassword";
-    // }
+    public static class User
+    {
+         private const string UserBase = Base + "/User";
+         public const string SignIn = UserBase + "/SignIn";
+         public const string Register = UserBase + "/Register";
+         public const string ChangePassword = UserBase + "/ChangePassword";
+     }
 }

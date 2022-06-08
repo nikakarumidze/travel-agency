@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "dgSpecHash": "QjrIV4/m+ufaaCj7PKn2BMtv65hsQOFTlstXGtcpXRT4GMWuNOn3WNWzxzlUCla7GNdinLFgLTvZa45vWGI3Pg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\Services\\Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.0-preview.4.22251.1\\microsoft.aspnetcore.cryptography.internal.7.0.0-preview.4.22251.1.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.0-preview.4.22251.1\\microsoft.aspnetcore.cryptography.keyderivation.7.0.0-preview.4.22251.1.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0-preview.4.22229.4\\microsoft.extensions.caching.abstractions.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0-preview.4.22229.4\\microsoft.extensions.dependencyinjection.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0-preview.4.22229.4\\microsoft.extensions.dependencyinjection.abstractions.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.extensions.identity.core\\7.0.0-preview.4.22251.1\\microsoft.extensions.identity.core.7.0.0-preview.4.22251.1.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.extensions.identity.stores\\7.0.0-preview.4.22251.1\\microsoft.extensions.identity.stores.7.0.0-preview.4.22251.1.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0-preview.4.22229.4\\microsoft.extensions.logging.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0-preview.4.22229.4\\microsoft.extensions.logging.abstractions.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.extensions.options\\7.0.0-preview.4.22229.4\\microsoft.extensions.options.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0-preview.4.22229.4\\microsoft.extensions.primitives.7.0.0-preview.4.22229.4.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.10.0\\microsoft.identitymodel.jsonwebtokens.6.10.0.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.identitymodel.logging\\6.10.0\\microsoft.identitymodel.logging.6.10.0.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.10.0\\microsoft.identitymodel.tokens.6.10.0.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.10.0\\system.identitymodel.tokens.jwt.6.10.0.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -12,6 +12,6 @@ public static class ServiceExtension
             .Where(x => typeof(IInstaller).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
             .Select(Activator.CreateInstance).Cast<IInstaller>().ToList();
         installers.ForEach(installer=>installer.InstallServices(services, configuration));
-        //services.AddTokenAuthentication(configuration);
+        services.AddTokenAuthentication(configuration);
     }
 }

@@ -7,7 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="FluentValidation" Version="11.0.2" />
+        <PackageReference Include="Mapster" Version="7.4.0-pre02" />
         <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="6.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="6.0.5" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.5" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
@@ -26,12 +30,33 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers" />
+      <ProjectReference Include="..\DBContext\DBContext.csproj" />
+      <ProjectReference Include="..\Domain\Domain.csproj" />
+      <ProjectReference Include="..\Services\Services.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\DBContext\DBContext.csproj" />
-      <ProjectReference Include="..\Domain\Domain.csproj" />
+      <EmbeddedResource Update="Infrastructure\APIResources\Regexes.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Regexes.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Infrastructure\APIResources\ErrorMessages.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Infrastructure\APIResources\Regexes.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Regexes.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Infrastructure\APIResources\ErrorMessages.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ErrorMessages.resx</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>

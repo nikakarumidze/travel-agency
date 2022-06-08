@@ -89,6 +89,15 @@
           "lib/net5.0/Duende.IdentityServer.Storage.dll": {}
         }
       },
+      "FluentValidation/11.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -109,6 +118,29 @@
         },
         "runtime": {
           "lib/net5.0/IdentityModel.dll": {}
+        }
+      },
+      "Mapster/7.4.0-pre02": {
+        "type": "package",
+        "dependencies": {
+          "Mapster.Core": "1.2.1-pre01",
+          "Microsoft.CSharp": "4.3.0",
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Mapster.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Mapster.dll": {}
+        }
+      },
+      "Mapster.Core/1.2.1-pre01": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Mapster.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Mapster.Core.dll": {}
         }
       },
       "Microsoft.AspNetCore.ApiAuthorization.IdentityServer/6.0.5": {
@@ -164,6 +196,20 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Microsoft.AspNetCore.Authorization/6.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "6.0.5",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.1",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {}
+        }
       },
       "Microsoft.AspNetCore.Cryptography.Internal/7.0.0-preview.4.22251.1": {
         "type": "package",
@@ -228,6 +274,15 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/Microsoft.AspNetCore.Identity.UI.targets": {}
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/6.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {}
         }
       },
       "Microsoft.CSharp/4.7.0": {
@@ -1277,6 +1332,22 @@
         "runtime": {
           "bin/placeholder/Domain.dll": {}
         }
+      },
+      "Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Domain": "1.0.0",
+          "Microsoft.Extensions.Identity.Core": "7.0.0-preview.4.22251.1",
+          "Microsoft.Extensions.Options": "7.0.0-preview.4.22229.4",
+          "System.IdentityModel.Tokens.Jwt": "6.10.0"
+        },
+        "compile": {
+          "bin/placeholder/Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Services.dll": {}
+        }
       }
     }
   },
@@ -1382,6 +1453,27 @@
         "lib/netstandard2.0/Duende.IdentityServer.Storage.xml"
       ]
     },
+    "FluentValidation/11.0.2": {
+      "sha512": "ik/xogKqBmZWIURMXNEbugJlKka6iV9a4qckmKDp7sHSwIfgkZ/ewzCuAeUTkFdVZujfDW6mCLMjrrR6GG4xLQ==",
+      "type": "package",
+      "path": "fluentvalidation/11.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.11.0.2.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
+      ]
+    },
     "Humanizer.Core/2.8.26": {
       "sha512": "OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "type": "package",
@@ -1420,6 +1512,34 @@
         "lib/netstandard2.0/IdentityModel.dll",
         "lib/netstandard2.0/IdentityModel.pdb",
         "lib/netstandard2.0/IdentityModel.xml"
+      ]
+    },
+    "Mapster/7.4.0-pre02": {
+      "sha512": "933b+HYB+tNKEVmxNpGhvAkKebV4U8+Oob/CLYAOLlQ6Nk7UBF1+C3wlHrgxK8DcG9sSGL+7Gk/OpzkzsLda1g==",
+      "type": "package",
+      "path": "mapster/7.4.0-pre02",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard1.3/Mapster.dll",
+        "lib/netstandard2.0/Mapster.dll",
+        "mapster.7.4.0-pre02.nupkg.sha512",
+        "mapster.nuspec"
+      ]
+    },
+    "Mapster.Core/1.2.1-pre01": {
+      "sha512": "XwKiMbkXYJhjA6PdiL0dNfqrhi2d+Q4JNPmxrit9MIFXcQPANMAc6n9Ix9aWgjK+LHASZ7eea4a1gG2/4ssZnw==",
+      "type": "package",
+      "path": "mapster.core/1.2.1-pre01",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard1.3/Mapster.Core.dll",
+        "lib/netstandard2.0/Mapster.Core.dll",
+        "mapster.core.1.2.1-pre01.nupkg.sha512",
+        "mapster.core.nuspec"
       ]
     },
     "Microsoft.AspNetCore.ApiAuthorization.IdentityServer/6.0.5": {
@@ -1465,6 +1585,25 @@
         "lib/net5.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.xml",
         "microsoft.aspnetcore.authentication.openidconnect.5.0.0.nupkg.sha512",
         "microsoft.aspnetcore.authentication.openidconnect.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authorization/6.0.5": {
+      "sha512": "T3J4Z4xK/mmJlMv/j7Cs1PZjRLh1fGsvHay3RNBNooP0qhHCk3UnU+WgBvcGApZFnEfeyOEGZBHZv5gb1RrDLA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authorization/6.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Authorization.dll",
+        "lib/net461/Microsoft.AspNetCore.Authorization.xml",
+        "lib/net6.0/Microsoft.AspNetCore.Authorization.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Authorization.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
+        "microsoft.aspnetcore.authorization.6.0.5.nupkg.sha512",
+        "microsoft.aspnetcore.authorization.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/7.0.0-preview.4.22251.1": {
@@ -1655,6 +1794,25 @@
         "staticwebassets/V5/lib/jquery/dist/jquery.js",
         "staticwebassets/V5/lib/jquery/dist/jquery.min.js",
         "staticwebassets/V5/lib/jquery/dist/jquery.min.map"
+      ]
+    },
+    "Microsoft.AspNetCore.Metadata/6.0.5": {
+      "sha512": "4VRJoJa/EbncxQTAzM6abqQUUbNrohg5MC1glZ1R1lzzXJM2CdXiRKvcpAfn3luAwPzkwJtHejuLgI6Osn0aDA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.metadata/6.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Metadata.dll",
+        "lib/net461/Microsoft.AspNetCore.Metadata.xml",
+        "lib/net6.0/Microsoft.AspNetCore.Metadata.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Metadata.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
+        "microsoft.aspnetcore.metadata.6.0.5.nupkg.sha512",
+        "microsoft.aspnetcore.metadata.nuspec"
       ]
     },
     "Microsoft.CSharp/4.7.0": {
@@ -3838,13 +3996,22 @@
       "type": "project",
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "Services/1.0.0": {
+      "type": "project",
+      "path": "../Services/Services.csproj",
+      "msbuildProject": "../Services/Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "DBContext >= 1.0.0",
       "Domain >= 1.0.0",
+      "FluentValidation >= 11.0.2",
+      "Mapster >= 7.4.0-pre02",
       "Microsoft.AspNetCore.ApiAuthorization.IdentityServer >= 6.0.5",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.5",
+      "Microsoft.AspNetCore.Authorization >= 6.0.5",
       "Microsoft.EntityFrameworkCore >= 6.0.5",
       "Microsoft.EntityFrameworkCore.Abstractions >= 6.0.5",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.5",
@@ -3853,6 +4020,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.5",
       "Microsoft.EntityFrameworkCore.Tools.DotNet >= 2.0.3",
       "Newtonsoft.Json >= 13.0.2-beta1",
+      "Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -3869,12 +4037,14 @@
       "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3886,6 +4056,9 @@
             },
             "C:\\Users\\naten\\RiderProjects\\travel-agency\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\Domain\\Domain.csproj"
+            },
+            "C:\\Users\\naten\\RiderProjects\\travel-agency\\Services\\Services.csproj": {
+              "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\Services\\Services.csproj"
             }
           }
         }
@@ -3900,7 +4073,23 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "FluentValidation": {
+            "target": "Package",
+            "version": "[11.0.2, )"
+          },
+          "Mapster": {
+            "target": "Package",
+            "version": "[7.4.0-pre02, )"
+          },
           "Microsoft.AspNetCore.ApiAuthorization.IdentityServer": {
+            "target": "Package",
+            "version": "[6.0.5, )"
+          },
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[6.0.5, )"
+          },
+          "Microsoft.AspNetCore.Authorization": {
             "target": "Package",
             "version": "[6.0.5, )"
           },
