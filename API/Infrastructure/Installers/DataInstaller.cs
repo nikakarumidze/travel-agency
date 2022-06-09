@@ -4,6 +4,7 @@ using Domain.POCOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 
 namespace API.Infrastructure.Installers;
 
@@ -11,7 +12,14 @@ public class DataInstaller : IInstaller
 {
     public void InstallServices(IServiceCollection services, IConfiguration configuration)
     {
-        services.AddControllers();
+        services.AddDbContext<TravelDbContext>(options =>
+            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
+                b=> b.MigrationsAssembly("API")));
+        services.AddScoped<DbContext, TravelDbContext>();
+        services.AddControllers()
+            .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            );
         services.AddHttpContextAccessor();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>
@@ -29,10 +37,6 @@ public class DataInstaller : IInstaller
             c.OperationFilter<AuthorizationOperationFilter>();
         });
         
-        services.AddDbContext<TravelDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
-                b=> b.MigrationsAssembly("API")));
-
         services.AddDefaultIdentity<ApplicationUser>()
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<TravelDbContext>()

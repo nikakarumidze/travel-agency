@@ -4,6 +4,8 @@ using API.Infrastructure.Middlewares;
 using DBContext.Seeds;
 using Domain.POCOs;
 using Microsoft.AspNetCore.Identity;
+using Repositories.Abstractions;
+using Repositories.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 

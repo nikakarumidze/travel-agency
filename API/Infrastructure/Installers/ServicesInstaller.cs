@@ -9,5 +9,6 @@ public class ServicesInstaller : IInstaller
     {
         services.AddScoped<IJwtService, JwtService>();
         services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IApartmentService, ApartmentService>();
     }
 }

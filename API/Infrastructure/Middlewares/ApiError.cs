@@ -1,5 +1,6 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
+using Services.Exceptions;
 
 namespace API.Infrastructure.Middlewares;
 
@@ -38,6 +39,28 @@ public sealed class ApiError : ProblemDetails
         Code = UnhandledError;
         Status = (int)HttpStatusCode.InternalServerError;
         Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.1";
+        Title = exception.Message;
+        LogLevel = LogLevel.Error;
+    }
+    private void HandleException(NotFoundException exception)
+    {
+        Code = exception.Code;
+        Status = (int)HttpStatusCode.NotFound;
+        Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.4";
+        Title = exception.Message;
+        LogLevel = LogLevel.Error;
+    }
+    private void HandleException(InvalidCredentialsException exception)
+    {
+        Code = exception.Code;
+        Status = (int) HttpStatusCode.Unauthorized;
+        Title = exception.Message;
+        LogLevel = LogLevel.Error;
+    }
+    private void HandleException(ObjectAlreadyExistsException exception)
+    {
+        Code = exception.Code;
+        Status = (int) HttpStatusCode.Conflict;
         Title = exception.Message;
         LogLevel = LogLevel.Error;
     }

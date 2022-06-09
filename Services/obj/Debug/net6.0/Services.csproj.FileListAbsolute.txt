@@ -15,3 +15,5 @@ C:\Users\naten\RiderProjects\travel-agency\Services\obj\Debug\net6.0\Services.dl
 C:\Users\naten\RiderProjects\travel-agency\Services\obj\Debug\net6.0\refint\Services.dll
 C:\Users\naten\RiderProjects\travel-agency\Services\obj\Debug\net6.0\Services.pdb
 C:\Users\naten\RiderProjects\travel-agency\Services\obj\Debug\net6.0\ref\Services.dll
+C:\Users\naten\RiderProjects\travel-agency\Services\bin\Debug\net6.0\Repositories.dll
+C:\Users\naten\RiderProjects\travel-agency\Services\bin\Debug\net6.0\Repositories.pdb

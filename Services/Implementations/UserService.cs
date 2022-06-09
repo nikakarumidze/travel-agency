@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Services.Abstractions;
 using Services.Exceptions;
 using Services.Localisations;
-using Services.Models;
+using Services.Models.UserRequestServiceModels;
 
 namespace Services.Implementations;
 
@@ -12,11 +12,17 @@ public class UserService : IUserService
     private readonly IJwtService _jwtService;
     private readonly UserManager<ApplicationUser> _userManager;
 
-    public UserService(IJwtService jwtService,UserManager<ApplicationUser> userManager)
+    public UserService(IJwtService jwtService, UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
             _jwtService = jwtService;
         }
+
+    public async Task<ApplicationUser> GetInfoAsync(string username)
+    {
+        var user = await _userManager.FindByNameAsync(username);
+        return user;
+    }
 
     public async Task<(string, DateTime?)> AuthenticationAsync(string username, string password)
         {
@@ -60,4 +66,16 @@ public class UserService : IUserService
             await _userManager.ChangePasswordAsync(user, oldPassword, newPassword);
             return true;
         }
+
+    public async Task UpdateUserInfoAsync(UpdateUserInfoServiceModel request)
+    {
+        var user = await _userManager.FindByIdAsync(request.Id);
+
+        user.UserName = request.UserName;
+        user.Firstname = request.Firstname;
+        user.Lastname = request.Lastname;
+        user.Image = request.Image;
+        
+        await _userManager.UpdateAsync(user);
+    }
 }

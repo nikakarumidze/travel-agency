@@ -30,5 +30,13 @@ public class ApiRoutes
          public const string SignIn = UserBase + "/SignIn";
          public const string Register = UserBase + "/Register";
          public const string ChangePassword = UserBase + "/ChangePassword";
-     }
+         public const string UpdateUserInfo = UserBase + "/UpdateInfo";
+         public const string GetInfo = UserBase + "/GetInfo";
+    }
+
+    public static class Apartment
+    {
+        private const string ApartmentBase = Base + "/Apartment";
+        public const string GetMine = ApartmentBase + "/GetMine";
+    }
 }
