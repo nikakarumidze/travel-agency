@@ -11,15 +11,20 @@ const Login = (props) => {
 
   const usernameChangeHandler = (e) => {
     setUsersNameisValid(true);
-    setUsername(e.target.value);
+    if (!usernameIsValid) {
+      setUsername(e.target.value);
+    }
   };
 
   const passwordChangeHandler = (e) => {
     setPassword(e.target.value);
-    setPasswordisValid(true);
+    if (!passwordisValid) {
+      setPasswordisValid(true);
+    }
   };
 
-  const loginHandler = () => {
+  const loginHandler = (e) => {
+    e.preventDefault();
     if (!username || !password) {
       if (!username.trim()) {
         setUsersNameisValid(false);
@@ -39,9 +44,13 @@ const Login = (props) => {
   return (
     <BoxModal
       title='Login'
-      onLogin={loginHandler}
+      login='submit'
+      register='button'
+      onSubmit={loginHandler}
       onRegister={props.onRegister}
       alignTitle='center'
+      regVariant='outlined'
+      logVariant='contained'
     >
       <TextField
         required
@@ -49,12 +58,16 @@ const Login = (props) => {
         variant='outlined'
         onChange={usernameChangeHandler}
         error={!usernameIsValid}
+        fullWidth
+        sx={{mb:2}}
       />
+      <br />
       <TextField
         required
         label='Password'
         variant='outlined'
         onChange={passwordChangeHandler}
+        fullWidth
         error={!passwordisValid}
       />
       <br />
