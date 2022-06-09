@@ -7,7 +7,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Link } from 'react-router-dom';
 
 import classes from './Header.module.scss';
-import { AppBar, Toolbar } from '@mui/material';
+import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -16,45 +16,50 @@ const Header = () => {
   const handleClose = () => setAnchorEl(null);
 
   return (
-    <AppBar position='static' sx={{mb: 3, background: '#E5E5E5'}}>
+    <AppBar position='sticky' sx={{ mb: 3, py: 1, background: '#E5E5E5' }}>
       <Toolbar>
-        <Button
-          id='basic-button'
-          aria-controls={open ? 'basic-menu' : undefined}
-          aria-haspopup='true'
-          aria-expanded={open ? 'true' : undefined}
-          onClick={handleClick}
-          endIcon={!open ? <KeyboardArrowDownIcon /> : <KeyboardArrowUpIcon />}
-        >
-          Cabinet
-        </Button>
+        <Typography color='primary'>User Name</Typography>
+        <Box sx={{ mr: 0,ml: 'auto' }}>
+          <Button
+            id='basic-button'
+            aria-controls={open ? 'basic-menu' : undefined}
+            aria-haspopup='true'
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleClick}
+            endIcon={
+              !open ? <KeyboardArrowDownIcon /> : <KeyboardArrowUpIcon />
+            }
+          >
+            Cabinet
+          </Button>
 
-        <Menu
-          id='basic-menu'
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          MenuListProps={{
-            'aria-labelledby': 'basic-button',
-          }}
-        >
-          <MenuItem>
-            <Link onClick={handleClose} to='/'>
-              Profile
-            </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link onClick={handleClose} to='/'>
-              My guests
-            </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link onClick={handleClose} to='/'>
-              My bookings
-            </Link>
-          </MenuItem>
-        </Menu>
-        <Button>Login</Button>
+          <Menu
+            id='basic-menu'
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+              'aria-labelledby': 'basic-button',
+            }}
+          >
+            <MenuItem>
+              <Link onClick={handleClose} to='/Profile'>
+                Profile
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link onClick={handleClose} to='/'>
+                My guests
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link onClick={handleClose} to='/'>
+                My bookings
+              </Link>
+            </MenuItem>
+          </Menu>
+          <Button>Login</Button>
+        </Box>
       </Toolbar>
     </AppBar>
   );

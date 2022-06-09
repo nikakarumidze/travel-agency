@@ -22,10 +22,10 @@ const BoxModal = (props) => {
         </Typography>
         {props.children}
         <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-        <Button variant={props.regVariant} onClick={props.onRegister} type={props.register} sx={{m:2}}>
+        <Button variant={props.regVariant} onClick={props.onRegister} type={props.register} >
           Register
         </Button>
-        <Button variant={props.logVariant} onClick={props.onLogin} type={props.login} sx={{m:2}}>
+        <Button variant={props.logVariant} onClick={props.onLogin} type={props.login} >
           Login
         </Button>
         </Box>

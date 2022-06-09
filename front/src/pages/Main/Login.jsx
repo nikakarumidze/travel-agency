@@ -1,41 +1,29 @@
 import BoxModal from '../../components/UI/BoxModal';
 import TextField from '@mui/material/TextField';
 
-import React, { useState } from 'react';
+import useForm from './hooks/useForm';
 
 const Login = (props) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [usernameIsValid, setUsersNameisValid] = useState(true);
-  const [passwordisValid, setPasswordisValid] = useState(true);
-
-  const usernameChangeHandler = (e) => {
-    setUsersNameisValid(true);
-    if (!usernameIsValid) {
-      setUsername(e.target.value);
-    }
-  };
-
-  const passwordChangeHandler = (e) => {
-    setPassword(e.target.value);
-    if (!passwordisValid) {
-      setPasswordisValid(true);
-    }
-  };
+  const {
+    formState,
+    firstNameChangeHandler,
+    passwordChangeHandler,
+    validityChangeHandler,
+  } = useForm();
 
   const loginHandler = (e) => {
     e.preventDefault();
-    if (!username || !password) {
-      if (!username.trim()) {
-        setUsersNameisValid(false);
+    if (!formState.firstName || !formState.password) {
+      if (!formState.firstName.trim()) {
+        validityChangeHandler('isFirstNameValid', false);
       }
-      if (!password.trim()) {
-        setPasswordisValid(false);
+      if (!formState.password.trim()) {
+        validityChangeHandler('isPasswordValid', false);
       }
       return;
     }
+    console.log(formState);
 
-    console.log(username, password);
     // fetch .... check username and password and return token if true.
     // Are we checking the validity of username?
     // Should we add reset password?
@@ -56,21 +44,21 @@ const Login = (props) => {
         required
         label='Login'
         variant='outlined'
-        onChange={usernameChangeHandler}
-        error={!usernameIsValid}
+        onChange={firstNameChangeHandler}
+        error={!formState.isFirstNameValid}
         fullWidth
-        sx={{mb:2}}
+        sx={{ mb: 2 }}
       />
-      <br />
       <TextField
         required
         label='Password'
         variant='outlined'
+        type='password'
         onChange={passwordChangeHandler}
         fullWidth
-        error={!passwordisValid}
+        error={!formState.isPasswordValid}
+        sx={{mb: 3}}
       />
-      <br />
     </BoxModal>
   );
 };
