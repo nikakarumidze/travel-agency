@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+
 const initialFormValue = {
   firstName: '',
   lastName: '',
@@ -46,46 +47,10 @@ const useForm = () => {
     formDispatch({ type: type, value: value });
   };
 
-  const onTypingHandler = (event, type, validityType) => {
-    console.log(formState);
-    formDispatch({ type: type, value: event.target.value });
-    if (!formState.validityType) {
+  const onTypingHandler = (event, actionType, validityType) => {
+    formDispatch({ type: actionType, value: event.target.value });
+    if (!formState[validityType]) {
       formDispatch({ type: validityType, value: true });
-    }
-  };
-
-  const firstNameChangeHandler = (event) => {
-    formDispatch({ type: 'firstName', value: event.target.value });
-    if (!formState.isFirstNameValid) {
-      formDispatch({ type: 'isFirstNameValid', value: true });
-    }
-  };
-
-  const lastNameChangeHandler = (event) => {
-    formDispatch({ type: 'lastName', value: event.target.value });
-    if (!formState.isLastNameValid) {
-      formDispatch({ type: 'isLastNameValid', value: true });
-    }
-  };
-
-  const userNameChangeHandler = (event) => {
-    formDispatch({ type: 'userName', value: event.target.value });
-    if (!formState.isFirstNameValid) {
-      formDispatch({ type: 'isUserNameValid', value: true });
-    }
-  };
-
-  const emailChangeHandler = (event) => {
-    formDispatch({ type: 'email', value: event.target.value });
-    if (!formState.isEmailValid) {
-      formDispatch({ type: 'isEmailValid', value: true });
-    }
-  };
-
-  const passwordChangeHandler = (event) => {
-    formDispatch({ type: 'password', value: event.target.value });
-    if (!formState.isPasswordValid) {
-      formDispatch({ type: 'isPasswordValid', value: true });
     }
   };
 
@@ -93,11 +58,6 @@ const useForm = () => {
     formState,
     onTypingHandler,
     validityChangeHandler,
-    firstNameChangeHandler,
-    lastNameChangeHandler,
-    userNameChangeHandler,
-    emailChangeHandler,
-    passwordChangeHandler,
   };
 };
 

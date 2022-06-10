@@ -4,19 +4,13 @@ import TextField from '@mui/material/TextField';
 import useForm from './hooks/useForm';
 
 const Login = (props) => {
-  const {
-    formState,
-    firstNameChangeHandler,
-    onTypingHandler,
-    passwordChangeHandler,
-    validityChangeHandler,
-  } = useForm();
+  const { formState, onTypingHandler, validityChangeHandler } = useForm();
 
   const loginHandler = (e) => {
     e.preventDefault();
-    if (!formState.firstName || !formState.password) {
-      if (!formState.firstName.trim()) {
-        validityChangeHandler('isFirstNameValid', false);
+    if (!formState.userName || !formState.password) {
+      if (!formState.userName.trim()) {
+        validityChangeHandler('isUserNameValid', false);
       }
       if (!formState.password.trim()) {
         validityChangeHandler('isPasswordValid', false);
@@ -45,8 +39,10 @@ const Login = (props) => {
         required
         label='Login'
         variant='outlined'
-        onChange={(event) => onTypingHandler(event, 'userName', 'isUserNameValid')}
-        error={!formState.isFirstNameValid}
+        onChange={(event) =>
+          onTypingHandler(event, 'userName', 'isUserNameValid')
+        }
+        error={!formState.isUserNameValid}
         fullWidth
         sx={{ mb: 2 }}
       />
@@ -55,10 +51,12 @@ const Login = (props) => {
         label='Password'
         variant='outlined'
         type='password'
-        onChange={passwordChangeHandler}
+        onChange={(event) =>
+          onTypingHandler(event, 'password', 'isPasswordValid')
+        }
         fullWidth
         error={!formState.isPasswordValid}
-        sx={{mb: 3}}
+        sx={{ mb: 3 }}
       />
     </BoxModal>
   );

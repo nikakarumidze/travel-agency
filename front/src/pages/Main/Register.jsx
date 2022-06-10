@@ -6,11 +6,8 @@ import useForm from './hooks/useForm';
 const Register = (props) => {
   const {
     formState,
+    onTypingHandler,
     validityChangeHandler,
-    firstNameChangeHandler,
-    lastNameChangeHandler,
-    emailChangeHandler,
-    passwordChangeHandler,
   } = useForm();
 
   const registrationHandler = (e) => {
@@ -57,7 +54,7 @@ const Register = (props) => {
             required
             label='First Name'
             variant='outlined'
-            onChange={firstNameChangeHandler}
+            onChange={(event) => onTypingHandler(event, 'firstName', 'isFirstNameValid')}
             sx={{ my: 1 }}
             error={!formState.isFirstNameValid}
           />
@@ -65,7 +62,7 @@ const Register = (props) => {
             required
             label='Last Name'
             variant='outlined'
-            onChange={lastNameChangeHandler}
+            onChange={(event) => onTypingHandler(event, 'lastName', 'isLastNameValid')}
             sx={{ my: 1 }}
             error={!formState.isLastNameValid}
           />
@@ -75,7 +72,7 @@ const Register = (props) => {
           fullWidth
           label='Username'
           variant='outlined'
-          onChange={emailChangeHandler}
+          onChange={(event) => onTypingHandler(event, 'userName', 'isUserNameValid')}
           sx={{ my: 1 }}
         />
         <br />
@@ -85,7 +82,7 @@ const Register = (props) => {
           label='Email address'
           variant='outlined'
           type='email'
-          onChange={emailChangeHandler}
+          onChange={(event) => onTypingHandler(event, 'email', 'isEmailValid')}
           sx={{ my: 1 }}
         />
         <br />
@@ -95,7 +92,7 @@ const Register = (props) => {
           fullWidth
           required
           type='password'
-          onChange={passwordChangeHandler}
+          onChange={(event) => onTypingHandler(event, 'password', 'isPasswordValid')}
           helperText={!formState.isPasswordValid ? 'password should be between 8 and 20 characters' : ''}
           sx={{ mt: 1, mb: 3 }}
           error={!formState.isPasswordValid}
