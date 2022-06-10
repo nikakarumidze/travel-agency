@@ -2,10 +2,12 @@ import { useReducer } from 'react';
 const initialFormValue = {
   firstName: '',
   lastName: '',
+  userName: '',
   email: '',
   password: '',
   isFirstNameValid: true,
   isLastNameValid: true,
+  isUserNameValid: true,
   isEmailValid: true,
   isPasswordValid: true,
 };
@@ -16,6 +18,8 @@ const formReducer = (state, action) => {
       return { ...state, firstName: action.value };
     case 'lastName':
       return { ...state, lastName: action.value };
+    case 'userName':
+      return { ...state, userName: action.value };
     case 'email':
       return { ...state, email: action.value };
     case 'password':
@@ -24,6 +28,8 @@ const formReducer = (state, action) => {
       return { ...state, isFirstNameValid: action.value };
     case 'isLastNameValid':
       return { ...state, isLastNameValid: action.value };
+    case 'isUserNameValid':
+      return { ...state, isUserNameValid: action.value };
     case 'isEmailValid':
       return { ...state, isEmailValid: action.value };
     case 'isPasswordValid':
@@ -38,7 +44,15 @@ const useForm = () => {
 
   const validityChangeHandler = (type, value) => {
     formDispatch({ type: type, value: value });
-  }
+  };
+
+  const onTypingHandler = (event, type, validityType) => {
+    console.log(formState);
+    formDispatch({ type: type, value: event.target.value });
+    if (!formState.validityType) {
+      formDispatch({ type: validityType, value: true });
+    }
+  };
 
   const firstNameChangeHandler = (event) => {
     formDispatch({ type: 'firstName', value: event.target.value });
@@ -51,6 +65,13 @@ const useForm = () => {
     formDispatch({ type: 'lastName', value: event.target.value });
     if (!formState.isLastNameValid) {
       formDispatch({ type: 'isLastNameValid', value: true });
+    }
+  };
+
+  const userNameChangeHandler = (event) => {
+    formDispatch({ type: 'userName', value: event.target.value });
+    if (!formState.isFirstNameValid) {
+      formDispatch({ type: 'isUserNameValid', value: true });
     }
   };
 
@@ -70,9 +91,11 @@ const useForm = () => {
 
   return {
     formState,
+    onTypingHandler,
     validityChangeHandler,
     firstNameChangeHandler,
     lastNameChangeHandler,
+    userNameChangeHandler,
     emailChangeHandler,
     passwordChangeHandler,
   };

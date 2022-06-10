@@ -3,6 +3,7 @@ import Header from './components/header/Header';
 import Main from './pages/Main/Main';
 import './App.scss';
 import Profile from './pages/Profile/Profile';
+import Search from './pages/Search/Search';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/Profile' element={<Profile />} />
+        <Route path='/Search' element={<Search />} />
       </Routes>
     </BrowserRouter>
   );

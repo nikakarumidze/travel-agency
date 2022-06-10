@@ -7,6 +7,7 @@ const Login = (props) => {
   const {
     formState,
     firstNameChangeHandler,
+    onTypingHandler,
     passwordChangeHandler,
     validityChangeHandler,
   } = useForm();
@@ -44,7 +45,7 @@ const Login = (props) => {
         required
         label='Login'
         variant='outlined'
-        onChange={firstNameChangeHandler}
+        onChange={(event) => onTypingHandler(event, 'userName', 'isUserNameValid')}
         error={!formState.isFirstNameValid}
         fullWidth
         sx={{ mb: 2 }}

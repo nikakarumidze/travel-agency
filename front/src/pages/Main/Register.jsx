@@ -26,7 +26,6 @@ const Register = (props) => {
       }
       // is email valid
       // is password valid
-    
       return;
     }
     // Validate Params
@@ -74,6 +73,15 @@ const Register = (props) => {
         <TextField
           required
           fullWidth
+          label='Username'
+          variant='outlined'
+          onChange={emailChangeHandler}
+          sx={{ my: 1 }}
+        />
+        <br />
+        <TextField
+          required
+          fullWidth
           label='Email address'
           variant='outlined'
           type='email'
@@ -88,6 +96,7 @@ const Register = (props) => {
           required
           type='password'
           onChange={passwordChangeHandler}
+          helperText={!formState.isPasswordValid ? 'password should be between 8 and 20 characters' : ''}
           sx={{ mt: 1, mb: 3 }}
           error={!formState.isPasswordValid}
         />
