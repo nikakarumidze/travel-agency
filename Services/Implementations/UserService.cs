@@ -37,13 +37,13 @@ public class UserService : IUserService
 
     public async Task<IEnumerable<IdentityError>> CreateAsync(CreateUserServiceModel user)
         {
-            var entityByName = await _userManager.FindByNameAsync(user.Username);
+            var entityByName = await _userManager.FindByNameAsync(user.UserName);
             var entityByEmail = await _userManager.FindByEmailAsync(user.Email);
-            if (entityByName != null || entityByEmail!=null)
+            if (entityByName != null || entityByEmail !=null)
                 throw new ObjectAlreadyExistsException(ExceptionMessages.ObjectAlreadyExists);
             var applicationUser = new ApplicationUser()
             {
-                UserName = user.Username,
+                UserName = user.UserName,
                 Email = user.Email,
                 Firstname = user.Firstname,
                 Lastname = user.Lastname,

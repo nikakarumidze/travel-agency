@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Domain.POCOs;
 
 namespace Services.Models;

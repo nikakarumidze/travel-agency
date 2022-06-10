@@ -6,24 +6,6 @@ public class ApiRoutes
     private const string Version = "v1";
     private const string Base = Root + "/" + Version;
 
-    // public static class Movie
-    // {
-    //     private const string MovieBase = Base+"/Movie";
-    //     public const string GetAll = MovieBase + "/GetAll";
-    //     public const string GetAllWithSessions = MovieBase + "/GetAllWithSessions";
-    //     public const string GetMovieByNameAsync = MovieBase + "/GetMovieByName";
-    //     public const string GetAllSessions = MovieBase + "/GetAllSessions";
-    //     public const string GetFullMovieByName = MovieBase + "/GetFullMovieByName";
-    // }
-    //
-    // public static class Ticket
-    // {
-    //     private const string TicketBase = Base+"/Ticket";
-    //     public const string Buy = TicketBase + "/Buy";
-    //     public const string Book = TicketBase + "/Book";
-    //     public const string Cancel = TicketBase + "/Cancel";
-    // }
-    //
     public static class User
     {
          private const string UserBase = Base + "/User";
@@ -37,6 +19,11 @@ public class ApiRoutes
     public static class Apartment
     {
         private const string ApartmentBase = Base + "/Apartment";
+        public const string GetAll = ApartmentBase + "/GetAll";
+        public const string GetAllByCity = ApartmentBase + "/GetAllByCity";
+        public const string GetAllByAddress = ApartmentBase + "/GetAllByAddress";
         public const string GetMine = ApartmentBase + "/GetMine";
+        public const string Create = ApartmentBase + "/Create";
+        public const string Update = ApartmentBase + "/Update";
     }
 }

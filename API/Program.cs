@@ -1,14 +1,12 @@
 using System.Diagnostics;
+using System.Text.Json.Serialization;
 using API.Infrastructure.Extensions;
 using API.Infrastructure.Middlewares;
 using DBContext.Seeds;
 using Domain.POCOs;
 using Microsoft.AspNetCore.Identity;
-using Repositories.Abstractions;
-using Repositories.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 builder.Services.InstallServicesFromAssembly(builder.Configuration);
 

@@ -1,3 +1,5 @@
+using System.Buffers;
+using System.Text.Json.Serialization;
 using API.Infrastructure.Extensions;
 using DBContext.Context;
 using Domain.POCOs;
@@ -5,6 +7,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+
 
 namespace API.Infrastructure.Installers;
 
@@ -12,14 +16,23 @@ public class DataInstaller : IInstaller
 {
     public void InstallServices(IServiceCollection services, IConfiguration configuration)
     {
+        services.AddControllers()
+            .AddJsonOptions(options =>
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+        JsonConvert.DefaultSettings = () =>
+        {
+            var settings = new JsonSerializerSettings
+            {
+                Formatting = Formatting.Indented,
+                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            };
+            return settings;
+        };
         services.AddDbContext<TravelDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
                 b=> b.MigrationsAssembly("API")));
         services.AddScoped<DbContext, TravelDbContext>();
-        services.AddControllers()
-            .AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            );
+
         services.AddHttpContextAccessor();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>

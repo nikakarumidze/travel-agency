@@ -1,10 +1,7 @@
-using System.Text.Json.Serialization;
+namespace API.Models.UserRequests;
 
-namespace Domain.POCOs;
-
-public class Apartment
+public class UpdateApartmentRequestModel
 {
-    public int Id { get; set; }
     public string City { get; set; }
     public string Address { get; set;}
     public string DistanceToCenter { get; set; }
@@ -16,6 +13,5 @@ public class Apartment
     public bool? Conditioner { get; set; }
     public bool? Parking { get; set; }
     
-    public ApplicationUser Owner { get; set; }
     public string OwnerId { get; set; }
 }

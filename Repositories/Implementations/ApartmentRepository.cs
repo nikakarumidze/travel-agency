@@ -1,5 +1,6 @@
 using Domain.POCOs;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Repositories.Abstractions;
 
 namespace Repositories.Implementations;
@@ -32,14 +33,20 @@ public class ApartmentRepository : IApartmentRepository
 
     public async Task<List<Apartment>> GetAllByCityAsync(string city)
     {
-        return await _baseRepository.Table
+        var objs = await _baseRepository.Table
+            .Include(x=>x.Owner)
             .Where(x => x.City == city)
             .ToListAsync();
+        
+        var json = JsonConvert.SerializeObject(objs);
+        var userSessions = JsonConvert.DeserializeObject<List<Apartment>>(json);
+        return userSessions;
     }
 
     public async Task<List<Apartment>> GetByAddressAsync(string address)
     {
         return await _baseRepository.Table
+            .Include(x=>x.Owner)
             .Where(x => x.Address.Contains(address))
             .ToListAsync();
     }

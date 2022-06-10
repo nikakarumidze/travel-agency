@@ -6,7 +6,6 @@ public static class ServiceExtension
 {
     public static void InstallServicesFromAssembly(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddControllers();
         services.AddHttpContextAccessor();
         var installers = typeof(Program).Assembly.ExportedTypes
             .Where(x => typeof(IInstaller).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
