@@ -18,7 +18,10 @@ public class DataInstaller : IInstaller
     {
         services.AddControllers()
             .AddJsonOptions(options =>
-                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+            {
+                options.JsonSerializerOptions.WriteIndented = true;
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+            });
         JsonConvert.DefaultSettings = () =>
         {
             var settings = new JsonSerializerSettings

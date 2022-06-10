@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Domain.POCOs;
+using Services.Models.DTOs;
 
 namespace Services.Models;
 
@@ -17,6 +18,6 @@ public class ApartmentServiceModel
     public bool? Conditioner { get; set; }
     public bool? Parking { get; set; }
     
-    public ApplicationUser Owner { get; set; }
+    public AppUserWOApartment Owner { get; set; }
     public string OwnerId { get; set; }
 }

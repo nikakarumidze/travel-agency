@@ -8,6 +8,5 @@ public class ApartmentConfiguration : IEntityTypeConfiguration<Apartment>
 {
     public void Configure(EntityTypeBuilder<Apartment> builder)
     {
-        
     }
 }
