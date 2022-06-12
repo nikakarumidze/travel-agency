@@ -1,4 +1,3 @@
-using System.Text.Json.Serialization;
 using Domain.POCOs;
 using Services.Models.DTOs;
 
@@ -7,7 +6,6 @@ namespace Services.Models;
 public class ApartmentServiceModel
 {
     public int Id { get; set; }
-    public string City { get; set; }
     public string Address { get; set;}
     public string DistanceToCenter { get; set; }
     public int BedsNumber { get; set; }
@@ -20,4 +18,9 @@ public class ApartmentServiceModel
     
     public AppUserWOApartment Owner { get; set; }
     public string OwnerId { get; set; }
+
+    public string CityName { get; set; }
+
+    public CityServiceModel City { get; set; }
+    public int CityId { get; set; }
 }

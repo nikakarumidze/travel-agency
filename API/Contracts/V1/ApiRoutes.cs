@@ -23,7 +23,16 @@ public class ApiRoutes
         public const string GetAllByCity = ApartmentBase + "/GetAllByCity";
         public const string GetAllByAddress = ApartmentBase + "/GetAllByAddress";
         public const string GetMine = ApartmentBase + "/GetMine";
-        public const string Create = ApartmentBase + "/Create";
-        public const string Update = ApartmentBase + "/Update";
+        public const string Create = ApartmentBase + "/CreateMine";
+        public const string Update = ApartmentBase + "/UpdateMine";
+        public const string Delete = ApartmentBase + "/DeleteMine";
     }
+
+    public static class City
+    {
+        private const string CityBase = Base + "/City";
+        public const string GetAll = CityBase + "/GetAll";
+        public const string Create = CityBase + "/Create";
+    }
+    
 }

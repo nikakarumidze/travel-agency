@@ -5,7 +5,6 @@ namespace API.Models.DTOs;
 public class ApartmentDTO
 {
     public int Id { get; set; }
-    public string City { get; set; }
     public string Address { get; set;}
     public string DistanceToCenter { get; set; }
     public int BedsNumber { get; set; }
@@ -18,4 +17,5 @@ public class ApartmentDTO
     
     public ApplicationUser Owner { get; set; }
     public string OwnerId { get; set; }
+    
 }

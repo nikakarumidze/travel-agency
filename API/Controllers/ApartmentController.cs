@@ -46,7 +46,7 @@ public class ApartmentController : Controller
     [HttpGet(ApiRoutes.Apartment.GetMine)]
     public async Task<IActionResult> GetMyApartmentAsync(string id)
     {
-        var obj = await _apartmentService.GetMyApartmentAsync(id);
+        var obj = await _apartmentService.GetMineAsync(id);
         return Ok(obj);
     }
 
@@ -55,7 +55,7 @@ public class ApartmentController : Controller
     public async Task<IActionResult> CreateAsync(CreateApartmentRequestModel request)
     {
         var obj = await _apartmentService
-            .CreateApartmentAsync(request.Adapt<ApartmentServiceModel>());
+            .CreateMineAsync(request.Adapt<ApartmentServiceModel>());
         return Ok(obj);
     }
 
@@ -64,7 +64,15 @@ public class ApartmentController : Controller
     public async Task<IActionResult> UpdateAsync(UpdateApartmentRequestModel request)
     {
         await _apartmentService
-            .UpdateApartmentAsync(request.Adapt<ApartmentServiceModel>());
+            .UpdateMineAsync(request.Adapt<ApartmentServiceModel>());
+        return Ok();
+    }
+
+    [Authorize]
+    [HttpDelete(ApiRoutes.Apartment.Delete)]
+    public async Task<IActionResult> DeleteAsync(string userId)
+    {
+        await _apartmentService.DeleteMineAsync(userId);
         return Ok();
     }
 }

@@ -8,7 +8,7 @@ public class UpdateApartmentRequestValidator : AbstractValidator<UpdateApartment
 {
     public UpdateApartmentRequestValidator()
     {
-        RuleFor(x=>x.City)
+        RuleFor(x=>x.CityName)
             .NotNull()
             .WithMessage(ErrorMessages.InputNull);
         RuleFor(x=>x.Address)

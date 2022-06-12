@@ -30,4 +30,7 @@
     <data name="ObjectNotFound" xml:space="preserve">
         <value>Object not found.</value>
     </data>
+    <data name="CityNotFound" xml:space="preserve">
+        <value>City could not be found.</value>
+    </data>
 </root>

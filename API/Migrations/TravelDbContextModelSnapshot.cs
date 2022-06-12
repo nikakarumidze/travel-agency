@@ -37,9 +37,8 @@ namespace API.Migrations
                     b.Property<int>("BedsNumber")
                         .HasColumnType("int");
 
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
 
                     b.Property<bool?>("Conditioner")
                         .HasColumnType("bit");
@@ -68,6 +67,8 @@ namespace API.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CityId");
 
                     b.HasIndex("OwnerId")
                         .IsUnique();
@@ -149,6 +150,23 @@ namespace API.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.POCOs.City", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("Domain.POCOs.Order", b =>
@@ -330,11 +348,19 @@ namespace API.Migrations
 
             modelBuilder.Entity("Domain.POCOs.Apartment", b =>
                 {
+                    b.HasOne("Domain.POCOs.City", "City")
+                        .WithMany()
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Domain.POCOs.ApplicationUser", "Owner")
                         .WithOne("Apartment")
                         .HasForeignKey("Domain.POCOs.Apartment", "OwnerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("City");
 
                     b.Navigation("Owner");
                 });

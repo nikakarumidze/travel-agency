@@ -23,9 +23,10 @@ public static class TravelDbSeeds
         context.Database.Migrate();
     }
 
-    private static async Task SeedEverything(DbContext context, UserManager<ApplicationUser> userManager,
+    private static async Task SeedEverything(TravelDbContext context, UserManager<ApplicationUser> userManager,
         RoleManager<IdentityRole> roleManager)
     {
+        await SeedCities(context);
         await SeedRoles(roleManager);
         await SeedApplicationUsers(userManager);
         await context.SaveChangesAsync();
@@ -55,7 +56,10 @@ public static class TravelDbSeeds
             {
                 Address = "Viktor Dolidze 25",
                 BedsNumber = 2,
-                City = "Tbilisi",
+                City = new City()
+                {
+                    Name = "Tbilisi"
+                },
                 Conditioner = true,
                 DistanceToCenter = "2",
                 Gym = false,
@@ -73,6 +77,26 @@ public static class TravelDbSeeds
             await userManager.AddToRoleAsync(defaultUser, "Admin");
             await userManager.AddToRoleAsync(defaultUser, "Moderator");
             await userManager.AddToRoleAsync(defaultUser, "Basic");
+        }
+    }
+
+    private static async Task SeedCities(TravelDbContext context)
+    {
+        var cities = new List<City>
+        {
+            new City { Name = "Batumi" },
+            new City { Name = "Kutaisi" },
+            new City {Name = "Paris"},
+            new City {Name = "Marseille"},
+            new City {Name = "Barcelona"},
+            new City {Name = "Warsaw"},
+            new City {Name = "Kyiv"},
+            new City {Name = "Lviv"}
+        };
+        foreach (var city in cities)
+        {
+            if (!await context.Cities.AnyAsync(x => x.Name == city.Name))
+                await context.Cities.AddAsync(city);
         }
     }
 }

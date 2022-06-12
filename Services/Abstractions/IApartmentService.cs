@@ -7,7 +7,8 @@ public interface IApartmentService
     Task<List<ApartmentServiceModel>> GetAllAsync();
     Task<List<ApartmentServiceModel>> GetAllByCityAsync(string city);
     Task<List<ApartmentServiceModel>> GetAllByAddressAsync(string address);
-    Task<ApartmentServiceModel> GetMyApartmentAsync(string id);
-    Task<int> CreateApartmentAsync(ApartmentServiceModel request);
-    Task UpdateApartmentAsync(ApartmentServiceModel request);
+    Task<ApartmentServiceModel> GetMineAsync(string id);
+    Task<int> CreateMineAsync(ApartmentServiceModel request);
+    Task UpdateMineAsync(ApartmentServiceModel request);
+    Task DeleteMineAsync(string userId);
 }

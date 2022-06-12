@@ -11,10 +11,13 @@ namespace Services.Implementations;
 public class ApartmentService : IApartmentService
 {
     private readonly IApartmentRepository _apartmentRepository;
-
-    public ApartmentService(IApartmentRepository apartmentRepository)
+    private readonly ICityRepository _cityRepository;
+    
+    
+    public ApartmentService(IApartmentRepository apartmentRepository, ICityRepository cityRepository)
     {
         _apartmentRepository = apartmentRepository;
+        _cityRepository = cityRepository;
     }
 
     public async Task<List<ApartmentServiceModel>> GetAllAsync()
@@ -35,7 +38,7 @@ public class ApartmentService : IApartmentService
         return objs.Adapt<List<ApartmentServiceModel>>();
     }
 
-    public async Task<ApartmentServiceModel> GetMyApartmentAsync(string id)
+    public async Task<ApartmentServiceModel> GetMineAsync(string id)
     {
         var obj = await _apartmentRepository.GetByOwnerIdAsync(id);
         if (obj == null)
@@ -43,22 +46,35 @@ public class ApartmentService : IApartmentService
         return obj.Adapt<ApartmentServiceModel>();
     }
 
-    public async Task<int> CreateApartmentAsync(ApartmentServiceModel request)
+    public async Task<int> CreateMineAsync(ApartmentServiceModel request)
     {
         var obj = await _apartmentRepository.GetByOwnerIdAsync(request.OwnerId);
         if (obj is not null)
             throw new ObjectAlreadyExistsException(ExceptionMessages.ObjectAlreadyExists);
+        
+        
+        var cityObj = await _cityRepository.GetCityByNameAsync(request.CityName);
+        if (cityObj is null)
+            throw new NotFoundException(ExceptionMessages.CityNotFound);
+        
+        request.CityId = cityObj.Id;
+
         return await _apartmentRepository
             .CreateAsync(request.Adapt<Apartment>());
     }
 
-    public async Task UpdateApartmentAsync(ApartmentServiceModel request)
+    public async Task UpdateMineAsync(ApartmentServiceModel request)
     {
         var obj = await _apartmentRepository
             .GetByOwnerIdAsync(request.OwnerId);
-        
+
+
+        var cityObj = await _cityRepository.GetCityByNameAsync(request.CityName);
+        if (cityObj is null)
+            throw new NotFoundException(ExceptionMessages.CityNotFound);
+        obj.City = cityObj.Adapt<City>();
+
         obj.Address = request.Address;
-        obj.City = request.City;
         obj.Conditioner = request.Conditioner;
         obj.Gym = request.Gym;
         obj.Image = request.Image;
@@ -69,5 +85,14 @@ public class ApartmentService : IApartmentService
         obj.DistanceToCenter = request.DistanceToCenter;
         
         await _apartmentRepository.UpdateAsync(obj);
+    }
+
+    public async Task DeleteMineAsync(string userId)
+    {
+        var obj = await _apartmentRepository.GetByOwnerIdAsync(userId);
+        if (obj is null)
+            throw new NotFoundException(ExceptionMessages.ObjectNotFound);
+        
+        await _apartmentRepository.DeleteAsync(obj.Id);
     }
 }

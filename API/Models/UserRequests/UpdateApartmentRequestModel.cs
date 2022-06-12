@@ -2,7 +2,7 @@ namespace API.Models.UserRequests;
 
 public class UpdateApartmentRequestModel
 {
-    public string City { get; set; }
+    public string CityName { get; set; }
     public string Address { get; set;}
     public string DistanceToCenter { get; set; }
     public int BedsNumber { get; set; }

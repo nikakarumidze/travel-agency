@@ -5,7 +5,6 @@ namespace Domain.POCOs;
 public class Apartment
 {
     public int Id { get; set; }
-    public string City { get; set; }
     public string Address { get; set;}
     public string DistanceToCenter { get; set; }
     public int BedsNumber { get; set; }
@@ -18,4 +17,7 @@ public class Apartment
     
     public ApplicationUser Owner { get; set; }
     public string OwnerId { get; set; }
+    
+    public City City { get; set; }
+    public int CityId { get; set; }
 }

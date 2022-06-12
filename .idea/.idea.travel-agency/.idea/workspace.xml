@@ -9,10 +9,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c48202d-187b-49d5-a513-942a7b1af28b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Services/Models/DTOs/AppUserWOApartment.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/Controllers/CityController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/Models/DTOs/CityDTO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DBContext/Configurations/CityConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/POCOs/City.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Abstractions/ICityRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Implementations/CityRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Abstractions/ICityService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Implementations/CityService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Models/CityServiceModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.travel-agency/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.travel-agency/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Infrastructure/Installers/DataInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Infrastructure/Installers/DataInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Contracts/V1/ApiRoutes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Contracts/V1/ApiRoutes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Controllers/ApartmentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/ApartmentController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Infrastructure/Installers/RepositoriesInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Infrastructure/Installers/RepositoriesInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Infrastructure/Installers/ServicesInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Infrastructure/Installers/ServicesInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Infrastructure/Validations/CreateApartmentRequestValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Infrastructure/Validations/CreateApartmentRequestValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Infrastructure/Validations/UpdateApartmentRequestValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Infrastructure/Validations/UpdateApartmentRequestValidator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/Migrations/TravelDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Migrations/TravelDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Models/DTOs/ApartmentDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Models/DTOs/ApartmentDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Models/UserRequests/CreateApartmentRequestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Models/UserRequests/CreateApartmentRequestModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Models/UserRequests/UpdateApartmentRequestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Models/UserRequests/UpdateApartmentRequestModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/bin/Debug/net6.0/API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net6.0/API.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/bin/Debug/net6.0/API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net6.0/API.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/bin/Debug/net6.0/DBContext.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net6.0/DBContext.dll" afterDir="false" />
@@ -31,26 +47,42 @@
       <change beforePath="$PROJECT_DIR$/API/obj/Debug/net6.0/refint/API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net6.0/refint/API.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/staticwebassets.pack.sentinel" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DBContext/Configurations/ApartmentConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/Configurations/ApartmentConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBContext/Context/TravelDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/Context/TravelDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBContext/Seeds/TravelDbSeeds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/Seeds/TravelDbSeeds.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/DBContext.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/DBContext.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/DBContext.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/DBContext.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/DBContext.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/DBContext.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/DBContext.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/DBContext.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/DBContext.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/DBContext.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/DBContext.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/DBContext.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/POCOs/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/POCOs/ApplicationUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/ref/DBContext.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/ref/DBContext.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/refint/DBContext.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/refint/DBContext.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/POCOs/Apartment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/POCOs/Apartment.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net6.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net6.0/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net6.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net6.0/Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net6.0/Domain.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net6.0/Domain.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net6.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net6.0/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net6.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net6.0/Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net6.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net6.0/ref/Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net6.0/refint/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net6.0/refint/Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/Abstractions/IApartmentRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Abstractions/IApartmentRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/Implementations/ApartmentRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Implementations/ApartmentRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Repositories.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Repositories.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/ref/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/ref/Repositories.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/refint/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/refint/Repositories.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Abstractions/IApartmentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Abstractions/IApartmentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Implementations/ApartmentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Implementations/ApartmentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Localisations/ExceptionMessages.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Localisations/ExceptionMessages.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Localisations/ExceptionMessages.resx" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Localisations/ExceptionMessages.resx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/Models/ApartmentServiceModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Models/ApartmentServiceModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Domain.pdb" afterDir="false" />
@@ -58,17 +90,23 @@
       <change beforePath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Repositories.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Services.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Services.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Services.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Services.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/obj/Debug/net6.0/Services.Localisations.ExceptionMessages.resources" beforeDir="false" afterPath="$PROJECT_DIR$/Services/obj/Debug/net6.0/Services.Localisations.ExceptionMessages.resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/obj/Debug/net6.0/Services.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Services/obj/Debug/net6.0/Services.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/obj/Debug/net6.0/Services.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Services/obj/Debug/net6.0/Services.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/obj/Debug/net6.0/Services.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Services/obj/Debug/net6.0/Services.csproj.GenerateResource.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/obj/Debug/net6.0/Services.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Services/obj/Debug/net6.0/Services.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/obj/Debug/net6.0/Services.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Services/obj/Debug/net6.0/Services.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/obj/Debug/net6.0/ref/Services.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Services/obj/Debug/net6.0/ref/Services.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/obj/Debug/net6.0/refint/Services.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Services/obj/Debug/net6.0/refint/Services.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel-agency.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/travel-agency.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/DBContext/Configurations/ApartmentConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -84,21 +122,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.8210526",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.8210526&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.API">
     <configuration name="API" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/API/API.csproj" />
@@ -141,7 +179,9 @@
       <updated>1654771388345</updated>
       <workItem from="1654771388348" duration="8559000" />
       <workItem from="1654782531724" duration="23458000" />
-      <workItem from="1654858041363" duration="7101000" />
+      <workItem from="1654858041363" duration="7239000" />
+      <workItem from="1654944780684" duration="1199000" />
+      <workItem from="1655026823648" duration="10333000" />
     </task>
     <task id="LOCAL-00001" summary="added sln file">
       <created>1654771476330</created>
@@ -164,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654825185147</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="few changes">
+      <created>1654903529131</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654903529131</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,7 +225,8 @@
     <MESSAGE value="user fully done" />
     <MESSAGE value="user service fully done" />
     <MESSAGE value="bl" />
-    <option name="LAST_COMMIT_MESSAGE" value="bl" />
+    <MESSAGE value="few changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="few changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -195,19 +243,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Services/Implementations/ApartmentService.cs</url>
-          <line>28</line>
-          <properties documentPath="C:\Users\naten\RiderProjects\travel-agency\Services\Implementations\ApartmentService.cs" initialLine="28" containingFunctionPresentation="method 'GetAllByCityAsync'">
-            <startOffsets>
-              <option value="831" />
-            </startOffsets>
-            <endOffsets>
-              <option value="880" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

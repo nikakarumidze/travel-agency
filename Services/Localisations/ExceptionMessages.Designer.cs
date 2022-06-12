@@ -70,6 +70,15 @@ namespace Services.Localisations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to City could not be found..
+        /// </summary>
+        internal static string CityNotFound {
+            get {
+                return ResourceManager.GetString("CityNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username or password is incorrect..
         /// </summary>
         internal static string InvalidCredentials {

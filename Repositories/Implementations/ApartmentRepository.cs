@@ -21,6 +21,7 @@ public class ApartmentRepository : IApartmentRepository
     public async Task<Apartment> GetByOwnerIdAsync(string id)
     {
         return await _baseRepository.Table
+            .Include(x=>x.City)
             .SingleOrDefaultAsync(x => x.OwnerId == id);
     }
 
@@ -35,7 +36,8 @@ public class ApartmentRepository : IApartmentRepository
     {
         var objs = await _baseRepository.Table
             .Include(x=>x.Owner)
-            .Where(x => x.City == city)
+            .Include(x=>x.City)
+            .Where(x => x.City.Name == city)
             .ToListAsync();
         
         return objs;
@@ -45,6 +47,7 @@ public class ApartmentRepository : IApartmentRepository
     {
         return await _baseRepository.Table
             .Include(x=>x.Owner)
+            .Include(x=>x.City)
             .Where(x => x.Address.Contains(address))
             .ToListAsync();
     }
@@ -53,6 +56,7 @@ public class ApartmentRepository : IApartmentRepository
     {
         return await _baseRepository.Table
             .Include(x => x.Owner)
+            .Include(x=>x.City)
             .ToListAsync();
     }
 
@@ -60,6 +64,7 @@ public class ApartmentRepository : IApartmentRepository
     {
         return await _baseRepository.Table
             .Include(x => x.Owner)
+            .Include(x=>x.City)
             .SingleOrDefaultAsync(x => x.Id == id) ?? throw new InvalidOperationException();
     }
 
@@ -74,7 +79,7 @@ public class ApartmentRepository : IApartmentRepository
         await _baseRepository.UpdateAsync(apartment);
     }
 
-    public async Task Delete(int id)
+    public async Task DeleteAsync(int id)
     {
         var obj = await GetAsync(id);
         await _baseRepository.DeleteAsync(obj);
