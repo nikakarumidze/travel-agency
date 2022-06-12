@@ -4,7 +4,6 @@ using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.Abstractions;
-using Services.Implementations;
 using Services.Models;
 
 namespace API.Controllers;

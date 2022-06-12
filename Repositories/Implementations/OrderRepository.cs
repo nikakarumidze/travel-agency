@@ -36,6 +36,22 @@ public class OrderRepository : IOrderRepository
             .ToListAsync();
     }
 
+    public async Task<List<Order>> GetPendingWhereITravelAsync(string userId)
+    {
+        return await _baseRepository.Table
+            .Include(x => x.Host)
+            .Where(x => x.Approved == null && x.GuestId == userId)
+            .ToListAsync();
+    }
+
+    public async Task<List<Order>> GetPendingWhereIHostAsync(string userId)
+    {
+        return await _baseRepository.Table
+            .Include(x => x.Guest)
+            .Where(x => x.Approved == null && x.HostId == userId)
+            .ToListAsync();
+    }
+
     public async Task<Apartment> GetHostApartment(int id)
     {
         var order = await _baseRepository.Table
