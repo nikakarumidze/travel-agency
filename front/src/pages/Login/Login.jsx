@@ -1,25 +1,34 @@
 import BoxModal from '../../components/UI/BoxModal';
 import TextField from '@mui/material/TextField';
+import validator from 'validator'
 
-import useForm from './hooks/useForm';
+import useForm from '../../hooks/useForm';
 
 const Login = (props) => {
   const { formState, onTypingHandler, validityChangeHandler } = useForm();
 
   const loginHandler = (e) => {
     e.preventDefault();
-    if (!formState.userName || !formState.password) {
-      if (!formState.userName.trim()) {
+    const userNameValidity = !validator.isEmpty(formState.userName);
+    const passwordValidity = validator.isStrongPassword(formState.password, {
+      minLength: 8, minLowercase: 1,
+      minUppercase: 1, minNumbers: 1, minSymbols: 0
+    });
+
+    if (!userNameValidity || !passwordValidity) {
+      if (!userNameValidity) {
         validityChangeHandler('isUserNameValid', false);
       }
-      if (!formState.password.trim()) {
+      if (!passwordValidity) {
         validityChangeHandler('isPasswordValid', false);
       }
       return;
     }
+
     console.log(formState);
 
     // fetch .... check username and password and return token if true.
+    // If token expires, send request about refresh token
     // Are we checking the validity of username?
     // Should we add reset password?
   };
@@ -45,6 +54,11 @@ const Login = (props) => {
         error={!formState.isUserNameValid}
         fullWidth
         sx={{ mb: 2 }}
+        helperText={
+          !formState.isUserNameValid
+            ? 'Login is Invalid'
+            : ''
+        }
       />
       <TextField
         required
@@ -57,6 +71,11 @@ const Login = (props) => {
         fullWidth
         error={!formState.isPasswordValid}
         sx={{ mb: 3 }}
+        helperText={
+          !formState.isPasswordValid
+            ? 'Password is Invalid'
+            : ''
+        }
       />
     </BoxModal>
   );

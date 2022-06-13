@@ -6,7 +6,6 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Link } from 'react-router-dom';
 
-import classes from './Header.module.scss';
 import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 
 const Header = () => {
@@ -19,7 +18,7 @@ const Header = () => {
     <AppBar position='sticky' sx={{ mb: 3, py: 1, background: '#E5E5E5' }}>
       <Toolbar>
         <Typography color='primary'>User Name</Typography>
-        <Box sx={{ mr: 0,ml: 'auto' }}>
+        <Box sx={{ mr: 0, ml: 'auto' }}>
           <Button
             id='basic-button'
             aria-controls={open ? 'basic-menu' : undefined}
