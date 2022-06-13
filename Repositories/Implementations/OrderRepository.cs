@@ -46,10 +46,11 @@ public class OrderRepository : IOrderRepository
 
     public async Task<List<Order>> GetPendingWhereIHostAsync(string userId)
     {
-        return await _baseRepository.Table
+        var entities = await _baseRepository.Table
             .Include(x => x.Guest)
             .Where(x => x.Approved == null && x.HostId == userId)
             .ToListAsync();
+        return entities;
     }
 
     public async Task<Apartment> GetHostApartment(int id)
@@ -58,6 +59,14 @@ public class OrderRepository : IOrderRepository
             .Include(x=>x.Host.Apartment)
             .SingleOrDefaultAsync(x => x.Id == id);
         return order.Host.Apartment;
+    }
+
+    public async Task<List<Order>> GetActiveOrdersForApartment(int apartmentId)
+    {
+        var entities = await _baseRepository.Table
+            .Where(x => x.Host.Apartment.Id == apartmentId && x.Approved == true)
+            .ToListAsync();
+        return entities;
     }
 
     public async Task<int> CreateAsync(Order order)

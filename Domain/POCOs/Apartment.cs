@@ -5,7 +5,7 @@ namespace Domain.POCOs;
 public class Apartment
 {
     public int Id { get; set; }
-    public string Address { get; set;}
+    public string Address { get; set; }
     public string DistanceToCenter { get; set; }
     public int BedsNumber { get; set; }
     public byte[]? Image { get; set; }

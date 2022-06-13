@@ -11,6 +11,7 @@ public class ServicesInstaller : IInstaller
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IApartmentService, ApartmentService>();
         services.AddScoped<ICityService, CityService>();
-        services.AddScoped<IOrderService, IOrderService>();
+        services.AddScoped<IOrderService, OrderService>();
+        services.AddScoped<IOrderProcessor, OrderProcessor>();
     }
 }

@@ -16,7 +16,7 @@ public class ApartmentServiceModel
     public bool? Conditioner { get; set; }
     public bool? Parking { get; set; }
     
-    public AppUserWOApartment Owner { get; set; }
+    public AppUserSimple Owner { get; set; }
     public string OwnerId { get; set; }
 
     public string CityName { get; set; }

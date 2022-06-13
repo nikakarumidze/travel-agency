@@ -33,4 +33,7 @@
     <data name="CityNotFound" xml:space="preserve">
         <value>City could not be found.</value>
     </data>
+    <data name="ApartmentNotAvailable" xml:space="preserve">
+        <value>Apartment is already booked on selected dates.</value>
+    </data>
 </root>

@@ -2,5 +2,5 @@
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=API_002FInfrastructure_002FAPIResources_002FErrorMessages/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=API_002FInfrastructure_002FAPIResources_002FRegexes/@EntryIndexedValue">False</s:Boolean>
 	
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Services_002FLocalisations_002FExceptionMessages/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Services_002FLocalisations_002FExceptionMessages/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/Initialized/@EntryValue">True</s:Boolean></wpf:ResourceDictionary>

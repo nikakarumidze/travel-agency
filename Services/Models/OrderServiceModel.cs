@@ -1,4 +1,5 @@
 using Domain.POCOs;
+using Services.Models.DTOs;
 
 namespace Services.Models;
 
@@ -10,8 +11,8 @@ public class OrderServiceModel
     public DateTime To { get; set; }
     public bool? Approved { get; set; }
     
-    public ApplicationUser Guest { get; set; }
-    public ApplicationUser Host { get; set; }
+    public AppUserSimple Guest { get; set; }
+    public AppUserSimple Host { get; set; }
     
     public string GuestId { get; set; }
     public string HostId { get; set; }

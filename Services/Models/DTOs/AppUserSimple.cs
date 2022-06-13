@@ -1,6 +1,6 @@
 namespace Services.Models.DTOs;
 
-public class AppUserWOApartment
+public class AppUserSimple
 {
     public string Id { get; set; }
     public string UserName { get; set; }

@@ -34,5 +34,15 @@ public class ApiRoutes
         public const string GetAll = CityBase + "/GetAll";
         public const string Create = CityBase + "/Create";
     }
-    
+
+    public static class Order
+    {
+        private const string OrderBase = Base + "/Order";
+        public const string Book = OrderBase + "/Book";
+        public const string GetWhereIHost = OrderBase + "/GetWhereIHost";
+        public const string GetWhereITravel = OrderBase + "/GetWhereITravel";
+        public const string GetPendingWhereIHost = OrderBase + "/GetPendingWhereIHost";
+        public const string GetPendingWhereITravel = OrderBase + "/GetPendingWhereITravel";
+        public const string ChangeOrderStatus = OrderBase + "/ChangeOrderStatus";
+    }
 }

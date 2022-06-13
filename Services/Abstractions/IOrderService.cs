@@ -9,7 +9,7 @@ public interface IOrderService
     Task<List<OrderServiceModel>> GetWhereITravelAsync(string userId);
     Task<List<OrderServiceModel>> GetPendingWhereIHostAsync(string userId);
     Task<List<OrderServiceModel>> GetPendingWhereITravelAsync(string userId);
-    Task<int> CreateAsync(OrderServiceModel order);
+    Task<int> ProcessABooking(OrderServiceModel order);
     Task ChangeOrderStatusAsync(int orderId, bool accepted);
     Task DeleteAsync(int id);
 }

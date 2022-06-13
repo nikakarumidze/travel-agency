@@ -70,6 +70,15 @@ namespace Services.Localisations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Apartment is already booked on selected dates..
+        /// </summary>
+        internal static string ApartmentNotAvailable {
+            get {
+                return ResourceManager.GetString("ApartmentNotAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to City could not be found..
         /// </summary>
         internal static string CityNotFound {
