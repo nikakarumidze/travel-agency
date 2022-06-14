@@ -26,6 +26,9 @@ public class ApiRoutes
         public const string Create = ApartmentBase + "/CreateMine";
         public const string Update = ApartmentBase + "/UpdateMine";
         public const string Delete = ApartmentBase + "/DeleteMine";
+        public const string GetAllWithBusyDates = ApartmentBase + "/GetAllWithBusyDates";
+        public const string GetWithBusyDates = ApartmentBase + "/GetWithBusyDates";
+        public const string Search = ApartmentBase + "/Search";
     }
 
     public static class City
@@ -45,4 +48,5 @@ public class ApiRoutes
         public const string GetPendingWhereITravel = OrderBase + "/GetPendingWhereITravel";
         public const string ChangeOrderStatus = OrderBase + "/ChangeOrderStatus";
     }
+    
 }

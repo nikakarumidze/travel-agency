@@ -1,5 +1,3 @@
-using System.Text.Json.Serialization;
-
 namespace Domain.POCOs;
 
 public class Apartment

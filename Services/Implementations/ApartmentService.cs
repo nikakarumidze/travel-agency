@@ -1,6 +1,7 @@
 using Domain.POCOs;
 using Mapster;
 using Repositories.Abstractions;
+using Repositories.Models;
 using Services.Abstractions;
 using Services.Exceptions;
 using Services.Localisations;
@@ -12,18 +13,44 @@ public class ApartmentService : IApartmentService
 {
     private readonly IApartmentRepository _apartmentRepository;
     private readonly ICityRepository _cityRepository;
+    private readonly IOrderRepository _orderRepository;
     
-    
-    public ApartmentService(IApartmentRepository apartmentRepository, ICityRepository cityRepository)
+    public ApartmentService(IApartmentRepository apartmentRepository, 
+        ICityRepository cityRepository, IOrderRepository orderRepository)
     {
         _apartmentRepository = apartmentRepository;
         _cityRepository = cityRepository;
+        _orderRepository = orderRepository;
     }
 
     public async Task<List<ApartmentServiceModel>> GetAllAsync()
     {
         var objs = await _apartmentRepository.GetAllAsync();
+        
         return objs.Adapt<List<ApartmentServiceModel>>();
+    }
+
+    public async Task<List<ApartmentServiceModel>> GetAllWithBusyDatesAsync()
+    {
+        var objs = await _apartmentRepository.GetAllAsync();
+        var adapted = objs.Adapt<List<ApartmentServiceModel>>();
+        
+        foreach (var item in adapted)
+        {
+            item.BusyDates = await GetBusyDates(item.Id);
+        }
+
+        return adapted;
+    }
+
+    public async Task<ApartmentServiceModel> GetWithBusyDatesAsync(int apartmentId)
+    {
+        var obj = await _apartmentRepository.GetAsync(apartmentId);
+        var adapted = obj.Adapt<ApartmentServiceModel>();
+        
+         adapted.BusyDates = await GetBusyDates(adapted.Id);
+
+        return adapted;
     }
 
     public async Task<List<ApartmentServiceModel>> GetAllByCityAsync(string city)
@@ -94,5 +121,57 @@ public class ApartmentService : IApartmentService
             throw new NotFoundException(ExceptionMessages.ObjectNotFound);
         
         await _apartmentRepository.DeleteAsync(obj.Id);
+    }
+
+    public async Task<List<ApartmentServiceModel>> Search(ApartmentSearchServiceModel search)
+    {
+        var objs = await _apartmentRepository
+            .SearchAsync(search.Adapt<ApartmentSearchModel>());
+
+        var adapted = objs.Adapt<List<ApartmentServiceModel>>();
+        
+        if (search.AvailableFrom is not null && search.AvailableTo is not null)
+        {
+            foreach (var item in adapted.ToList())
+            {
+                var busyDates = await GetBusyDates(item.Id);
+                var requestDates = AllDaysFromRange(search.AvailableFrom.Value,
+                    search.AvailableTo.Value);
+
+                item.BusyDates = busyDates;
+                foreach (var itemm in requestDates)
+                {
+                    if (busyDates.Contains(itemm))
+                    {
+                        adapted.Remove(item);
+                        break;
+                    }
+                }
+            }
+        }
+
+        return adapted;
+    }
+    
+    private async Task<List<DateTime>> GetBusyDates(int Id)
+    {
+        var dates = new List<DateTime>();
+        var entities = await _orderRepository.GetActiveOrdersForApartment(Id);
+        foreach (var entity in entities)
+        {
+            dates.AddRange(AllDaysFromRange(entity.From, entity.To));
+        }
+
+        return dates;
+    }
+    private static IEnumerable<DateTime> AllDaysFromRange(DateTime from, DateTime to)
+    {
+        var list = new List<DateTime>();
+        for (var dt = from; dt <= to; dt = dt.AddDays(1))
+        {
+            list.Add(dt);
+        }
+
+        return list; 
     }
 }

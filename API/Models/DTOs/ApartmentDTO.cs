@@ -18,4 +18,5 @@ public class ApartmentDTO
     public ApplicationUser Owner { get; set; }
     public string OwnerId { get; set; }
     
+    public List<DateTime> BusyDates { get; set; }
 }

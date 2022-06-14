@@ -1,4 +1,5 @@
 using Domain.POCOs;
+using Repositories.Models;
 
 namespace Repositories.Abstractions;
 
@@ -14,4 +15,6 @@ public interface IApartmentRepository
     Task<int> CreateAsync(Apartment apartment);
     Task UpdateAsync(Apartment apartment);
     Task DeleteAsync(int id);
+
+    Task<List<Apartment>> SearchAsync(ApartmentSearchModel model);
 }

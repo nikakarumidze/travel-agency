@@ -3,6 +3,7 @@ using API.Models.UserRequests;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Repositories.Models;
 using Services.Abstractions;
 using Services.Models;
 
@@ -23,6 +24,32 @@ public class ApartmentController : Controller
         var objs = await _apartmentService.GetAllAsync();
         return Ok(objs);
     }
+    
+    [AllowAnonymous]
+    [HttpGet(ApiRoutes.Apartment.GetAllWithBusyDates)]
+    public async Task<IActionResult> GetAllWithBusyDatesAsync()
+    {
+        var objs = await _apartmentService.GetAllWithBusyDatesAsync();
+        return Ok(objs);
+    }
+    
+    [AllowAnonymous]
+    [HttpGet(ApiRoutes.Apartment.GetWithBusyDates)]
+    public async Task<IActionResult> GetWithBusyDatesAsync(int apartmentId)
+    {
+        var objs = await _apartmentService.GetWithBusyDatesAsync(apartmentId);
+        return Ok(objs);
+    }
+    
+    [AllowAnonymous]
+    [HttpGet(ApiRoutes.Apartment.Search)]
+    public async Task<IActionResult> Search(SearchApartmentsRequestModel model)
+    {
+        var objs = await _apartmentService
+            .Search(model.Adapt<ApartmentSearchServiceModel>());
+        return Ok(objs);
+    }
+
 
     [AllowAnonymous]
     [HttpGet(ApiRoutes.Apartment.GetAllByCity)]

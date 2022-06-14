@@ -1,4 +1,5 @@
 using Domain.POCOs;
+using Repositories.Abstractions;
 using Services.Models.DTOs;
 
 namespace Services.Models;
@@ -23,4 +24,6 @@ public class ApartmentServiceModel
 
     public CityServiceModel City { get; set; }
     public int CityId { get; set; }
+
+    public List<DateTime> BusyDates { get; set; }
 }
