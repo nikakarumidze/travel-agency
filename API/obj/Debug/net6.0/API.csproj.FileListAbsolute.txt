@@ -101,3 +101,5 @@ C:\Users\naten\RiderProjects\travel-agency\API\obj\Debug\net6.0\refint\API.dll
 C:\Users\naten\RiderProjects\travel-agency\API\obj\Debug\net6.0\API.pdb
 C:\Users\naten\RiderProjects\travel-agency\API\obj\Debug\net6.0\API.genruntimeconfig.cache
 C:\Users\naten\RiderProjects\travel-agency\API\obj\Debug\net6.0\ref\API.dll
+C:\Users\naten\RiderProjects\travel-agency\API\bin\Debug\net6.0\API.xml
+C:\Users\naten\RiderProjects\travel-agency\API\obj\Debug\net6.0\API.xml

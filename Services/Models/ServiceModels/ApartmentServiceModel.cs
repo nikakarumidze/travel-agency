@@ -1,8 +1,6 @@
-using Domain.POCOs;
-using Repositories.Abstractions;
 using Services.Models.DTOs;
 
-namespace Services.Models;
+namespace Services.Models.ServiceModels;
 
 public class ApartmentServiceModel
 {

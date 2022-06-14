@@ -64,4 +64,12 @@ public sealed class ApiError : ProblemDetails
         Title = exception.Message;
         LogLevel = LogLevel.Error;
     }
+    
+    private void HandleException(ApartmentNotAvailableException exception)
+    {
+        Code = exception.Code;
+        Status = (int) HttpStatusCode.Conflict;
+        Title = exception.Message;
+        LogLevel = LogLevel.Error;
+    }
 }

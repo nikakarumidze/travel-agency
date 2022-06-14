@@ -1,10 +1,9 @@
-using Domain.POCOs;
 using Mapster;
 using Repositories.Abstractions;
 using Services.Abstractions;
 using Services.Exceptions;
 using Services.Localisations;
-using Services.Models;
+using Services.Models.ServiceModels;
 
 namespace Services.Implementations;
 

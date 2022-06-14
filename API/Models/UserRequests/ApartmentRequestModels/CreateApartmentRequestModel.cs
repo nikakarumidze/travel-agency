@@ -1,6 +1,4 @@
-using Domain.POCOs;
-
-namespace API.Models.UserRequests;
+namespace API.Models.UserRequests.ApartmentRequestModels;
 
 public class CreateApartmentRequestModel
 {

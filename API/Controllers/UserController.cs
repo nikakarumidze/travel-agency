@@ -1,6 +1,7 @@
 using API.Contracts.V1;
 using API.Models.DTOs;
 using API.Models.UserRequests;
+using API.Models.UserRequests.UserRequestModels;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

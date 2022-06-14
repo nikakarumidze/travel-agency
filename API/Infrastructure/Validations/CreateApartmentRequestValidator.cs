@@ -1,5 +1,6 @@
 using API.Infrastructure.APIResources;
 using API.Models.UserRequests;
+using API.Models.UserRequests.ApartmentRequestModels;
 using FluentValidation;
 
 namespace API.Infrastructure.Validations;

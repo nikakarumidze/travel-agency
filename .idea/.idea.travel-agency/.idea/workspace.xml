@@ -9,54 +9,77 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c48202d-187b-49d5-a513-942a7b1af28b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/API/Models/UserRequests/SearchApartmentsRequestModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/Models/ApartmentSearchModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/Models/ApartmentSearchServiceModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/Models/DTOs/ApartmentWONavProperties.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/Models/DTOs/OrderDTO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Abstractions/IApplicationUserRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Implementations/ApplicationUserRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.travel-agency/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.travel-agency/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Contracts/V1/ApiRoutes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Contracts/V1/ApiRoutes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/API/API.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/Controllers/ApartmentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/ApartmentController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Models/DTOs/ApartmentDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Models/DTOs/ApartmentDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Controllers/CityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/CityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Controllers/OrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/OrderController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Infrastructure/CustomDataAnnotations/DateValidationAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Infrastructure/CustomDataAnnotations/DateValidationAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Infrastructure/Installers/DataInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Infrastructure/Installers/DataInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Infrastructure/Installers/RepositoriesInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Infrastructure/Installers/RepositoriesInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Infrastructure/Middlewares/ApiError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Infrastructure/Middlewares/ApiError.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Infrastructure/Validations/ChangePasswordRequestValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Infrastructure/Validations/ChangePasswordRequestValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Infrastructure/Validations/CreateApartmentRequestValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Infrastructure/Validations/CreateApartmentRequestValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Infrastructure/Validations/CreateUserRequestValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Infrastructure/Validations/CreateUserRequestValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Infrastructure/Validations/UpdateApartmentRequestValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Infrastructure/Validations/UpdateApartmentRequestValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Infrastructure/Validations/UserLogInRequestValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Infrastructure/Validations/UserLogInRequestValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Models/DTOs/ApplicationUserDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Models/DTOs/ApplicationUserDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Models/UserRequests/ChangePasswordRequestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Models/UserRequests/UserRequestModels/ChangePasswordRequestModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Models/UserRequests/CreateApartmentRequestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Models/UserRequests/ApartmentRequestModels/CreateApartmentRequestModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Models/UserRequests/CreateUserRequestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Models/UserRequests/UserRequestModels/CreateUserRequestModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Models/UserRequests/LogInRequestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Models/UserRequests/UserRequestModels/LogInRequestModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Models/UserRequests/OrderBookingRequestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Models/UserRequests/OrderRequestModels/OrderBookingRequestModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Models/UserRequests/SearchApartmentsRequestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Models/UserRequests/ApartmentRequestModels/SearchApartmentsRequestModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Models/UserRequests/UpdateApartmentRequestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Models/UserRequests/ApartmentRequestModels/UpdateApartmentRequestModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Models/UserRequests/UpdateUserInfoRequestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Models/UserRequests/UserRequestModels/UpdateUserInfoRequestModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/bin/Debug/net6.0/API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net6.0/API.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/bin/Debug/net6.0/API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net6.0/API.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/bin/Debug/net6.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net6.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/bin/Debug/net6.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net6.0/Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/bin/Debug/net6.0/DBContext.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net6.0/DBContext.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/bin/Debug/net6.0/DBContext.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net6.0/DBContext.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/bin/Debug/net6.0/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net6.0/Repositories.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/bin/Debug/net6.0/Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net6.0/Repositories.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/bin/Debug/net6.0/Services.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net6.0/Services.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/bin/Debug/net6.0/Services.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net6.0/Services.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/obj/Debug/net6.0/API.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net6.0/API.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/obj/Debug/net6.0/API.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net6.0/API.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/obj/Debug/net6.0/API.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net6.0/API.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/obj/Debug/net6.0/API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net6.0/API.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/obj/Debug/net6.0/API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net6.0/API.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/obj/Debug/net6.0/ref/API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net6.0/ref/API.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/obj/Debug/net6.0/refint/API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net6.0/refint/API.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/staticwebassets.pack.sentinel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/DBContext.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/DBContext.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/POCOs/Apartment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/POCOs/Apartment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/POCOs/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/POCOs/ApplicationUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net6.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net6.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net6.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net6.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net6.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net6.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net6.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net6.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/Abstractions/IApartmentRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Abstractions/IApartmentRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/Implementations/ApartmentRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Implementations/ApartmentRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBContext/Context/TravelDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/Context/TravelDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/DBContext.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/DBContext.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/DBContext.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/bin/Debug/net6.0/DBContext.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/DBContext.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/DBContext.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/DBContext.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/DBContext.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/ref/DBContext.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/ref/DBContext.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/refint/DBContext.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DBContext/obj/Debug/net6.0/refint/DBContext.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Repositories.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/bin/Debug/net6.0/Repositories.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/Repositories.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/ref/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/ref/Repositories.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/refint/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net6.0/refint/Repositories.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/Abstractions/IApartmentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Abstractions/IApartmentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Abstractions/ICityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Abstractions/ICityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Abstractions/IOrderProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Abstractions/IOrderProcessor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Abstractions/IOrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Abstractions/IOrderService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/Implementations/ApartmentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Implementations/ApartmentService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/Models/ApartmentServiceModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Models/ApartmentServiceModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Implementations/CityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Implementations/CityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Implementations/OrderProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Implementations/OrderProcessor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Implementations/OrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Implementations/OrderService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Implementations/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Implementations/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Models/ApartmentSearchServiceModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Models/ServiceModels/ApartmentSearchServiceModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Models/ApartmentServiceModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Models/ServiceModels/ApartmentServiceModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Models/CityServiceModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Models/ServiceModels/CityServiceModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Models/OrderServiceModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Models/ServiceModels/OrderServiceModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Repositories.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Repositories.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Services.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Services/bin/Debug/net6.0/Services.dll" afterDir="false" />
@@ -160,7 +183,8 @@
       <workItem from="1655067909768" duration="5632000" />
       <workItem from="1655118344575" duration="11441000" />
       <workItem from="1655140892462" duration="9022000" />
-      <workItem from="1655158830252" duration="6222000" />
+      <workItem from="1655158830252" duration="6427000" />
+      <workItem from="1655202149492" duration="7907000" />
     </task>
     <task id="LOCAL-00001" summary="added sln file">
       <created>1654771476330</created>
@@ -211,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655147985053</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added Search for apartment feature">
+      <created>1655165336145</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1655165336145</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,36 +260,37 @@
     <MESSAGE value="Added City repo/service/model" />
     <MESSAGE value="h" />
     <MESSAGE value="added book service" />
-    <option name="LAST_COMMIT_MESSAGE" value="added book service" />
+    <MESSAGE value="Added Search for apartment feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Search for apartment feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/API/Controllers/UserController.cs</url>
-          <line>41</line>
-          <properties documentPath="C:\Users\naten\RiderProjects\travel-agency\API\Controllers\UserController.cs" initialLine="41" containingFunctionPresentation="method 'RegistrationAsync'">
+          <line>26</line>
+          <properties documentPath="C:\Users\naten\RiderProjects\travel-agency\API\Controllers\UserController.cs" initialLine="26" containingFunctionPresentation="method 'GetInfoAsync'">
             <startOffsets>
-              <option value="1180" />
+              <option value="651" />
             </startOffsets>
             <endOffsets>
-              <option value="1252" />
+              <option value="704" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Services/Implementations/ApartmentService.cs</url>
-          <line>152</line>
-          <properties documentPath="C:\Users\naten\RiderProjects\travel-agency\Services\Implementations\ApartmentService.cs" initialLine="152" containingFunctionPresentation="method 'Search'">
+          <url>file://$PROJECT_DIR$/Services/Implementations/UserService.cs</url>
+          <line>26</line>
+          <properties documentPath="C:\Users\naten\RiderProjects\travel-agency\Services\Implementations\UserService.cs" initialLine="26" containingFunctionPresentation="method 'GetInfoAsync'">
             <startOffsets>
-              <option value="5146" />
+              <option value="964" />
             </startOffsets>
             <endOffsets>
-              <option value="5161" />
+              <option value="976" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="13" />
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

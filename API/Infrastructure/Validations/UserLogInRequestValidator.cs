@@ -1,5 +1,6 @@
 using API.Models;
 using API.Models.UserRequests;
+using API.Models.UserRequests.UserRequestModels;
 using FluentValidation;
 
 namespace API.Infrastructure.Validations;

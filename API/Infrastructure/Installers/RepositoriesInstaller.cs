@@ -12,5 +12,6 @@ public class RepositoriesInstaller : IInstaller
         services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
         services.AddScoped<ICityRepository, CityRepository>();
+        services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
     }
 }

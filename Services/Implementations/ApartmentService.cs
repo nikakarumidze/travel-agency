@@ -6,6 +6,7 @@ using Services.Abstractions;
 using Services.Exceptions;
 using Services.Localisations;
 using Services.Models;
+using Services.Models.ServiceModels;
 
 namespace Services.Implementations;
 
@@ -23,6 +24,8 @@ public class ApartmentService : IApartmentService
         _orderRepository = orderRepository;
     }
 
+    
+    #region Methods
     public async Task<List<ApartmentServiceModel>> GetAllAsync()
     {
         var objs = await _apartmentRepository.GetAllAsync();
@@ -48,7 +51,7 @@ public class ApartmentService : IApartmentService
         var obj = await _apartmentRepository.GetAsync(apartmentId);
         var adapted = obj.Adapt<ApartmentServiceModel>();
         
-         adapted.BusyDates = await GetBusyDates(adapted.Id);
+        adapted.BusyDates = await GetBusyDates(adapted.Id);
 
         return adapted;
     }
@@ -95,22 +98,12 @@ public class ApartmentService : IApartmentService
         var obj = await _apartmentRepository
             .GetByOwnerIdAsync(request.OwnerId);
 
-
         var cityObj = await _cityRepository.GetCityByNameAsync(request.CityName);
         if (cityObj is null)
             throw new NotFoundException(ExceptionMessages.CityNotFound);
-        obj.City = cityObj.Adapt<City>();
-
-        obj.Address = request.Address;
-        obj.Conditioner = request.Conditioner;
-        obj.Gym = request.Gym;
-        obj.Image = request.Image;
-        obj.Parking = request.Parking;
-        obj.Pool = request.Pool;
-        obj.Wifi = request.Wifi;
-        obj.BedsNumber = request.BedsNumber;
-        obj.DistanceToCenter = request.DistanceToCenter;
         
+        obj.City = cityObj.Adapt<City>();
+        await FillApartment(obj, request);
         await _apartmentRepository.UpdateAsync(obj);
     }
 
@@ -122,35 +115,53 @@ public class ApartmentService : IApartmentService
         
         await _apartmentRepository.DeleteAsync(obj.Id);
     }
-
+    
     public async Task<List<ApartmentServiceModel>> Search(ApartmentSearchServiceModel search)
     {
         var objs = await _apartmentRepository
             .SearchAsync(search.Adapt<ApartmentSearchModel>());
 
         var adapted = objs.Adapt<List<ApartmentServiceModel>>();
-        
-        if (search.AvailableFrom is not null && search.AvailableTo is not null)
-        {
-            foreach (var item in adapted.ToList())
-            {
-                var busyDates = await GetBusyDates(item.Id);
-                var requestDates = AllDaysFromRange(search.AvailableFrom.Value,
-                    search.AvailableTo.Value);
 
-                item.BusyDates = busyDates;
-                foreach (var itemm in requestDates)
+        if (search.AvailableFrom is null || search.AvailableTo is null) return adapted;
+        
+        foreach (var item in adapted.ToList())
+        {
+            var busyDates = await GetBusyDates(item.Id);
+            var requestDates = AllDaysFromRange(search.AvailableFrom.Value,
+                search.AvailableTo.Value);
+
+            item.BusyDates = busyDates;
+            foreach (var itemm in requestDates)
+            {
+                if (busyDates.Contains(itemm))
                 {
-                    if (busyDates.Contains(itemm))
-                    {
-                        adapted.Remove(item);
-                        break;
-                    }
+                    adapted.Remove(item);
+                    break;
                 }
             }
         }
 
         return adapted;
+    }
+    
+    #endregion
+    
+    #region Private Methods
+
+    private async Task<Apartment> FillApartment(Apartment obj, ApartmentServiceModel request)
+    {
+        obj.Address = request.Address;
+        obj.Conditioner = request.Conditioner;
+        obj.Gym = request.Gym;
+        obj.Image = request.Image;
+        obj.Parking = request.Parking;
+        obj.Pool = request.Pool;
+        obj.Wifi = request.Wifi;
+        obj.BedsNumber = request.BedsNumber;
+        obj.DistanceToCenter = request.DistanceToCenter;
+
+        return obj;
     }
     
     private async Task<List<DateTime>> GetBusyDates(int Id)
@@ -174,4 +185,5 @@ public class ApartmentService : IApartmentService
 
         return list; 
     }
+    #endregion
 }

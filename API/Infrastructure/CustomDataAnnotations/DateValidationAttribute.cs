@@ -13,8 +13,10 @@ public class DateValidationAttribute : ValidationAttribute, IClientModelValidato
 
     public override bool IsValid(object value)
     {
+        if (value is null) return true;
         var datetime = (DateTime)value;
         return datetime > DateTime.Now && datetime < DateTime.Now.AddYears(5);
+
     }
     public void AddValidation(ClientModelValidationContext context)
     {

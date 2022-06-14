@@ -1,4 +1,4 @@
-namespace API.Models.UserRequests;
+namespace API.Models.UserRequests.UserRequestModels;
 
 public class UpdateUserInfoRequestModel
 {

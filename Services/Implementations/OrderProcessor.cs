@@ -4,7 +4,7 @@ using Repositories.Abstractions;
 using Services.Abstractions;
 using Services.Exceptions;
 using Services.Localisations;
-using Services.Models;
+using Services.Models.ServiceModels;
 
 namespace Services.Implementations;
 
@@ -13,13 +13,11 @@ public class OrderProcessor : IOrderProcessor
     private readonly IOrderRepository _orderRepository;
     private readonly IApartmentRepository _apartmentRepository;
     
-    
     public OrderProcessor(IOrderRepository orderRepository, IApartmentRepository apartmentRepository)
     {
         _orderRepository = orderRepository;
         _apartmentRepository = apartmentRepository;
     }
-
 
     public async Task<int> BookAnApartment(OrderServiceModel orderRequest)
     {
@@ -30,8 +28,8 @@ public class OrderProcessor : IOrderProcessor
         var entities = await _orderRepository.GetActiveOrdersForApartment(apartment.Id);
         if (entities.Count != 0)
         {
-            var check = CheckForDateAvailability(apartment.Adapt<ApartmentServiceModel>(), entities.Adapt<List<OrderServiceModel>>(),
-                orderRequest);
+            var check = CheckForDateAvailability(apartment.Adapt<ApartmentServiceModel>(), 
+                entities.Adapt<List<OrderServiceModel>>(), orderRequest);
 
             if (check is false)
                 throw new ApartmentNotAvailableException(ExceptionMessages.ApartmentNotAvailable);
@@ -73,7 +71,7 @@ public class OrderProcessor : IOrderProcessor
         throw new NotImplementedException();
     }
 
-
+    #region Private Methods
     private bool CheckForDateAvailability(ApartmentServiceModel apartment, List<OrderServiceModel> entities,
                                         OrderServiceModel orderRequest)
     {
@@ -104,4 +102,5 @@ public class OrderProcessor : IOrderProcessor
 
         return list; 
     }
+    #endregion
 }

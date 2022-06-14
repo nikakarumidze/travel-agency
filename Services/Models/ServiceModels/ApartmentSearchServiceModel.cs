@@ -1,6 +1,6 @@
-namespace API.Models.UserRequests;
+namespace Services.Models.ServiceModels;
 
-public class SearchApartmentsRequestModel
+public class ApartmentSearchServiceModel
 {
     public DateTime? AvailableFrom { get; set;}
     public DateTime? AvailableTo { get; set; }

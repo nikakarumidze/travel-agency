@@ -14,6 +14,7 @@ public class TravelDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<Apartment> Apartments { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<City> Cities { get; set; }
+    public DbSet<ApplicationUser> AspNetUsers { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

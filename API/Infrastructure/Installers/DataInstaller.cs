@@ -1,4 +1,5 @@
 using System.Buffers;
+using System.Reflection;
 using System.Text.Json.Serialization;
 using API.Infrastructure.Extensions;
 using DBContext.Context;
@@ -40,6 +41,8 @@ public class DataInstaller : IInstaller
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>
         {
+            var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "Movies API", Version = "v1" });
             c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
             {

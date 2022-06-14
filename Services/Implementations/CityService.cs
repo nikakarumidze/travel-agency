@@ -3,6 +3,7 @@ using Mapster;
 using Repositories.Abstractions;
 using Services.Abstractions;
 using Services.Models;
+using Services.Models.ServiceModels;
 
 namespace Services.Implementations;
 

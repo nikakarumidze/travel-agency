@@ -1,11 +1,13 @@
 using API.Contracts.V1;
 using API.Models.UserRequests;
+using API.Models.UserRequests.ApartmentRequestModels;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Models;
 using Services.Abstractions;
 using Services.Models;
+using Services.Models.ServiceModels;
 
 namespace API.Controllers;
 
@@ -41,6 +43,10 @@ public class ApartmentController : Controller
         return Ok(objs);
     }
     
+    
+    /// <summary>
+    /// Only fill in the fields the user wants to search, leave others null
+    /// </summary>
     [AllowAnonymous]
     [HttpGet(ApiRoutes.Apartment.Search)]
     public async Task<IActionResult> Search(SearchApartmentsRequestModel model)
