@@ -1,0 +1,12 @@
+.datepicker {
+    width: 170px;
+    height: 52px;
+    border-radius: 3.5%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.23);
+
+    &:hover{
+        border-color: black
+    }
+}
