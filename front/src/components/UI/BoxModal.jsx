@@ -35,18 +35,18 @@ const BoxModal = (props) => {
             variant={props.regVariant}
             onClick={props.onRegister}
             type={props.register}
-            className={props.register == 'submit' ? classes.link : classes.btn}
+            className={props.register === 'submit' ? classes.link : classes.btn}
           >
-            {props.register == 'submit' ? 'Register' : <Link to='/Register' className={classes.link}>Register</Link>}
+            {props.register === 'submit' ? 'Register' : <Link to='/Register' className={classes.link}>Register</Link>}
             
           </Button>
           <Button
             variant={props.logVariant}
             onClick={props.onLogin}
             type={props.login}
-            className={props.login == 'submit' ? classes.link : classes.btn}
+            className={props.login === 'submit' ? classes.link : classes.btn}
           >
-            {props.login == 'submit' ? 'Login' : <Link to='/Login' className={classes.link}>Login</Link>}
+            {props.login === 'submit' ? 'Login' : <Link to='/Login' className={classes.link}>Login</Link>}
           </Button>
         </Box>
       </Box>

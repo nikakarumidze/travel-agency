@@ -32,15 +32,7 @@ const Header = () => {
             Cabinet
           </Button>
 
-          <Menu
-            id='basic-menu'
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            MenuListProps={{
-              'aria-labelledby': 'basic-button',
-            }}
-          >
+          <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
             <MenuItem>
               <Link onClick={handleClose} to='/Profile'>
                 Profile
