@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="InputNull" xml:space="preserve">
+        <value>Input is null.</value>
+    </data>
+    <data name="InvalidUsername" xml:space="preserve">
+        <value>It should be only latin letters and at least 3 characters.</value>
+    </data>
+    <data name="InvalidPassword" xml:space="preserve">
+        <value>Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character.</value>
+    </data>
+    <data name="InvalidEmail" xml:space="preserve">
+        <value>Email is not valid.</value>
+    </data>
+    <data name="InvalidName" xml:space="preserve">
+        <value>Input should be only latin letters and minimum 3 characters.</value>
+    </data>
+</root>
