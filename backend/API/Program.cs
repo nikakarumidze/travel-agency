@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using System.Text.Json.Serialization;
 using API.Infrastructure.Extensions;
 using API.Infrastructure.Middlewares;
 using DBContext.Seeds;
@@ -37,6 +36,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseCors("_myAllowSpecificOrigins");
 app.MapControllers();
 
 app.Run();

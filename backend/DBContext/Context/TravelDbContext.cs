@@ -1,7 +1,4 @@
-using System.Net.Mime;
-using DBContext.Configurations;
 using Domain.POCOs;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

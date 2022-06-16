@@ -1,15 +1,14 @@
 using API.Contracts.V1;
-using API.Models.UserRequests;
 using API.Models.UserRequests.OrderRequestModels;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.Abstractions;
-using Services.Models;
 using Services.Models.ServiceModels;
 
 namespace API.Controllers;
 
+[ApiController]
 public class OrderController : Controller
 {
     private readonly IOrderService _orderService;
@@ -21,7 +20,7 @@ public class OrderController : Controller
 
     [Authorize]
     [HttpPost(ApiRoutes.Order.Book)]
-    public async Task<IActionResult> BookAsync(OrderBookingRequestModel requestModel)
+    public async Task<IActionResult> BookAsync([FromBody] OrderBookingRequestModel requestModel)
     {
         var id = await _orderService.ProcessABooking(requestModel.Adapt<OrderServiceModel>());
         return Ok(id);

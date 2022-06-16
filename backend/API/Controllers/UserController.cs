@@ -1,6 +1,5 @@
 using API.Contracts.V1;
 using API.Models.DTOs;
-using API.Models.UserRequests;
 using API.Models.UserRequests.UserRequestModels;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
@@ -10,6 +9,7 @@ using Services.Models.UserRequestServiceModels;
 
 namespace API.Controllers;
 
+[ApiController]
 public class UserController : Controller
 {
     private readonly IUserService _userService;
@@ -30,7 +30,7 @@ public class UserController : Controller
     
     [AllowAnonymous]
     [HttpPut(ApiRoutes.User.SignIn)]
-    public async Task<IActionResult> SignInAsync(LogInRequestModel request)
+    public async Task<IActionResult> SignInAsync([FromBody] LogInRequestModel request)
     {
         var token = await _userService.AuthenticationAsync(request.Username, request.Password);
         return Ok(new {token.Item1, token.Item2});
@@ -40,12 +40,12 @@ public class UserController : Controller
     [HttpPost(ApiRoutes.User.Register)]
     public async Task<IActionResult> RegistrationAsync(CreateUserRequestModel request)
     {
-        await _userService.CreateAsync(request.Adapt<CreateUserServiceModel>());
+        var errors = await _userService.CreateAsync(request.Adapt<CreateUserServiceModel>());
         return Ok();
     }
     [Authorize]
     [HttpPut(ApiRoutes.User.ChangePassword)]
-    public async Task<IActionResult> ChangePasswordAsync(ChangePasswordRequestModel request)
+    public async Task<IActionResult> ChangePasswordAsync([FromBody] ChangePasswordRequestModel request)
     {
         var result = await _userService.ChangePasswordAsync(request.Username, request.OldPassword, request.NewPassword);
         return Ok(result ? "Password Successfully changed" : "Password could not be changed");
@@ -53,7 +53,7 @@ public class UserController : Controller
 
     [Authorize]
     [HttpPut(ApiRoutes.User.UpdateUserInfo)]
-    public async Task<IActionResult> UpdateAsync(UpdateUserInfoRequestModel requestModel)
+    public async Task<IActionResult> UpdateAsync([FromBody]UpdateUserInfoRequestModel requestModel)
     {
         await _userService
             .UpdateUserInfoAsync(requestModel.Adapt<UpdateUserInfoServiceModel>());

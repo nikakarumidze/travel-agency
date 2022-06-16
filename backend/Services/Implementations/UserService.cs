@@ -43,7 +43,7 @@ public class UserService : IUserService
     {
         var entityByName = await _userManager.FindByNameAsync(user.UserName);
         var entityByEmail = await _userManager.FindByEmailAsync(user.Email);
-        if (entityByName != null || entityByEmail !=null)
+        if (entityByName != null || entityByEmail != null)
             throw new ObjectAlreadyExistsException(ExceptionMessages.ObjectAlreadyExists);
         var applicationUser = new ApplicationUser()
         {

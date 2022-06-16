@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace API.Models.UserRequests.ApartmentRequestModels;
 
 public class UpdateApartmentRequestModel
@@ -13,5 +15,6 @@ public class UpdateApartmentRequestModel
     public bool? Conditioner { get; set; }
     public bool? Parking { get; set; }
     
+    [Required]
     public string OwnerId { get; set; }
 }
