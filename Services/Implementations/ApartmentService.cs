@@ -1,5 +1,6 @@
 using Domain.POCOs;
 using Mapster;
+using Microsoft.AspNetCore.Identity;
 using Repositories.Abstractions;
 using Repositories.Models;
 using Services.Abstractions;
@@ -15,7 +16,8 @@ public class ApartmentService : IApartmentService
     private readonly IApartmentRepository _apartmentRepository;
     private readonly ICityRepository _cityRepository;
     private readonly IOrderRepository _orderRepository;
-    
+    private readonly UserManager<ApplicationUser> _userManager;
+
     public ApartmentService(IApartmentRepository apartmentRepository, 
         ICityRepository cityRepository, IOrderRepository orderRepository)
     {
@@ -68,9 +70,9 @@ public class ApartmentService : IApartmentService
         return objs.Adapt<List<ApartmentServiceModel>>();
     }
 
-    public async Task<ApartmentServiceModel> GetMineAsync(string id)
+    public async Task<ApartmentServiceModel> GetMineAsync(string username)
     {
-        var obj = await _apartmentRepository.GetByOwnerIdAsync(id);
+        var obj = await _apartmentRepository.GetByOwnerUsernameAsync(username);
         if (obj == null)
             throw new NotFoundException(ExceptionMessages.ObjectNotFound);
         return obj.Adapt<ApartmentServiceModel>();
@@ -95,8 +97,7 @@ public class ApartmentService : IApartmentService
 
     public async Task UpdateMineAsync(ApartmentServiceModel request)
     {
-        var obj = await _apartmentRepository
-            .GetByOwnerIdAsync(request.OwnerId);
+        var obj = await _apartmentRepository.GetByOwnerIdAsync(request.OwnerId);
 
         var cityObj = await _cityRepository.GetCityByNameAsync(request.CityName);
         if (cityObj is null)
@@ -107,9 +108,9 @@ public class ApartmentService : IApartmentService
         await _apartmentRepository.UpdateAsync(obj);
     }
 
-    public async Task DeleteMineAsync(string userId)
+    public async Task DeleteMineAsync(string username)
     {
-        var obj = await _apartmentRepository.GetByOwnerIdAsync(userId);
+        var obj = await _apartmentRepository.GetByOwnerUsernameAsync(username);
         if (obj is null)
             throw new NotFoundException(ExceptionMessages.ObjectNotFound);
         

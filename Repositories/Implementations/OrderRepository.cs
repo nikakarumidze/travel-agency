@@ -18,37 +18,37 @@ public class OrderRepository : IOrderRepository
         return await _baseRepository.GetAsync(id);
     }
 
-    public async Task<List<Order>> GetWhereITravelAsync(string id)
+    public async Task<List<Order>> GetWhereITravelAsync(string username)
     {
         return await _baseRepository.Table
             .Include(x=>x.Host)
             .Include(x => x.Host.Apartment)
-            .Where(x => x.GuestId == id)
+            .Where(x => x.Guest.UserName == username && x.Approved == true)
             .ToListAsync();
     }
 
-    public async Task<List<Order>> GetWhereIHostAsync(string id)
+    public async Task<List<Order>> GetWhereIHostAsync(string username)
     {
         return await _baseRepository.Table
             .Include(x => x.Host.Apartment)
             .Include(x=>x.Guest)
-            .Where(x => x.HostId == id)
+            .Where(x => x.Host.UserName == username && x.Approved == true)
             .ToListAsync();
     }
 
-    public async Task<List<Order>> GetPendingWhereITravelAsync(string userId)
+    public async Task<List<Order>> GetPendingWhereITravelAsync(string username)
     {
         return await _baseRepository.Table
             .Include(x => x.Host)
-            .Where(x => x.Approved == null && x.GuestId == userId)
+            .Where(x => x.Approved == null && x.Guest.UserName == username)
             .ToListAsync();
     }
 
-    public async Task<List<Order>> GetPendingWhereIHostAsync(string userId)
+    public async Task<List<Order>> GetPendingWhereIHostAsync(string username)
     {
         var entities = await _baseRepository.Table
             .Include(x => x.Guest)
-            .Where(x => x.Approved == null && x.HostId == userId)
+            .Where(x => x.Approved == null && x.Host.UserName == username)
             .ToListAsync();
         return entities;
     }

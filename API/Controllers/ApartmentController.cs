@@ -1,23 +1,26 @@
 using API.Contracts.V1;
-using API.Models.UserRequests;
 using API.Models.UserRequests.ApartmentRequestModels;
+using Domain.POCOs;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Repositories.Models;
 using Services.Abstractions;
-using Services.Models;
 using Services.Models.ServiceModels;
 
 namespace API.Controllers;
 
+[ApiController]
 public class ApartmentController : Controller
 {
     private readonly IApartmentService _apartmentService;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public ApartmentController(IApartmentService apartmentService)
+
+    public ApartmentController(IApartmentService apartmentService, UserManager<ApplicationUser> userManager)
     {
         _apartmentService = apartmentService;
+        _userManager = userManager;
     }
     [AllowAnonymous]
     [HttpGet(ApiRoutes.Apartment.GetAll)]
@@ -49,7 +52,7 @@ public class ApartmentController : Controller
     /// </summary>
     [AllowAnonymous]
     [HttpGet(ApiRoutes.Apartment.Search)]
-    public async Task<IActionResult> Search(SearchApartmentsRequestModel model)
+    public async Task<IActionResult> Search([FromBody]SearchApartmentsRequestModel model)
     {
         var objs = await _apartmentService
             .Search(model.Adapt<ApartmentSearchServiceModel>());
@@ -76,35 +79,43 @@ public class ApartmentController : Controller
     
     [Authorize]
     [HttpGet(ApiRoutes.Apartment.GetMine)]
-    public async Task<IActionResult> GetMyApartmentAsync(string id)
+    public async Task<IActionResult> GetMyApartmentAsync()
     {
-        var obj = await _apartmentService.GetMineAsync(id);
+        var username = HttpContext.User.Identity.Name;
+        var obj = await _apartmentService.GetMineAsync(username);
         return Ok(obj);
     }
 
     [Authorize]
     [HttpPost(ApiRoutes.Apartment.Create)]
-    public async Task<IActionResult> CreateAsync(CreateApartmentRequestModel request)
+    public async Task<IActionResult> CreateAsync([FromBody]CreateApartmentRequestModel request)
     {
+        var user = await _userManager.FindByNameAsync(HttpContext.User.Identity.Name);
+        var adapted = request.Adapt<ApartmentServiceModel>();
+        adapted.OwnerId = user.Id;
         var obj = await _apartmentService
-            .CreateMineAsync(request.Adapt<ApartmentServiceModel>());
+            .CreateMineAsync(adapted);
         return Ok(obj);
     }
 
     [Authorize]
     [HttpPut(ApiRoutes.Apartment.Update)]
-    public async Task<IActionResult> UpdateAsync(UpdateApartmentRequestModel request)
+    public async Task<IActionResult> UpdateAsync([FromBody]UpdateApartmentRequestModel request)
     {
+        var user = await _userManager.FindByNameAsync(HttpContext.User.Identity.Name);
+        var adapted = request.Adapt<ApartmentServiceModel>();
+        adapted.OwnerId = user.Id;
         await _apartmentService
-            .UpdateMineAsync(request.Adapt<ApartmentServiceModel>());
+            .UpdateMineAsync(adapted);
         return Ok();
     }
 
     [Authorize]
     [HttpDelete(ApiRoutes.Apartment.Delete)]
-    public async Task<IActionResult> DeleteAsync(string userId)
+    public async Task<IActionResult> DeleteAsync()
     {
-        await _apartmentService.DeleteMineAsync(userId);
+        var username = HttpContext.User.Identity.Name;
+        await _apartmentService.DeleteMineAsync(username);
         return Ok();
     }
 }

@@ -22,6 +22,13 @@ public class ApartmentRepository : IApartmentRepository
         return await _baseRepository.GetAsync(id);
     }
 
+    public async Task<Apartment> GetByOwnerUsernameAsync(string username)
+    {
+        return await _baseRepository.Table
+            .Include(x=>x.City)
+            .SingleOrDefaultAsync(x => x.Owner.UserName == username);
+    }
+
     public async Task<Apartment> GetByOwnerIdAsync(string id)
     {
         return await _baseRepository.Table

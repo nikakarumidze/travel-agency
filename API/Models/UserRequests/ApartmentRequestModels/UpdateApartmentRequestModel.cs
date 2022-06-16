@@ -14,7 +14,4 @@ public class UpdateApartmentRequestModel
     public bool? Gym { get; set; }
     public bool? Conditioner { get; set; }
     public bool? Parking { get; set; }
-    
-    [Required]
-    public string OwnerId { get; set; }
 }

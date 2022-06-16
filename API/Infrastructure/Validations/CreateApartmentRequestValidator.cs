@@ -18,9 +18,6 @@ public class CreateApartmentRequestValidator : AbstractValidator<CreateApartment
         RuleFor(x=>x.BedsNumber)
             .NotNull()
             .WithMessage(ErrorMessages.InputNull);
-        RuleFor(x => x.OwnerId)
-            .NotNull()
-            .WithMessage(ErrorMessages.InputNull);
         RuleFor(x => x.DistanceToCenter)
             .NotNull()
             .WithMessage(ErrorMessages.InputNull);
