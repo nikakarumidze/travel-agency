@@ -6,6 +6,7 @@ namespace Repositories.Abstractions;
 public interface IApartmentRepository
 {
     Task<Apartment> GetAsync(int id);
+    Task<Apartment> GetByOwnerUsernameAsync(string username);
     Task<Apartment> GetByOwnerIdAsync(string id);
     Task<List<Apartment>> GetAllAsync();
     Task<List<Apartment>> GetAllByCityAsync(string city);

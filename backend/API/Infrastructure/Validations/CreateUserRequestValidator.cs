@@ -10,7 +10,8 @@ public class CreateUserRequestValidator : AbstractValidator<CreateUserRequestMod
     public CreateUserRequestValidator()
     {
         RuleFor(x => x.UserName)
-            .Matches(Regexes.Name)
+            .MinimumLength(4)
+            .MaximumLength(16)
             .WithMessage(ErrorMessages.InvalidUsername);
         RuleFor(x => x.Password)
             .NotEmpty()

@@ -5,10 +5,10 @@ namespace Repositories.Abstractions;
 public interface IOrderRepository
 {
     Task<Order> GetAsync(int id);
-    Task<List<Order>> GetWhereITravelAsync(string userId);
-    Task<List<Order>> GetWhereIHostAsync(string userId);
-    Task<List<Order>> GetPendingWhereITravelAsync(string userId);
-    Task<List<Order>> GetPendingWhereIHostAsync(string userId);
+    Task<List<Order>> GetWhereITravelAsync(string username);
+    Task<List<Order>> GetWhereIHostAsync(string username);
+    Task<List<Order>> GetPendingWhereITravelAsync(string username);
+    Task<List<Order>> GetPendingWhereIHostAsync(string username);
     Task<Apartment> GetHostApartment(int id);
     Task<List<Order>> GetActiveOrdersForApartment(int apartmentId);
     Task<int> CreateAsync(Order order);

@@ -18,10 +18,5 @@ public class OrderBookingRequestModel
     [DateValidation("Invalid Date, given value is in the past.")]
     public DateTime To { get; set; }
     
-    [Required]
-    [Unlike("HostId")]
-    public string GuestId { get; set; }
-    [Required]
-    [Unlike("GuestId")]
     public string HostId { get; set; }
 }

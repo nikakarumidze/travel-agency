@@ -28,28 +28,28 @@ public class OrderService : IOrderService
         return obj.Adapt<OrderServiceModel>();
     }
 
-    public async Task<List<OrderServiceModel>> GetWhereIHostAsync(string userId)
+    public async Task<List<OrderServiceModel>> GetWhereIHostAsync(string username)
     {
-        var entities = await _orderRepository.GetWhereIHostAsync(userId);
+        var entities = await _orderRepository.GetWhereIHostAsync(username);
         
         return entities.Adapt<List<OrderServiceModel>>();
     }
 
-    public async Task<List<OrderServiceModel>> GetWhereITravelAsync(string userId)
+    public async Task<List<OrderServiceModel>> GetWhereITravelAsync(string username)
     {
-        var entities = await _orderRepository.GetWhereITravelAsync(userId);
+        var entities = await _orderRepository.GetWhereITravelAsync(username);
         return entities.Adapt<List<OrderServiceModel>>();
     }
 
-    public async Task<List<OrderServiceModel>> GetPendingWhereIHostAsync(string userId)
+    public async Task<List<OrderServiceModel>> GetPendingWhereIHostAsync(string username)
     {
-        var entities = await _orderRepository.GetPendingWhereIHostAsync(userId);
+        var entities = await _orderRepository.GetPendingWhereIHostAsync(username);
         return entities.Adapt<List<OrderServiceModel>>();
     }
 
-    public async Task<List<OrderServiceModel>> GetPendingWhereITravelAsync(string userId)
+    public async Task<List<OrderServiceModel>> GetPendingWhereITravelAsync(string username)
     {
-        var entities = await _orderRepository.GetWhereITravelAsync(userId);
+        var entities = await _orderRepository.GetWhereITravelAsync(username);
         return entities.Adapt<List<OrderServiceModel>>();
     }
 

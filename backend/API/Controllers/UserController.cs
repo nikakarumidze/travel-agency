@@ -22,9 +22,9 @@ public class UserController : Controller
 
     [Authorize]
     [HttpGet(ApiRoutes.User.GetInfo)]
-    public async Task<IActionResult> GetInfoAsync(string username)
+    public async Task<IActionResult> GetInfoAsync()
     {
-        var user = await _userService.GetInfoAsync(username);
+        var user = await _userService.GetInfoAsync(HttpContext.User.Identity.Name);
         return Ok(user.Adapt<ApplicationUserDTO>());
     }
     

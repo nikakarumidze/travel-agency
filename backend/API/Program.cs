@@ -6,7 +6,17 @@ using Domain.POCOs;
 using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddCors(options =>
+{ 
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            builder.WithOrigins("https://localhost:44331")
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials();
+        });
+});
 builder.Services.InstallServicesFromAssembly(builder.Configuration);
 
 var app = builder.Build();
@@ -36,7 +46,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseCors("_myAllowSpecificOrigins");
+app.UseCors();
 app.MapControllers();
 
 app.Run();
