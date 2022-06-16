@@ -2,9 +2,12 @@ using System.Buffers;
 using System.Reflection;
 using System.Text.Json.Serialization;
 using API.Infrastructure.Extensions;
+using API.Models.UserRequests.UserRequestModels;
 using DBContext.Context;
 using Domain.POCOs;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
@@ -18,11 +21,18 @@ public class DataInstaller : IInstaller
     public void InstallServices(IServiceCollection services, IConfiguration configuration)
     {
         services.AddControllers()
-            .AddJsonOptions(options =>
+                .AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.WriteIndented = true;
                 options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-            });
+            })
+            .AddFluentValidation(options =>
+            {
+                options.ImplicitlyValidateChildProperties = true;
+                options.ImplicitlyValidateRootCollectionElements = true;
+                    options.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            });;
+
         JsonConvert.DefaultSettings = () =>
         {
             var settings = new JsonSerializerSettings
@@ -32,6 +42,7 @@ public class DataInstaller : IInstaller
             };
             return settings;
         };
+        
         services.AddDbContext<TravelDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
                 b=> b.MigrationsAssembly("API")));
@@ -60,5 +71,15 @@ public class DataInstaller : IInstaller
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<TravelDbContext>()
             .AddDefaultTokenProviders();
+        
+        var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        services.AddCors(options =>
+        {
+            options.AddPolicy(name: MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins("https://localhost:3000");
+                });
+        });
     }
 }

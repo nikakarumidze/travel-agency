@@ -96,5 +96,15 @@
             Format - YY-MM-DD
             </summary>
         </member>
+        <member name="P:API.Models.UserRequests.UserRequestModels.CreateUserRequestModel.Image">
+            <summary>
+            send as byte array  . . .
+            </summary>
+        </member>
+        <member name="P:API.Models.UserRequests.UserRequestModels.UpdateUserInfoRequestModel.Image">
+            <summary>
+            send as a byte array . . . .
+            </summary>
+        </member>
     </members>
 </doc>

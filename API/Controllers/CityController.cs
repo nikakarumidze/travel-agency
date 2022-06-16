@@ -7,6 +7,7 @@ using Services.Models.ServiceModels;
 
 namespace API.Controllers;
 
+[ApiController]
 public class CityController : Controller
 {
     private readonly ICityService _cityService;

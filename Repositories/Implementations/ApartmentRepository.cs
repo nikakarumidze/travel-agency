@@ -33,6 +33,7 @@ public class ApartmentRepository : IApartmentRepository
     {
         return await _baseRepository.Table
             .Include(x=>x.Owner)
+            .Include(x=>x.City)
             .ToListAsync();
     }
 

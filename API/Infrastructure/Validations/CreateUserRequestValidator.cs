@@ -1,6 +1,5 @@
+using System.Text.RegularExpressions;
 using API.Infrastructure.APIResources;
-using API.Models;
-using API.Models.UserRequests;
 using API.Models.UserRequests.UserRequestModels;
 using FluentValidation;
 
@@ -14,6 +13,7 @@ public class CreateUserRequestValidator : AbstractValidator<CreateUserRequestMod
             .Matches(Regexes.Name)
             .WithMessage(ErrorMessages.InvalidUsername);
         RuleFor(x => x.Password)
+            .NotEmpty()
             .Matches(Regexes.Password)
             .WithMessage(ErrorMessages.InvalidPassword);
         RuleFor(x => x.Email)
