@@ -1,6 +1,9 @@
+using Domain;
 using Domain.POCOs;
 using Mapster;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Newtonsoft.Json.Serialization;
 using Repositories.Abstractions;
 using Repositories.Models;
 using Services.Abstractions;
@@ -17,27 +20,32 @@ public class ApartmentService : IApartmentService
     private readonly ICityRepository _cityRepository;
     private readonly IOrderRepository _orderRepository;
     private readonly UserManager<ApplicationUser> _userManager;
-
+    private readonly IHttpContextAccessor _contextAccessor;
+    private readonly string _username;
+    
     public ApartmentService(IApartmentRepository apartmentRepository, 
-        ICityRepository cityRepository, IOrderRepository orderRepository)
+        ICityRepository cityRepository, IOrderRepository orderRepository, IHttpContextAccessor contextAccessor, UserManager<ApplicationUser> userManager)
     {
         _apartmentRepository = apartmentRepository;
         _cityRepository = cityRepository;
         _orderRepository = orderRepository;
+        _contextAccessor = contextAccessor;
+        _userManager = userManager;
+        _username = _contextAccessor.HttpContext.User.Identity.Name;
     }
 
     
     #region Methods
-    public async Task<List<ApartmentServiceModel>> GetAllAsync()
+    public async Task<List<ApartmentServiceModel>> GetAllAsync(PaginationFilter pagination)
     {
-        var objs = await _apartmentRepository.GetAllAsync();
+        var objs = await _apartmentRepository.GetAllAsync(pagination);
         
         return objs.Adapt<List<ApartmentServiceModel>>();
     }
 
-    public async Task<List<ApartmentServiceModel>> GetAllWithBusyDatesAsync()
+    public async Task<List<ApartmentServiceModel>> GetAllWithBusyDatesAsync(PaginationFilter pagination)
     {
-        var objs = await _apartmentRepository.GetAllAsync();
+        var objs = await _apartmentRepository.GetAllAsync(pagination);
         var adapted = objs.Adapt<List<ApartmentServiceModel>>();
         
         foreach (var item in adapted)
@@ -58,9 +66,9 @@ public class ApartmentService : IApartmentService
         return adapted;
     }
 
-    public async Task<List<ApartmentServiceModel>> GetAllByCityAsync(string city)
+    public async Task<List<ApartmentServiceModel>> GetAllByCityAsync(string city, PaginationFilter pagination)
     {
-        var objs = await _apartmentRepository.GetAllByCityAsync(city);
+        var objs = await _apartmentRepository.GetAllByCityAsync(city, pagination);
         return objs.Adapt<List<ApartmentServiceModel>>();
     }
 
@@ -70,9 +78,9 @@ public class ApartmentService : IApartmentService
         return objs.Adapt<List<ApartmentServiceModel>>();
     }
 
-    public async Task<ApartmentServiceModel> GetMineAsync(string username)
+    public async Task<ApartmentServiceModel> GetMineAsync()
     {
-        var obj = await _apartmentRepository.GetByOwnerUsernameAsync(username);
+        var obj = await _apartmentRepository.GetByOwnerUsernameAsync(_username);
         if (obj == null)
             throw new NotFoundException(ExceptionMessages.ObjectNotFound);
         return obj.Adapt<ApartmentServiceModel>();
@@ -80,10 +88,12 @@ public class ApartmentService : IApartmentService
 
     public async Task<int> CreateMineAsync(ApartmentServiceModel request)
     {
+        var user = await _userManager.FindByNameAsync(_username);
+        request.OwnerId = user.Id;
+        
         var obj = await _apartmentRepository.GetByOwnerIdAsync(request.OwnerId);
         if (obj is not null)
             throw new ObjectAlreadyExistsException(ExceptionMessages.ObjectAlreadyExists);
-        
         
         var cityObj = await _cityRepository.GetCityByNameAsync(request.CityName);
         if (cityObj is null)
@@ -97,34 +107,40 @@ public class ApartmentService : IApartmentService
 
     public async Task UpdateMineAsync(ApartmentServiceModel request)
     {
+        var user = await _userManager.FindByNameAsync(_username);
+        request.OwnerId = user.Id;
+
         var obj = await _apartmentRepository.GetByOwnerIdAsync(request.OwnerId);
 
         var cityObj = await _cityRepository.GetCityByNameAsync(request.CityName);
         if (cityObj is null)
             throw new NotFoundException(ExceptionMessages.CityNotFound);
-        
-        obj.City = cityObj.Adapt<City>();
+
+        if (obj.City.Name != request.CityName)
+            obj.City = cityObj;
         await FillApartment(obj, request);
+        
         await _apartmentRepository.UpdateAsync(obj);
     }
 
-    public async Task DeleteMineAsync(string username)
+    public async Task DeleteMineAsync()
     {
-        var obj = await _apartmentRepository.GetByOwnerUsernameAsync(username);
+        var obj = await _apartmentRepository.GetByOwnerUsernameAsync(_username);
         if (obj is null)
             throw new NotFoundException(ExceptionMessages.ObjectNotFound);
         
         await _apartmentRepository.DeleteAsync(obj.Id);
     }
     
-    public async Task<List<ApartmentServiceModel>> Search(ApartmentSearchServiceModel search)
+    public async Task<List<ApartmentServiceModel>> Search(ApartmentSearchServiceModel search, PaginationFilter pagination)
     {
         var objs = await _apartmentRepository
-            .SearchAsync(search.Adapt<ApartmentSearchModel>());
+            .SearchAsync(search.Adapt<ApartmentSearchModel>(), pagination);
 
         var adapted = objs.Adapt<List<ApartmentServiceModel>>();
 
-        if (search.AvailableFrom is null || search.AvailableTo is null) return adapted;
+        if (search.AvailableFrom is null || search.AvailableTo is null) 
+            return adapted;
         
         foreach (var item in adapted.ToList())
         {

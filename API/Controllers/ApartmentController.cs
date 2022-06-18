@@ -1,5 +1,9 @@
+using API.Contracts.Queries;
+using API.Contracts.Responses;
 using API.Contracts.V1;
+using API.Infrastructure.Helpers;
 using API.Models.UserRequests.ApartmentRequestModels;
+using Domain;
 using Domain.POCOs;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
@@ -14,28 +18,39 @@ namespace API.Controllers;
 public class ApartmentController : Controller
 {
     private readonly IApartmentService _apartmentService;
-    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IUriService _uriService;
 
-
-    public ApartmentController(IApartmentService apartmentService, UserManager<ApplicationUser> userManager)
+    public ApartmentController(IApartmentService apartmentService, IUriService uriService)
     {
         _apartmentService = apartmentService;
-        _userManager = userManager;
+        _uriService = uriService;
     }
     [AllowAnonymous]
     [HttpGet(ApiRoutes.Apartment.GetAll)]
-    public async Task<IActionResult> GetAllAsync()
+    public async Task<IActionResult> GetAllAsync([FromQuery] PaginationQuery pagination)
     {
-        var objs = await _apartmentService.GetAllAsync();
-        return Ok(objs);
+        var objs = await _apartmentService
+            .GetAllAsync(pagination.Adapt<PaginationFilter>());
+        
+        if (pagination == null || pagination.PageNumber < 1 || pagination.PageSize < 1)
+            return Ok(new PagedResponse<ApartmentServiceModel>(objs));
+
+        var paginationResponse = PaginationHelpers.CreatePaginatedResponse(_uriService, pagination, objs);
+        return Ok(paginationResponse);
     }
     
     [AllowAnonymous]
     [HttpGet(ApiRoutes.Apartment.GetAllWithBusyDates)]
-    public async Task<IActionResult> GetAllWithBusyDatesAsync()
+    public async Task<IActionResult> GetAllWithBusyDatesAsync([FromQuery] PaginationQuery pagination)
     {
-        var objs = await _apartmentService.GetAllWithBusyDatesAsync();
-        return Ok(objs);
+        var objs = await _apartmentService
+            .GetAllWithBusyDatesAsync(pagination.Adapt<PaginationFilter>());
+        
+        if (pagination == null || pagination.PageNumber < 1 || pagination.PageSize < 1)
+        return Ok(new PagedResponse<ApartmentServiceModel>(objs));
+
+        var paginationResponse = PaginationHelpers.CreatePaginatedResponse(_uriService, pagination, objs);
+        return Ok(paginationResponse);
     }
     
     [AllowAnonymous]
@@ -52,20 +67,31 @@ public class ApartmentController : Controller
     /// </summary>
     [AllowAnonymous]
     [HttpGet(ApiRoutes.Apartment.Search)]
-    public async Task<IActionResult> Search([FromBody]SearchApartmentsRequestModel model)
+    public async Task<IActionResult> Search([FromBody]SearchApartmentsRequestModel model, 
+        [FromQuery] PaginationQuery pagination)
     {
         var objs = await _apartmentService
-            .Search(model.Adapt<ApartmentSearchServiceModel>());
-        return Ok(objs);
+            .Search(model.Adapt<ApartmentSearchServiceModel>(), pagination.Adapt<PaginationFilter>());
+        
+        if (pagination == null || pagination.PageNumber < 1 || pagination.PageSize < 1)
+            return Ok(new PagedResponse<ApartmentServiceModel>(objs));
+
+        var paginationResponse = PaginationHelpers.CreatePaginatedResponse(_uriService, pagination, objs);
+        return Ok(paginationResponse);
     }
 
 
     [AllowAnonymous]
     [HttpGet(ApiRoutes.Apartment.GetAllByCity)]
-    public async Task<IActionResult> GetAllByCity(string city)
+    public async Task<IActionResult> GetAllByCity(string city, [FromQuery] PaginationQuery pagination)
     {
-        var objs = await _apartmentService.GetAllByCityAsync(city);
-        return Ok(objs);
+        var objs = await _apartmentService.GetAllByCityAsync(city, pagination.Adapt<PaginationFilter>());
+        
+        if (pagination == null || pagination.PageNumber < 1 || pagination.PageSize < 1)
+            return Ok(new PagedResponse<ApartmentServiceModel>(objs));
+
+        var paginationResponse = PaginationHelpers.CreatePaginatedResponse(_uriService, pagination, objs);
+        return Ok(paginationResponse);
     }
     
     
@@ -81,8 +107,7 @@ public class ApartmentController : Controller
     [HttpGet(ApiRoutes.Apartment.GetMine)]
     public async Task<IActionResult> GetMyApartmentAsync()
     {
-        var username = HttpContext.User.Identity.Name;
-        var obj = await _apartmentService.GetMineAsync(username);
+        var obj = await _apartmentService.GetMineAsync();
         return Ok(obj);
     }
 
@@ -90,11 +115,8 @@ public class ApartmentController : Controller
     [HttpPost(ApiRoutes.Apartment.Create)]
     public async Task<IActionResult> CreateAsync([FromBody]CreateApartmentRequestModel request)
     {
-        var user = await _userManager.FindByNameAsync(HttpContext.User.Identity.Name);
-        var adapted = request.Adapt<ApartmentServiceModel>();
-        adapted.OwnerId = user.Id;
         var obj = await _apartmentService
-            .CreateMineAsync(adapted);
+            .CreateMineAsync(request.Adapt<ApartmentServiceModel>());
         return Ok(obj);
     }
 
@@ -102,11 +124,8 @@ public class ApartmentController : Controller
     [HttpPut(ApiRoutes.Apartment.Update)]
     public async Task<IActionResult> UpdateAsync([FromBody]UpdateApartmentRequestModel request)
     {
-        var user = await _userManager.FindByNameAsync(HttpContext.User.Identity.Name);
-        var adapted = request.Adapt<ApartmentServiceModel>();
-        adapted.OwnerId = user.Id;
         await _apartmentService
-            .UpdateMineAsync(adapted);
+            .UpdateMineAsync(request.Adapt<ApartmentServiceModel>());
         return Ok();
     }
 
@@ -114,8 +133,7 @@ public class ApartmentController : Controller
     [HttpDelete(ApiRoutes.Apartment.Delete)]
     public async Task<IActionResult> DeleteAsync()
     {
-        var username = HttpContext.User.Identity.Name;
-        await _apartmentService.DeleteMineAsync(username);
+        await _apartmentService.DeleteMineAsync();
         return Ok();
     }
 }

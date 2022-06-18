@@ -1,10 +1,16 @@
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using DBContext.Context;
 using Domain.POCOs;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Repositories.Abstractions;
 using Services.Abstractions;
 using Services.Exceptions;
 using Services.Localisations;
 using Services.Models.UserRequestServiceModels;
+using JwtRegisteredClaimNames = Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames;
 
 namespace Services.Implementations;
 
@@ -13,12 +19,16 @@ public class UserService : IUserService
     private readonly IJwtService _jwtService;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IApplicationUserRepository _applicationUserRepository;
-
+    private readonly TokenValidationParameters _tokenValidationParameters;
+    private readonly TravelDbContext _context; 
+    
     public UserService(IJwtService jwtService, UserManager<ApplicationUser> userManager, 
-    IApplicationUserRepository applicationUserRepository)
+    IApplicationUserRepository applicationUserRepository, TokenValidationParameters tokenValidationParameters, TravelDbContext context)
     {
         _userManager = userManager;
         _applicationUserRepository = applicationUserRepository;
+        _tokenValidationParameters = tokenValidationParameters;
+        _context = context;
         _jwtService = jwtService;
     }
 
@@ -28,7 +38,7 @@ public class UserService : IUserService
         return user;
     }
 
-    public async Task<(string, DateTime?)> AuthenticationAsync(string username, string password)
+    public async Task<(string, string)> AuthenticationAsync(string username, string password)
     {
         var user = await _userManager.FindByNameAsync(username);
         if (user == null)
@@ -36,15 +46,19 @@ public class UserService : IUserService
         var check = await _userManager.CheckPasswordAsync(user, password);
         if (!check)
             throw new InvalidCredentialsException(ExceptionMessages.InvalidCredentials);
-        return _jwtService.GenerateSecurityToken(username);
+        return await _jwtService.GenerateSecurityTokenAsync(user.Id);
     }
 
     public async Task<IEnumerable<IdentityError>> CreateAsync(CreateUserServiceModel user)
     {
         var entityByName = await _userManager.FindByNameAsync(user.UserName);
         var entityByEmail = await _userManager.FindByEmailAsync(user.Email);
-        if (entityByName != null || entityByEmail != null)
-            throw new ObjectAlreadyExistsException(ExceptionMessages.ObjectAlreadyExists);
+        
+        if (entityByName != null)
+            throw new ObjectAlreadyExistsException(ExceptionMessages.UsernameAlreadyExists);
+        if (entityByEmail != null)
+            throw new ObjectAlreadyExistsException(ExceptionMessages.EmailAlreadyExists);
+        
         var applicationUser = new ApplicationUser()
         {
             UserName = user.UserName,
@@ -81,5 +95,63 @@ public class UserService : IUserService
         user.Image = request.Image;
         
         await _userManager.UpdateAsync(user);
+    }
+
+    public async Task<(string, string)> RefreshTokenAsync(string requestToken, string requestRefreshToken)
+    {
+        var validatedToken = GetPrincipalFromToken(requestToken);
+
+        if (validatedToken == null)
+            return new ValueTuple<string, string>("invalid token", null);
+
+        var jti = validatedToken.Claims.Single(x => x.Type == JwtRegisteredClaimNames.Jti).Value;
+        var storedRefreshToken = await _context.RefreshTokens.SingleOrDefaultAsync(x => x.Token == requestRefreshToken);
+
+        if (storedRefreshToken == null)
+            return new ValueTuple<string, string>("This Refresh token does not exist", null);
+
+        if (DateTime.UtcNow > storedRefreshToken.ExpireDate)
+            return new ValueTuple<string, string>("this refresh token has expired", null);
+        
+        if (storedRefreshToken.Invalidated)
+            return new ValueTuple<string, string>("this refresh token has invalidated", null);
+        
+        if(storedRefreshToken.Used)
+            return new ValueTuple<string, string>("this refresh token has been used", null);
+
+        if(storedRefreshToken.JwtId != jti)
+            return new ValueTuple<string, string>("this refresh token does not match this JWT", null);
+
+        storedRefreshToken.Used = true;
+        _context.RefreshTokens.Update(storedRefreshToken);
+
+        await _context.SaveChangesAsync();
+
+        var user = await _userManager.FindByIdAsync(validatedToken.Claims.Single(x => x.Type == "id").Value);
+        return await _jwtService.GenerateSecurityTokenAsync(user.Id);
+    }
+
+    private ClaimsPrincipal GetPrincipalFromToken(string token)
+    {
+        var tokenHandler = new JwtSecurityTokenHandler();
+
+        try
+        {
+            var principal = tokenHandler.ValidateToken(token, _tokenValidationParameters, out var validatedToken);
+            if(!IsJwtWithValidSecurityAlgorithm(validatedToken))
+                return null;
+            return principal;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    private bool IsJwtWithValidSecurityAlgorithm(SecurityToken validatedToken)
+    {
+        return (validatedToken is JwtSecurityToken jwtSecurityToken) &&
+               jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256,
+                   StringComparison.InvariantCultureIgnoreCase);
     }
 }

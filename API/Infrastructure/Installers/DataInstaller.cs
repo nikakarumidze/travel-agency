@@ -72,7 +72,7 @@ public class DataInstaller : IInstaller
             .AddEntityFrameworkStores<TravelDbContext>()
             .AddDefaultTokenProviders();
         
-        var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         services.AddCors(options =>
         {
             options.AddPolicy(name: MyAllowSpecificOrigins,

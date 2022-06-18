@@ -14,6 +14,7 @@ public class ApiRoutes
          public const string ChangePassword = UserBase + "/ChangePassword";
          public const string UpdateUserInfo = UserBase + "/UpdateInfo";
          public const string GetInfo = UserBase + "/GetInfo";
+         public const string Refresh = UserBase + "/Refresh";
     }
 
     public static class Apartment
