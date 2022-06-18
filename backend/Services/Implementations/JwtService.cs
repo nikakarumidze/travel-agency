@@ -1,6 +1,8 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using DBContext.Context;
+using Domain;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Services.Abstractions;
@@ -12,13 +14,15 @@ public class JwtService: IJwtService
 {
     private readonly string _secret;
     private readonly int _expDateInMinutes;
-        
-    public JwtService(IOptions<JwtConfiguration> options)
+    private readonly TravelDbContext _context;
+    
+    public JwtService(IOptions<JwtConfiguration> options, TravelDbContext context)
     {
+        _context = context;
         _secret = options.Value.Secret;
         _expDateInMinutes = options.Value.ExpirationInMinutes;
     }
-    public (string,DateTime?) GenerateSecurityToken(string username)
+    public async Task<(string, string)> GenerateSecurityTokenAsync(string id)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = Encoding.ASCII.GetBytes(_secret);
@@ -27,16 +31,26 @@ public class JwtService: IJwtService
         {
             Subject = new ClaimsIdentity(new[]
             {
-                new Claim(ClaimTypes.Name, username),
+                new Claim("id", id),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             }),
             Expires = DateTime.UtcNow.AddMinutes(_expDateInMinutes),
             Audience = "localhost",
             Issuer = "localhost",
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
         };
-
+      
         var token = tokenHandler.CreateToken(tokenDescriptor);
-
-        return (tokenHandler.WriteToken(token), tokenDescriptor.Expires);
+        var refreshToken = new RefreshToken()
+        {
+            JwtId = token.Id,
+            UserId = id,
+            CreationDate = DateTime.Now,
+            ExpireDate = DateTime.UtcNow.AddMonths(6)
+        };
+        refreshToken.JwtId = token.Id;
+        await _context.RefreshTokens.AddAsync(refreshToken);
+        await _context.SaveChangesAsync();
+        return (tokenHandler.WriteToken(token), refreshToken.Token);
     }
 }

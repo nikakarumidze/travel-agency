@@ -1,10 +1,7 @@
-using System.Net;
 using API.Contracts.V1;
 using API.Models.UserRequests.OrderRequestModels;
-using Domain.POCOs;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Services.Abstractions;
 using Services.Models.ServiceModels;
@@ -15,23 +12,17 @@ namespace API.Controllers;
 public class OrderController : Controller
 {
     private readonly IOrderService _orderService;
-    private readonly UserManager<ApplicationUser> _userManager;
 
-    public OrderController(IOrderService orderService, UserManager<ApplicationUser> userManager)
+    public OrderController(IOrderService orderService)
     {
         _orderService = orderService;
-        _userManager = userManager;
     }
 
     [Authorize]
     [HttpPost(ApiRoutes.Order.Book)]
     public async Task<IActionResult> BookAsync([FromBody] OrderBookingRequestModel requestModel)
     {
-        var username = HttpContext.User.Identity.Name;
-        var user = await _userManager.FindByNameAsync(username);
-        var adapted = requestModel.Adapt<OrderServiceModel>();
-        adapted.GuestId = user.Id;
-        var id = await _orderService.ProcessABooking(adapted);
+        var id = await _orderService.ProcessABooking(requestModel.Adapt<OrderServiceModel>());
         return Ok(id);
     }
 
@@ -39,8 +30,7 @@ public class OrderController : Controller
     [HttpGet(ApiRoutes.Order.GetWhereIHost)]
     public async Task<IActionResult> GetWhereIHost()
     {
-        var userName = HttpContext.User.Identity.Name;
-        var entities = await _orderService.GetWhereIHostAsync(userName);
+        var entities = await _orderService.GetWhereIHostAsync();
         return Ok(entities);
     }
     
@@ -48,8 +38,7 @@ public class OrderController : Controller
     [HttpGet(ApiRoutes.Order.GetWhereITravel)]
     public async Task<IActionResult> GetWhereITravel()
     {
-        var userName = HttpContext.User.Identity.Name;
-        var entities = await _orderService.GetWhereITravelAsync(userName);
+        var entities = await _orderService.GetWhereITravelAsync();
         return Ok(entities);
     }
     
@@ -57,8 +46,7 @@ public class OrderController : Controller
     [HttpGet(ApiRoutes.Order.GetPendingWhereIHost)]
     public async Task<IActionResult> GetPendingWhereIHost()
     {
-        var userName = HttpContext.User.Identity.Name;
-        var entities = await _orderService.GetPendingWhereIHostAsync(userName);
+        var entities = await _orderService.GetPendingWhereIHostAsync();
         return Ok(entities);
     }
 
@@ -66,8 +54,7 @@ public class OrderController : Controller
     [HttpGet(ApiRoutes.Order.GetPendingWhereITravel)]
     public async Task<IActionResult> GetPendingWhereITravel()
     {
-        var userName = HttpContext.User.Identity.Name;
-        var entities = await _orderService.GetPendingWhereITravelAsync(userName);
+        var entities = await _orderService.GetPendingWhereITravelAsync();
         return Ok(entities);
     }
 

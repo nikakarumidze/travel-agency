@@ -88,6 +88,15 @@ namespace Services.Localisations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User with this email already exists..
+        /// </summary>
+        internal static string EmailAlreadyExists {
+            get {
+                return ResourceManager.GetString("EmailAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username or password is incorrect..
         /// </summary>
         internal static string InvalidCredentials {
@@ -111,6 +120,15 @@ namespace Services.Localisations {
         internal static string ObjectNotFound {
             get {
                 return ResourceManager.GetString("ObjectNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User with this username already exists..
+        /// </summary>
+        internal static string UsernameAlreadyExists {
+            get {
+                return ResourceManager.GetString("UsernameAlreadyExists", resourceCulture);
             }
         }
     }

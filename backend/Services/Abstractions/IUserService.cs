@@ -7,8 +7,9 @@ namespace Services.Abstractions;
 public interface IUserService
 {
     Task<ApplicationUser> GetInfoAsync(string username);
-    Task<(string, DateTime?)> AuthenticationAsync(string username, string password);
+    Task<(string, string)> AuthenticationAsync(string username, string password);
     Task<IEnumerable<IdentityError>> CreateAsync(CreateUserServiceModel user);
     Task<bool> ChangePasswordAsync(string username, string oldPassword, string newPassword);
     Task UpdateUserInfoAsync(UpdateUserInfoServiceModel request);
+    Task<(string, string)> RefreshTokenAsync(string requestToken, string requestRefreshToken);
 }   

@@ -21,7 +21,6 @@ public class OrderProcessor : IOrderProcessor
 
     public async Task<int> BookAnApartment(OrderServiceModel orderRequest)
     {
-        
         var apartment = await _apartmentRepository.GetByOwnerIdAsync(orderRequest.HostId);
         if(apartment is null)
                 throw new NotFoundException(ExceptionMessages.ObjectNotFound);

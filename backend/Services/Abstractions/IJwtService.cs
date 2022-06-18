@@ -2,5 +2,5 @@ namespace Services.Abstractions;
 
 public interface  IJwtService
 {
-    (string, DateTime?) GenerateSecurityToken(string username);
+    Task<(string, string)> GenerateSecurityTokenAsync(string username);
 }

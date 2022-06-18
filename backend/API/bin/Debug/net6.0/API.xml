@@ -4,7 +4,7 @@
         <name>API</name>
     </assembly>
     <members>
-        <member name="M:API.Controllers.ApartmentController.Search(API.Models.UserRequests.ApartmentRequestModels.SearchApartmentsRequestModel)">
+        <member name="M:API.Controllers.ApartmentController.Search(API.Models.UserRequests.ApartmentRequestModels.SearchApartmentsRequestModel,API.Contracts.Queries.PaginationQuery)">
             <summary>
             Only fill in the fields the user wants to search, leave others null
             </summary>

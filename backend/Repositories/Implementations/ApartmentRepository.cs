@@ -1,3 +1,4 @@
+using Domain;
 using Domain.POCOs;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Abstractions;
@@ -36,20 +37,42 @@ public class ApartmentRepository : IApartmentRepository
             .SingleOrDefaultAsync(x => x.OwnerId == id);
     }
 
-    public async Task<List<Apartment>> GetAllAsync()
+    public async Task<List<Apartment>> GetAllAsync(PaginationFilter paginationFilter)
     {
+        if(paginationFilter == null)
+            return await _baseRepository.Table
+                .Include(x=>x.Owner)
+                .Include(x=>x.City)
+                .ToListAsync();
+
+        var skip = (paginationFilter.PageNumber - 1) * paginationFilter.PageSize;
+        
         return await _baseRepository.Table
             .Include(x=>x.Owner)
             .Include(x=>x.City)
+            .Skip(skip)
+            .Take(paginationFilter.PageSize)
             .ToListAsync();
     }
 
-    public async Task<List<Apartment>> GetAllByCityAsync(string city)
+    public async Task<List<Apartment>> GetAllByCityAsync(string city, PaginationFilter paginationFilter)
     {
+        if(paginationFilter == null)
+            return await _baseRepository.Table
+            .Include(x=>x.Owner)
+            .Include(x=>x.City)
+            .Where(x => x.City.Name == city)
+            .ToListAsync();;
+
+
+        var skip = (paginationFilter.PageNumber - 1) * paginationFilter.PageSize;
+
         var objs = await _baseRepository.Table
             .Include(x=>x.Owner)
             .Include(x=>x.City)
             .Where(x => x.City.Name == city)
+            .Skip(skip)
+            .Take(paginationFilter.PageSize)
             .ToListAsync();
         
         return objs;
@@ -97,8 +120,12 @@ public class ApartmentRepository : IApartmentRepository
         await _baseRepository.DeleteAsync(obj);
     }
 
-    public async Task<List<Apartment>> SearchAsync(ApartmentSearchModel model)
+    public async Task<List<Apartment>> SearchAsync(ApartmentSearchModel model, PaginationFilter paginationFilter)
     {
+       
+
+        var skip = (paginationFilter.PageNumber - 1) * paginationFilter.PageSize;
+        
         var apartments = _baseRepository.Table.AsQueryable();
         if (model.BedsNumber != null)
             apartments = apartments.Where(x => x.BedsNumber == model.BedsNumber);
@@ -115,6 +142,12 @@ public class ApartmentRepository : IApartmentRepository
         if (model.Gym is not null)
             apartments = apartments.Where(x => x.Gym == model.Gym);
 
-        return await apartments.ToListAsync();
+        if(paginationFilter == null)
+            return await apartments.ToListAsync();
+        
+        return await apartments
+            .Skip(skip)
+            .Take(paginationFilter.PageSize)
+            .ToListAsync();
     }
 }

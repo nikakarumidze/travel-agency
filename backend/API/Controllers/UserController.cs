@@ -1,6 +1,8 @@
+using API.Contracts.Responses;
 using API.Contracts.V1;
 using API.Models.DTOs;
 using API.Models.UserRequests.UserRequestModels;
+using Duende.IdentityServer.Models;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -33,7 +35,11 @@ public class UserController : Controller
     public async Task<IActionResult> SignInAsync([FromBody] LogInRequestModel request)
     {
         var token = await _userService.AuthenticationAsync(request.Username, request.Password);
-        return Ok(new {token.Item1, token.Item2});
+        return Ok(new AuthSuccessResponse
+        {
+            Token = token.Item1,
+            RefreshToken = token.Item2
+        });
     }
     
     [AllowAnonymous]
@@ -58,5 +64,17 @@ public class UserController : Controller
         await _userService
             .UpdateUserInfoAsync(requestModel.Adapt<UpdateUserInfoServiceModel>());
         return Ok();
+    }
+    
+    [Authorize]
+    [HttpPut(ApiRoutes.User.Refresh)]
+    public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequest request)
+    {
+        var token = await _userService.RefreshTokenAsync(request.Token, request.RefreshToken);
+        return Ok(new AuthSuccessResponse
+        {
+            Token = token.Item1,
+            RefreshToken = token.Item2
+        });
     }
 }

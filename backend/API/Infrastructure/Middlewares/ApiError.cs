@@ -59,7 +59,7 @@ public sealed class ApiError : ProblemDetails
     }
     private void HandleException(ObjectAlreadyExistsException exception)
     {
-        Code = exception.Code;
+        Code = exception.Message;
         Status = (int) HttpStatusCode.Conflict;
         Title = exception.Message;
         LogLevel = LogLevel.Error;

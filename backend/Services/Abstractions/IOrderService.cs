@@ -6,10 +6,10 @@ namespace Services.Abstractions;
 public interface IOrderService
 {
     Task<OrderServiceModel> GetAsync(int id);
-    Task<List<OrderServiceModel>> GetWhereIHostAsync(string username);
-    Task<List<OrderServiceModel>> GetWhereITravelAsync(string username);
-    Task<List<OrderServiceModel>> GetPendingWhereIHostAsync(string username);
-    Task<List<OrderServiceModel>> GetPendingWhereITravelAsync(string username);
+    Task<List<OrderServiceModel>> GetWhereIHostAsync();
+    Task<List<OrderServiceModel>> GetWhereITravelAsync();
+    Task<List<OrderServiceModel>> GetPendingWhereIHostAsync();
+    Task<List<OrderServiceModel>> GetPendingWhereITravelAsync();
     Task<int> ProcessABooking(OrderServiceModel order);
     Task ChangeOrderStatusAsync(int orderId, bool accepted);
     Task DeleteAsync(int id);
