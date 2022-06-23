@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import Typography from '@mui/material/Typography';
 import {
+  Autocomplete,
   Button,
   Container,
   FormControl,
@@ -14,13 +15,22 @@ import 'react-datepicker/dist/react-datepicker.css';
 import classes from './Search.module.scss';
 
 import { useState } from 'react';
+import useCities from './hooks/useCities';
 
 const Search = () => {
   const [bedNumber, setBedNumber] = useState(1);
   const [dateRange, setDateRange] = useState([null, null]);
-  const [location, setLocation] = useState();
   const [startDate, endDate] = dateRange;
+  const [location, setLocation] = useState();
+  const [cityData, setCityData] = useState();
 
+  const applyData = (data) => {
+    setCityData([data]);
+  };
+  const getCities = useCities(applyData);
+  useEffect(() => {
+    getCities();
+  }, []);
   const bedNumberChangeHandler = (event) => {
     setBedNumber(event.target.value);
   };
@@ -59,14 +69,13 @@ const Search = () => {
             <MenuItem value={4}>4 +</MenuItem>
           </Select>
         </FormControl>
-
-        <TextField
-          label='Search Location'
-          sx={{ width: 176, m: 1 }}
+        <Autocomplete
+          disablePortal
+          options={cityData ? cityData : []}
+          sx={{ width: 260, m: 1 }}
+          renderInput={(params) => <TextField {...params} label='Location' />}
           onChange={locationChangeHandler}
         />
-        {/* Fetch Locations, and store as options */}
-
         <FormControl sx={{ m: 1 }}>
           {!startDate && (
             <InputLabel sx={{ mb: 0 }}>Check in - Check out</InputLabel>

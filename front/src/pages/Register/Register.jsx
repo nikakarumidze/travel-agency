@@ -3,19 +3,21 @@ import BoxModal from '../../components/UI/BoxModal';
 import validator from 'validator';
 
 import useForm from '../../hooks/useForm';
+import useRegister from './hooks/useRegister';
 
 const Register = (props) => {
   const { formState, onTypingHandler, validityChangeHandler } = useForm();
+  const {response, UserRegister } = useRegister();
 
   const registrationHandler = (e) => {
     e.preventDefault();
     const firstNameValidity = !validator.isEmpty(formState.firstName);
     const lastNameValidity = !validator.isEmpty(formState.lastName);
-    const userNameValidity = !validator.isEmpty(formState.userName);
+    const userNameValidity = formState.userName.length > 3;
     const emailValidity = validator.isEmail(formState.email);
     const passwordValidity = validator.isStrongPassword(formState.password, {
       minLength: 8, minLowercase: 1,
-      minUppercase: 1, minNumbers: 1, minSymbols: 0
+      minUppercase: 1, minNumbers: 1, minSymbols: 1
     });
 
     if (!firstNameValidity || !lastNameValidity || !userNameValidity || !emailValidity || !passwordValidity) {
@@ -36,11 +38,19 @@ const Register = (props) => {
       }
       return;
     }
-    console.log(formState);
-    // Validate Params
-    // If everything is ok, send request
-    // is not return error(s)
+    const obj = {
+      userName: formState.userName,
+      email: formState.email,
+      password: formState.password,
+      firstname: formState.firstName,
+      lastname: formState.lastName,
+    };
+    UserRegister(obj);
   };
+
+  // Here we should use response variable to deploy returned response from the server
+  console.log(response);
+
 
   return (
     <Container align='center' sx={{ mb: 7 }}>
