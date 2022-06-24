@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7wdKDD39tRyR8f8VK+i3JY2CSp4+vHBPUNIjUDJIVZPIeTbgU9vJ60onZ2krO8OXg47WSwBauknF7j1PRWO9iA==",
+  "dgSpecHash": "EEOWFJ+qjxM4FIzVF7XEx+uU5hVIc19MU+O0P7c6IFEGbcHrjGLIdf/s/RPNyF31J+HNYVlQhnFGWBJqrsbjRw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\naten\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\naten\\.nuget\\packages\\duende.identityserver\\5.2.0\\duende.identityserver.5.2.0.nupkg.sha512",

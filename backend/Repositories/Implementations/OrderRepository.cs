@@ -53,14 +53,6 @@ public class OrderRepository : IOrderRepository
         return entities;
     }
 
-    public async Task<Apartment> GetHostApartment(int id)
-    {
-        var order = await _baseRepository.Table
-            .Include(x=>x.Host.Apartment)
-            .SingleOrDefaultAsync(x => x.Id == id);
-        return order.Host.Apartment;
-    }
-
     public async Task<List<Order>> GetActiveOrdersForApartment(int apartmentId)
     {
         var entities = await _baseRepository.Table

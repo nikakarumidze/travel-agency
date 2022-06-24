@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2HmBRDsKj7xxwU7+gKo9YonemNIe6UmVJ3wA4VW852QIIVNingQcrJHTRY+V+BB/LjRSW+nVggBCE9zGN0Sipg==",
+  "dgSpecHash": "tybrRkz166kQmBwzVd+08yprCfvcNgmmWsficppk+4Rv4Fb29CFl75ArgFRIdq4V1YTQuiGWuX18aRmuJxExaQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\Services\\Services.csproj",
+  "projectFilePath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Services\\Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\naten\\.nuget\\packages\\mapster\\7.4.0-pre02\\mapster.7.4.0-pre02.nupkg.sha512",
     "C:\\Users\\naten\\.nuget\\packages\\mapster.core\\1.2.1-pre01\\mapster.core.1.2.1-pre01.nupkg.sha512",

@@ -36,10 +36,11 @@ public class ApartmentService : IApartmentService
 
     
     #region Methods
+
     public async Task<List<ApartmentServiceModel>> GetAllAsync(PaginationFilter pagination)
     {
         var objs = await _apartmentRepository.GetAllAsync(pagination);
-        
+
         return objs.Adapt<List<ApartmentServiceModel>>();
     }
 
@@ -68,6 +69,7 @@ public class ApartmentService : IApartmentService
 
     public async Task<List<ApartmentServiceModel>> GetAllByCityAsync(string city, PaginationFilter pagination)
     {
+
         var objs = await _apartmentRepository.GetAllByCityAsync(city, pagination);
         return objs.Adapt<List<ApartmentServiceModel>>();
     }

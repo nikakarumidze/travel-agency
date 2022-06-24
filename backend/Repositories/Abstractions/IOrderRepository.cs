@@ -9,7 +9,6 @@ public interface IOrderRepository
     Task<List<Order>> GetWhereIHostAsync(string username);
     Task<List<Order>> GetPendingWhereITravelAsync(string username);
     Task<List<Order>> GetPendingWhereIHostAsync(string username);
-    Task<Apartment> GetHostApartment(int id);
     Task<List<Order>> GetActiveOrdersForApartment(int apartmentId);
     Task<int> CreateAsync(Order order);
     Task ChangeOrderStatusAsync(int orderId, bool accepted);
