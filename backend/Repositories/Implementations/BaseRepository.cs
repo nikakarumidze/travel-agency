@@ -23,7 +23,8 @@ public class BaseRepository<T> : IBaseRepository<T> where T : class
 
     public async Task<List<T>> GetAllAsync()
         {
-            return await _table.ToListAsync();
+            return await _table
+                .ToListAsync();
         }
 
     public async Task<List<T>> GetAllNoTrackingAsync()

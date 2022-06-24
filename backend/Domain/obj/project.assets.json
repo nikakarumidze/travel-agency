@@ -5085,11 +5085,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\naten\\RiderProjects\\travel-agency\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\Domain\\Domain.csproj",
+      "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\naten\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\Domain\\obj\\",
+      "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config",
