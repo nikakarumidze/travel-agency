@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using DBContext.Context;
 using Domain.POCOs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -21,20 +22,24 @@ public class UserService : IUserService
     private readonly IApplicationUserRepository _applicationUserRepository;
     private readonly TokenValidationParameters _tokenValidationParameters;
     private readonly TravelDbContext _context; 
+    private readonly string _username;
+    private readonly IHttpContextAccessor _httpContext;
     
     public UserService(IJwtService jwtService, UserManager<ApplicationUser> userManager, 
-    IApplicationUserRepository applicationUserRepository, TokenValidationParameters tokenValidationParameters, TravelDbContext context)
+    IApplicationUserRepository applicationUserRepository, TokenValidationParameters tokenValidationParameters, TravelDbContext context, IHttpContextAccessor httpContext)
     {
         _userManager = userManager;
         _applicationUserRepository = applicationUserRepository;
         _tokenValidationParameters = tokenValidationParameters;
         _context = context;
+        _httpContext = httpContext;
         _jwtService = jwtService;
+        _username = _httpContext.HttpContext.User.Identity.Name;
     }
 
-    public async Task<ApplicationUser> GetInfoAsync(string username)
+    public async Task<ApplicationUser> GetInfoAsync()
     {
-        var user = await _applicationUserRepository.GetFullInfoAsync(username);
+        var user = await _applicationUserRepository.GetFullInfoAsync(_username);
         return user;
     }
 
@@ -46,7 +51,7 @@ public class UserService : IUserService
         var check = await _userManager.CheckPasswordAsync(user, password);
         if (!check)
             throw new InvalidCredentialsException(ExceptionMessages.InvalidCredentials);
-        return await _jwtService.GenerateSecurityTokenAsync(user.Id);
+        return await _jwtService.GenerateSecurityTokenAsync(user.Id, username);
     }
 
     public async Task<IEnumerable<IdentityError>> CreateAsync(CreateUserServiceModel user)
@@ -128,7 +133,7 @@ public class UserService : IUserService
         await _context.SaveChangesAsync();
 
         var user = await _userManager.FindByIdAsync(validatedToken.Claims.Single(x => x.Type == "id").Value);
-        return await _jwtService.GenerateSecurityTokenAsync(user.Id);
+        return await _jwtService.GenerateSecurityTokenAsync(user.Id, user.UserName);
     }
 
     private ClaimsPrincipal GetPrincipalFromToken(string token)

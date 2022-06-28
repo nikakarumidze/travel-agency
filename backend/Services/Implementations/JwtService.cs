@@ -22,7 +22,7 @@ public class JwtService: IJwtService
         _secret = options.Value.Secret;
         _expDateInMinutes = options.Value.ExpirationInMinutes;
     }
-    public async Task<(string, string)> GenerateSecurityTokenAsync(string id)
+    public async Task<(string, string)> GenerateSecurityTokenAsync(string id, string username)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = Encoding.ASCII.GetBytes(_secret);
@@ -32,7 +32,8 @@ public class JwtService: IJwtService
             Subject = new ClaimsIdentity(new[]
             {
                 new Claim("id", id),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.Name, username)
             }),
             Expires = DateTime.UtcNow.AddMinutes(_expDateInMinutes),
             Audience = "localhost",
