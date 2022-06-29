@@ -72,16 +72,14 @@ public class DataInstaller : IInstaller
             .AddEntityFrameworkStores<TravelDbContext>()
             .AddDefaultTokenProviders();
         
-        services.AddCors(options =>
-        { 
-            options.AddDefaultPolicy(
-                builder =>
-                {
-                    builder.WithOrigins("https://localhost:3000")
-                        .AllowAnyHeader()
-                        .AllowAnyMethod()
-                        .AllowCredentials();
-                });
+        services.AddCors(opt =>
+        {
+            opt.AddDefaultPolicy(builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
         });
     }
 }

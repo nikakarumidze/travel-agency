@@ -24,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="development" />
+        <entry key="$PROJECT_DIR$/.." value="backend" />
       </map>
     </option>
   </component>
@@ -117,7 +117,8 @@
       <workItem from="1655560524771" duration="3624000" />
       <workItem from="1655730547173" duration="521000" />
       <workItem from="1656078698967" duration="5282000" />
-      <workItem from="1656417877527" duration="2218000" />
+      <workItem from="1656417877527" duration="2705000" />
+      <workItem from="1656485863709" duration="1388000" />
     </task>
     <task id="LOCAL-00001" summary="added sln file">
       <created>1654771476330</created>
