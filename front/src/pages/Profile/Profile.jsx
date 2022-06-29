@@ -1,15 +1,22 @@
 import { Box, Button, CardMedia, Container, TextField } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import validator from 'validator'
+import validator from 'validator';
 import React, { useState } from 'react';
-import useForm from '../../hooks/useForm';
+import useProfileInfo from './hooks/useProfileInfo';
 
 const Profile = () => {
-  const { formState, onTypingHandler, validityChangeHandler } = useForm();
+  const profileData = useProfileInfo();
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [email, setEmail] = useState();
   const [description, setDescription] = useState();
-  const [profileImage, setProfileImage] = useState('https://picsum.photos/318/354');
+
+  const [profileImage, setProfileImage] = useState(
+    'https://picsum.photos/318/354'
+  );
   const [addAppartmentIsOpen, setAddAppartmentIsOpen] = useState(false);
+  console.log(profileData);
 
   // fetch to get user's data, then put it in usestate as a default value. first name, last name etc.
 
@@ -20,21 +27,15 @@ const Profile = () => {
   };
 
   const saveChangesHandler = () => {
-
-    if (!formState.firstName || !formState.lastName) {
-      if (validator.isEmpty(formState.firstName)) {
-        validityChangeHandler('isFirstNameValid', false);
+    if (!firstName || !lastName || !description) {
+      if (validator.isEmpty(firstName)) {
       }
-      if (validator.isEmpty(formState.lastName)) {
-        validityChangeHandler('isLastNameValid', false);
+      if (validator.isEmpty(lastName)) {
       }
-      if (!validator.isEmail(formState.email)) {
-        validityChangeHandler('isEmailValid', false);
+      if (!validator.isEmail(email)) {
       }
-      // is email valid
       return;
     }
-    console.log(description, formState);
   };
   return (
     <Container sx={{ m: 'auto', height: '370' }}>
@@ -79,20 +80,14 @@ const Profile = () => {
               required
               label='First Name'
               variant='outlined'
-              onChange={(event) =>
-                onTypingHandler(event, 'firstName', 'isFirstNameValid')
-              }
+              onChange={(event) => setFirstName(event.target.value)}
               sx={{ mr: 1 }}
-              error={!formState.isFirstNameValid}
             />
             <TextField
               required
               label='Last Name'
               variant='outlined'
-              onChange={(event) =>
-                onTypingHandler(event, 'lastName', 'isLastNameValid')
-              }
-              error={!formState.isLastNameValid}
+              onChange={(event) => setLastName(event.target.value)}
             />
           </Box>
           <TextField
@@ -101,9 +96,7 @@ const Profile = () => {
             label='Email address'
             variant='outlined'
             type='email'
-            onChange={(event) =>
-              onTypingHandler(event, 'email', 'isEmailValid')
-            }
+            onChange={(event) => setEmail(event.target.value)}
             sx={{ my: 1 }}
           />
           <TextField
@@ -125,7 +118,7 @@ const Profile = () => {
           </Button>
         </Box>
       </Container>
-      <Container sx={{ mb: 4, p: 2, border: '1px solid black' }}>
+      <Container sx={{ mb: 4, p: 2 }}>
         <Button
           onClick={() => setAddAppartmentIsOpen((prevState) => !prevState)}
           endIcon={
@@ -153,9 +146,7 @@ const Profile = () => {
                 fullWidth
                 label='City'
                 variant='outlined'
-                onChange={(event) =>
-                  onTypingHandler(event, 'email', 'isEmailValid')
-                }
+                onChange={(event) => console.log(event.target.value)}
                 sx={{ my: 1 }}
               />
               <TextField
@@ -163,9 +154,7 @@ const Profile = () => {
                 fullWidth
                 label='Address'
                 variant='outlined'
-                onChange={(event) =>
-                  onTypingHandler(event, 'email', 'isEmailValid')
-                }
+                onChange={(event) => console.log(event.target.value)}
                 sx={{ my: 1 }}
               />
               <TextField
@@ -173,9 +162,7 @@ const Profile = () => {
                 fullWidth
                 label='Distance to Center'
                 variant='outlined'
-                onChange={(event) =>
-                  onTypingHandler(event, 'email', 'isEmailValid')
-                }
+                onChange={(event) => console.log(event.target.value)}
                 sx={{ my: 1 }}
               />
               <TextField
@@ -184,9 +171,7 @@ const Profile = () => {
                 label='Max number of Guests'
                 variant='outlined'
                 type='number'
-                onChange={(event) =>
-                  onTypingHandler(event, 'email', 'isEmailValid')
-                }
+                onChange={(event) => console.log(event.target.value)}
                 sx={{ my: 1 }}
               />
               <TextField
@@ -196,9 +181,7 @@ const Profile = () => {
                 variant='outlined'
                 multiline
                 minRows='2'
-                onChange={(event) =>
-                  onTypingHandler(event, 'email', 'isEmailValid')
-                }
+                onChange={(event) => console.log(event.target.value)}
                 sx={{ my: 1 }}
               />
             </Box>

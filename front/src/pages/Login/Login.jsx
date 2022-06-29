@@ -1,18 +1,22 @@
 import BoxModal from '../../components/UI/BoxModal';
 import TextField from '@mui/material/TextField';
-import validator from 'validator'
+import validator from 'validator';
 
 import useForm from '../../hooks/useForm';
 
 const Login = (props) => {
   const { formState, onTypingHandler, validityChangeHandler } = useForm();
+  const { REACT_APP_CUSTOM_URL } = process.env;
 
   const loginHandler = (e) => {
     e.preventDefault();
     const userNameValidity = !validator.isEmpty(formState.userName);
     const passwordValidity = validator.isStrongPassword(formState.password, {
-      minLength: 8, minLowercase: 1,
-      minUppercase: 1, minNumbers: 1, minSymbols: 0
+      minLength: 8,
+      minLowercase: 1,
+      minUppercase: 1,
+      minNumbers: 1,
+      minSymbols: 0,
     });
 
     if (!userNameValidity || !passwordValidity) {
@@ -25,12 +29,27 @@ const Login = (props) => {
       return;
     }
 
-    console.log(formState);
+    const obj = { username: formState.userName, password: formState.password };
 
-    // fetch .... check username and password and return token if true.
-    // If token expires, send request about refresh token
-    // Are we checking the validity of username?
-    // Should we add reset password?
+    fetch(`https://${REACT_APP_CUSTOM_URL}/api/v1/User/SignIn`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(obj),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          console.log(res);
+          validityChangeHandler('isUserNameValid', false);
+          validityChangeHandler('isPasswordValid', false);
+        } else {
+          console.log(res)
+          return res.json();
+        }
+      })
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -54,11 +73,7 @@ const Login = (props) => {
         error={!formState.isUserNameValid}
         fullWidth
         sx={{ mb: 2 }}
-        helperText={
-          !formState.isUserNameValid
-            ? 'Login is Invalid'
-            : ''
-        }
+        helperText={!formState.isUserNameValid ? 'Login is Invalid' : ''}
       />
       <TextField
         required
@@ -71,11 +86,7 @@ const Login = (props) => {
         fullWidth
         error={!formState.isPasswordValid}
         sx={{ mb: 3 }}
-        helperText={
-          !formState.isPasswordValid
-            ? 'Password is Invalid'
-            : ''
-        }
+        helperText={!formState.isPasswordValid ? 'Password is Invalid' : ''}
       />
     </BoxModal>
   );
