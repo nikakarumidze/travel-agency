@@ -2,7 +2,6 @@ using API.Contracts.Responses;
 using API.Contracts.V1;
 using API.Models.DTOs;
 using API.Models.UserRequests.UserRequestModels;
-using Duende.IdentityServer.Models;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +25,7 @@ public class UserController : Controller
     [HttpGet(ApiRoutes.User.GetInfo)]
     public async Task<IActionResult> GetInfoAsync()
     {
-        var user = await _userService.GetInfoAsync(HttpContext.User.Identity.Name);
+        var user = await _userService.GetInfoAsync();
         return Ok(user.Adapt<ApplicationUserDTO>());
     }
     

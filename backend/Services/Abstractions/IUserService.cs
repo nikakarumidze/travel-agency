@@ -6,7 +6,7 @@ namespace Services.Abstractions;
 
 public interface IUserService
 {
-    Task<ApplicationUser> GetInfoAsync(string username);
+    Task<ApplicationUser> GetInfoAsync();
     Task<(string, string)> AuthenticationAsync(string username, string password);
     Task<IEnumerable<IdentityError>> CreateAsync(CreateUserServiceModel user);
     Task<bool> ChangePasswordAsync(string username, string oldPassword, string newPassword);

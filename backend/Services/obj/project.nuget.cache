@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "pWmEizwlZl6n8GTxvdDPYedjqWrdPKriWpxX/EI9GJwLj8tgv8gayYVmefVPs8gnBbZf2dAcUwiAYUoGBb9cpg==",
   "success": true,
   "projectFilePath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Services\\Services.csproj",
+=======
+  "dgSpecHash": "tybrRkz166kQmBwzVd+08yprCfvcNgmmWsficppk+4Rv4Fb29CFl75ArgFRIdq4V1YTQuiGWuX18aRmuJxExaQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Services\\Services.csproj",
+>>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1
   "expectedPackageFiles": [
     "C:\\Users\\nikak\\.nuget\\packages\\mapster\\7.4.0-pre02\\mapster.7.4.0-pre02.nupkg.sha512",
     "C:\\Users\\nikak\\.nuget\\packages\\mapster.core\\1.2.1-pre01\\mapster.core.1.2.1-pre01.nupkg.sha512",

@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using Domain;
 using Domain.POCOs;
 using Repositories.Models;
@@ -12,8 +13,6 @@ public interface IApartmentRepository
     Task<List<Apartment>> GetAllAsync(PaginationFilter pagination);
     Task<List<Apartment>> GetAllByCityAsync(string city,PaginationFilter paginationFilter);
     Task<List<Apartment>> GetByAddressAsync(string address);
-    Task<List<Apartment>> GetAllWithOwnersAsync();
-    Task<Apartment> GetWithOwnerAsync(int id);
     Task<int> CreateAsync(Apartment apartment);
     Task UpdateAsync(Apartment apartment);
     Task DeleteAsync(int id);

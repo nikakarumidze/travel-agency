@@ -21,6 +21,13 @@
       </set>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="development" />
+      </map>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/DBContext/Configurations/ApartmentConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -109,6 +116,8 @@
       <workItem from="1655545405602" duration="10331000" />
       <workItem from="1655560524771" duration="3624000" />
       <workItem from="1655730547173" duration="521000" />
+      <workItem from="1656078698967" duration="5282000" />
+      <workItem from="1656417877527" duration="2218000" />
     </task>
     <task id="LOCAL-00001" summary="added sln file">
       <created>1654771476330</created>
@@ -207,22 +216,23 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/API/Infrastructure/Middlewares/ApiError.cs</url>
-          <line>61</line>
-          <properties documentPath="C:\Users\naten\RiderProjects\travel-agency\API\Infrastructure\Middlewares\ApiError.cs" initialLine="61" containingFunctionPresentation="method 'HandleException'" />
-          <option name="timeStamp" value="30" />
+          <url>file://$PROJECT_DIR$/../API/Controllers/OrderController.cs</url>
+          <line>29</line>
+          <properties documentPath="C:\Users\naten\RiderProjects\travel-agency\API\Controllers\OrderController.cs" initialLine="28" containingFunctionPresentation="method 'BookAsync'" />
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Services/Implementations/JwtService.cs</url>
-          <line>43</line>
-          <properties documentPath="C:\Users\naten\RiderProjects\travel-agency\Services\Implementations\JwtService.cs" initialLine="42" containingFunctionPresentation="method 'GenerateSecurityTokenAsync'" />
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Services/Implementations/UserService.cs</url>
-          <line>140</line>
-          <properties documentPath="C:\Users\naten\RiderProjects\travel-agency\Services\Implementations\UserService.cs" initialLine="140" containingFunctionPresentation="method 'GetPrincipalFromToken'" />
-          <option name="timeStamp" value="32" />
+          <url>file://$PROJECT_DIR$/API/Controllers/OrderController.cs</url>
+          <line>24</line>
+          <properties documentPath="C:\Users\naten\RiderProjects\travel-agency\backend\API\Controllers\OrderController.cs" initialLine="24" containingFunctionPresentation="method 'BookAsync'">
+            <startOffsets>
+              <option value="639" />
+            </startOffsets>
+            <endOffsets>
+              <option value="725" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

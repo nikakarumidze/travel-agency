@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "NIWRVS1jyUOdq7TeRW4AwwxZTA7ngAp1/3aqUuoUPt6PBrXUW6hO0CoC6uwpbwnQHJ8/V50QgIvXmS4ifmGNbw==",
   "success": true,
   "projectFilePath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj",
+=======
+  "dgSpecHash": "a0sbzE+XeVsFaotO5mVpTCTmurZ+s/A3/kgb/LjaVZOTg7hHLfcsngYTJEA2uzEGsULtJOESnxXruLFvnR6wdA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\DBContext.csproj",
+>>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1
   "expectedPackageFiles": [
     "C:\\Users\\nikak\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\nikak\\.nuget\\packages\\mapster\\7.4.0-pre02\\mapster.7.4.0-pre02.nupkg.sha512",

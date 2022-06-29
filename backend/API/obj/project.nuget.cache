@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "lq1WXI15NlIXt95N87Gk1REOl52xR/Iob4SlR0ZKQev7PKv6dvHkpEX4Dnwbh8AS4qT3FFxzzGClPBNvLXUZZg==",
   "success": true,
   "projectFilePath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\API\\API.csproj",
+=======
+  "dgSpecHash": "EEOWFJ+qjxM4FIzVF7XEx+uU5hVIc19MU+O0P7c6IFEGbcHrjGLIdf/s/RPNyF31J+HNYVlQhnFGWBJqrsbjRw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\API\\API.csproj",
+>>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1
   "expectedPackageFiles": [
     "C:\\Users\\nikak\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\nikak\\.nuget\\packages\\duende.identityserver\\5.2.0\\duende.identityserver.5.2.0.nupkg.sha512",

@@ -9,13 +9,11 @@ namespace Repositories.Implementations;
 public class ApartmentRepository : IApartmentRepository
 {
     private readonly IBaseRepository<Apartment> _baseRepository;
-    private readonly IOrderRepository _orderRepository;
     
     
-    public ApartmentRepository(IBaseRepository<Apartment> baseRepository, IOrderRepository orderRepository)
+    public ApartmentRepository(IBaseRepository<Apartment> baseRepository)
     {
         _baseRepository = baseRepository;
-        _orderRepository = orderRepository;
     }
     
     public async Task<Apartment> GetAsync(int id)
@@ -85,22 +83,6 @@ public class ApartmentRepository : IApartmentRepository
             .Include(x=>x.City)
             .Where(x => x.Address.Contains(address))
             .ToListAsync();
-    }
-
-    public async Task<List<Apartment>> GetAllWithOwnersAsync()
-    {
-        return await _baseRepository.Table
-            .Include(x => x.Owner)
-            .Include(x=>x.City)
-            .ToListAsync();
-    }
-
-    public async Task<Apartment> GetWithOwnerAsync(int id)
-    {
-        return await _baseRepository.Table
-            .Include(x => x.Owner)
-            .Include(x=>x.City)
-            .SingleOrDefaultAsync(x => x.Id == id) ?? throw new InvalidOperationException();
     }
 
     public async Task<int> CreateAsync(Apartment apartment)
