@@ -19,10 +19,11 @@ SeedHelper.Seed(app);
 app.UseMiddleware<ExceptionHandlerMiddleware>();
 app.UseHttpsRedirection();
 
+app.UseCors();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseCors();
 app.MapControllers();
 
 app.Run();
