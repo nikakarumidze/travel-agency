@@ -10,4 +10,5 @@ public class UpdateUserInfoRequestModel
     /// send as a byte array . . . .
     /// </summary>
     public byte[] Image { get; set; }
+    public string Bio { get; set; }
 }
