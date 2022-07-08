@@ -8,9 +8,17 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = API
 build_property.RootNamespace = API
+<<<<<<< HEAD
 build_property.ProjectDir = c:\Users\nikak\Documents\travel-agency\backend\API\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = c:\Users\nikak\Documents\travel-agency\backend\API
+=======
+build_property.ProjectDir = C:\Users\naten\RiderProjects\travel-agency\backend\api\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\naten\RiderProjects\travel-agency\backend\api
+>>>>>>> 9d9541ac250a69386ddfd01eaa08a0d279be8f9c
 build_property._RazorSourceGeneratorDebug = 
