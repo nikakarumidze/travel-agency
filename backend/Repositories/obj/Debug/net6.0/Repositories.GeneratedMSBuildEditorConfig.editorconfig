@@ -7,8 +7,4 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Repositories
-<<<<<<< HEAD
 build_property.ProjectDir = c:\Users\nikak\Documents\travel-agency\backend\Repositories\
-=======
-build_property.ProjectDir = C:\Users\naten\RiderProjects\travel-agency\backend\Repositories\
->>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1

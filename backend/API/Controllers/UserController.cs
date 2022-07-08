@@ -65,7 +65,6 @@ public class UserController : Controller
         return Ok();
     }
     
-    [Authorize]
     [HttpPut(ApiRoutes.User.Refresh)]
     public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequest request)
     {

@@ -3,10 +3,18 @@ import TextField from '@mui/material/TextField';
 import validator from 'validator';
 
 import useForm from '../../hooks/useForm';
+import useAuth from '../../hooks/useAuth';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
   const { formState, onTypingHandler, validityChangeHandler } = useForm();
+  const { setAuth } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
   const { REACT_APP_CUSTOM_URL } = process.env;
+  // Redirects to previous location, if not found, to profile page
+  const from = location.state?.from.pathname || '/Profile'
+
 
   const loginHandler = (e) => {
     e.preventDefault();
@@ -42,14 +50,15 @@ const Login = (props) => {
           validityChangeHandler('isUserNameValid', false);
           validityChangeHandler('isPasswordValid', false);
         } else {
-          console.log(res)
           return res.json();
         }
       })
+      .catch((err) => console.log(err))
       .then((res) => {
-        console.log(res)
+        setAuth(res);
+        navigate(from, {replace: true})
       })
-      .catch((err) => console.log(err));
+      
   };
 
   return (
