@@ -98,6 +98,7 @@ public class UserService : IUserService
         user.Firstname = request.Firstname;
         user.Lastname = request.Lastname;
         user.Image = request.Image;
+        user.Bio = request.Bio;
         
         await _userManager.UpdateAsync(user);
     }

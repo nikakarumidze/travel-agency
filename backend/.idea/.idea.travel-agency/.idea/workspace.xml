@@ -8,7 +8,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c48202d-187b-49d5-a513-942a7b1af28b" name="Changes" comment="" />
+    <list default="true" id="0c48202d-187b-49d5-a513-942a7b1af28b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../API/Contracts/Queries/PaginationQuery.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API/Contracts/Responses/AuthSuccessResponse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API/Contracts/Responses/PagedResponse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API/Infrastructure/Helpers/PaginationHelpers.cs" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,7 +123,11 @@
       <workItem from="1655730547173" duration="521000" />
       <workItem from="1656078698967" duration="5282000" />
       <workItem from="1656417877527" duration="2705000" />
-      <workItem from="1656485863709" duration="1388000" />
+      <workItem from="1656485863709" duration="2004000" />
+      <workItem from="1656596795948" duration="5382000" />
+      <workItem from="1656680950311" duration="2086000" />
+      <workItem from="1657110194596" duration="3245000" />
+      <workItem from="1657274291398" duration="394000" />
     </task>
     <task id="LOCAL-00001" summary="added sln file">
       <created>1654771476330</created>
