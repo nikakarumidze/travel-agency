@@ -1,19 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\API\\API.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\API\\API.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\API\\API.csproj",
-        "projectName": "API",
-        "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\nikak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\API\\obj\\",
-=======
     "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\API\\API.csproj": {}
   },
   "projects": {
@@ -25,6 +12,9 @@
         "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\API\\API.csproj",
         "packagesPath": "C:\\Users\\naten\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\API\\obj\\",
+<<<<<<< HEAD
+>>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
+=======
 >>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
         "projectStyle": "PackageReference",
         "configFilePaths": [
@@ -40,19 +30,6 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-<<<<<<< HEAD
-              "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj": {
-                "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj"
-              },
-              "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj"
-              },
-              "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Repositories\\Repositories.csproj": {
-                "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Repositories\\Repositories.csproj"
-              },
-              "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Services\\Services.csproj": {
-                "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Services\\Services.csproj"
-=======
               "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\DBContext.csproj": {
                 "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\DBContext.csproj"
               },
@@ -64,6 +41,9 @@
               },
               "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Services\\Services.csproj": {
                 "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Services\\Services.csproj"
+<<<<<<< HEAD
+>>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
+=======
 >>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
               }
             }
@@ -170,16 +150,6 @@
         }
       }
     },
-<<<<<<< HEAD
-    "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj",
-        "projectName": "DBContext",
-        "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj",
-        "packagesPath": "C:\\Users\\nikak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\obj\\",
-=======
     "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\DBContext.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -188,6 +158,9 @@
         "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\DBContext.csproj",
         "packagesPath": "C:\\Users\\naten\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\obj\\",
+<<<<<<< HEAD
+>>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
+=======
 >>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
         "projectStyle": "PackageReference",
         "configFilePaths": [
@@ -203,12 +176,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-<<<<<<< HEAD
-              "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj"
-=======
               "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj"
+<<<<<<< HEAD
+>>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
+=======
 >>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
               }
             }
@@ -284,16 +256,6 @@
         }
       }
     },
-<<<<<<< HEAD
-    "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj",
-        "projectName": "Domain",
-        "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\nikak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\obj\\",
-=======
     "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -302,6 +264,9 @@
         "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\naten\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\obj\\",
+<<<<<<< HEAD
+>>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
+=======
 >>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
         "projectStyle": "PackageReference",
         "configFilePaths": [
@@ -365,16 +330,6 @@
         }
       }
     },
-<<<<<<< HEAD
-    "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Repositories\\Repositories.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Repositories\\Repositories.csproj",
-        "projectName": "Repositories",
-        "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Repositories\\Repositories.csproj",
-        "packagesPath": "C:\\Users\\nikak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Repositories\\obj\\",
-=======
     "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -383,6 +338,9 @@
         "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Repositories\\Repositories.csproj",
         "packagesPath": "C:\\Users\\naten\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Repositories\\obj\\",
+<<<<<<< HEAD
+>>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
+=======
 >>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
         "projectStyle": "PackageReference",
         "configFilePaths": [
@@ -398,12 +356,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-<<<<<<< HEAD
-              "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj"
-=======
               "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj"
+<<<<<<< HEAD
+>>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
+=======
 >>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
               }
             }
@@ -459,16 +416,6 @@
         }
       }
     },
-<<<<<<< HEAD
-    "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Services\\Services.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Services\\Services.csproj",
-        "projectName": "Services",
-        "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\nikak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Services\\obj\\",
-=======
     "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -477,6 +424,9 @@
         "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Services\\Services.csproj",
         "packagesPath": "C:\\Users\\naten\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Services\\obj\\",
+<<<<<<< HEAD
+>>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
+=======
 >>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
         "projectStyle": "PackageReference",
         "configFilePaths": [
@@ -492,16 +442,6 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-<<<<<<< HEAD
-              "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj": {
-                "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj"
-              },
-              "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj"
-              },
-              "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Repositories\\Repositories.csproj": {
-                "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Repositories\\Repositories.csproj"
-=======
               "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\DBContext.csproj": {
                 "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\DBContext.csproj"
               },
@@ -510,6 +450,9 @@
               },
               "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Repositories\\Repositories.csproj": {
                 "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Repositories\\Repositories.csproj"
+<<<<<<< HEAD
+>>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
+=======
 >>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
               }
             }

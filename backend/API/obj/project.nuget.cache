@@ -1,6 +1,7 @@
 {
   "version": 2,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dgSpecHash": "DtBB+FbO8I+2JgeGDZdwKC52HySWw2ziOcm1UxmqVueNmvQ/4ErGaN8bklp4cN/MuCit1rlS2yNxxMK3x4SWGw==",
 =======
   "dgSpecHash": "w0XBzPLfLN2RBBvpxlHfMOmqQN5RiGSOiVa1YrXT4m96neoRceDOYa5KwqmW8DAoSsg0OECL1+MGsQNhBr42Ig==",
@@ -107,6 +108,12 @@
     "C:\\Users\\nikak\\.nuget\\packages\\system.text.json\\5.0.1\\system.text.json.5.0.1.nupkg.sha512",
     "C:\\Users\\nikak\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
 =======
+=======
+  "dgSpecHash": "w0XBzPLfLN2RBBvpxlHfMOmqQN5RiGSOiVa1YrXT4m96neoRceDOYa5KwqmW8DAoSsg0OECL1+MGsQNhBr42Ig==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\API\\API.csproj",
+  "expectedPackageFiles": [
+>>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
     "C:\\Users\\naten\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\naten\\.nuget\\packages\\duende.identityserver\\5.2.0\\duende.identityserver.5.2.0.nupkg.sha512",
     "C:\\Users\\naten\\.nuget\\packages\\duende.identityserver.aspnetidentity\\5.2.0\\duende.identityserver.aspnetidentity.5.2.0.nupkg.sha512",
@@ -204,6 +211,9 @@
     "C:\\Users\\naten\\.nuget\\packages\\system.text.encodings.web\\5.0.1\\system.text.encodings.web.5.0.1.nupkg.sha512",
     "C:\\Users\\naten\\.nuget\\packages\\system.text.json\\5.0.1\\system.text.json.5.0.1.nupkg.sha512",
     "C:\\Users\\naten\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+<<<<<<< HEAD
+>>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
+=======
 >>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
   ],
   "logs": []
