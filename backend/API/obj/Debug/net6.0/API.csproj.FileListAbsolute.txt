@@ -329,8 +329,11 @@ C:\Users\nikak\Documents\travel-agency\backend\API\obj\Debug\net6.0\API.genrunti
 C:\Users\nikak\Documents\travel-agency\backend\API\obj\Debug\net6.0\ref\API.dll
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
 =======
+=======
+>>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
 >>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1
 C:\Users\naten\RiderProjects\travel-agency\backend\API\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\naten\RiderProjects\travel-agency\backend\API\bin\Debug\net6.0\appsettings.json
@@ -440,4 +443,7 @@ C:\Users\naten\RiderProjects\travel-agency\backend\API\obj\Debug\net6.0\API.xml
 C:\Users\naten\RiderProjects\travel-agency\backend\API\obj\Debug\net6.0\API.pdb
 C:\Users\naten\RiderProjects\travel-agency\backend\API\obj\Debug\net6.0\API.genruntimeconfig.cache
 C:\Users\naten\RiderProjects\travel-agency\backend\API\obj\Debug\net6.0\ref\API.dll
+<<<<<<< HEAD
+>>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
+=======
 >>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7
