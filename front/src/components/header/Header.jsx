@@ -10,17 +10,16 @@ import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
   const {auth} = useAuth();
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
-
-  console.log(auth)
+  
   return (
     <AppBar position='sticky' sx={{ mb: 3, py: 1, background: '#E5E5E5' }}>
       <Toolbar>
-        <Typography color='primary'>User Name</Typography>
+        {auth.userName && <Typography color='primary'>{auth.userName}</Typography> }
         <Link to ='/Search'>Search</Link>
         <Box sx={{ mr: 0, ml: 'auto' }}>
           <Button
@@ -43,7 +42,7 @@ const Header = () => {
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link onClick={handleClose} to='/'>
+              <Link onClick={handleClose} to='/MyGuests'>
                 My guests
               </Link>
             </MenuItem>

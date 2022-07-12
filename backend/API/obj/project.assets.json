@@ -487,7 +487,7 @@
           "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/6.0.5": {
+      "Microsoft.EntityFrameworkCore.Analyzers/7.0.0-preview.5.22302.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -2305,17 +2305,17 @@
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/6.0.5": {
-      "sha512": "QUeDIhs+O+MoDEc3k60mNyVDbwyDURCqZQlZoKShuZUcSfXSrDMbHKuFSxBIDNQBt092qSjfnwf7w0Ua/IB3Zw==",
+    "Microsoft.EntityFrameworkCore.Analyzers/7.0.0-preview.5.22302.2": {
+      "sha512": "X39oFMtgMp7ANNChLmcoklOvW3ZBAT/ThwQ5ixHr0WRMbH/wJ5Puhf9uhgpoCcvsZXAYNurNiaD+u1r7r4Bt7A==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/6.0.5",
+      "path": "microsoft.entityframeworkcore.analyzers/7.0.0-preview.5.22302.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "lib/netstandard2.0/_._",
-        "microsoft.entityframeworkcore.analyzers.6.0.5.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.7.0.0-preview.5.22302.2.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
@@ -4391,6 +4391,7 @@
       "Microsoft.AspNetCore.Cors >= 2.2.0",
       "Microsoft.EntityFrameworkCore >= 6.0.5",
       "Microsoft.EntityFrameworkCore.Abstractions >= 6.0.5",
+      "Microsoft.EntityFrameworkCore.Analyzers >= 7.0.0-preview.5.22302.2",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.5",
       "Microsoft.EntityFrameworkCore.Relational >= 6.0.5",
       "Microsoft.EntityFrameworkCore.Relational.Design >= 2.0.0-preview1-final",
@@ -4403,41 +4404,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\naten\\.nuget\\packages\\": {}
+    "C:\\Users\\nikak\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\API\\API.csproj",
       "projectName": "API",
       "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\API\\API.csproj",
       "packagesPath": "C:\\Users\\nikak\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\API\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\API\\API.csproj",
-      "projectName": "API",
-      "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\naten\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\API\\obj\\",
->>>>>>> 9d9541ac250a69386ddfd01eaa08a0d279be8f9c
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\nikak\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-<<<<<<< HEAD
             "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj": {
               "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj"
             },
@@ -4449,19 +4439,6 @@
             },
             "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Services\\Services.csproj": {
               "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Services\\Services.csproj"
-=======
-            "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\DBContext.csproj": {
-              "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\DBContext.csproj"
-            },
-            "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj"
-            },
-            "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Repositories\\Repositories.csproj": {
-              "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Repositories\\Repositories.csproj"
-            },
-            "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Services\\Services.csproj": {
-              "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Services\\Services.csproj"
->>>>>>> 9d9541ac250a69386ddfd01eaa08a0d279be8f9c
             }
           }
         }
@@ -4507,6 +4484,10 @@
           "Microsoft.EntityFrameworkCore.Abstractions": {
             "target": "Package",
             "version": "[6.0.5, )"
+          },
+          "Microsoft.EntityFrameworkCore.Analyzers": {
+            "target": "Package",
+            "version": "[7.0.0-preview.5.22302.2, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -4559,7 +4540,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
