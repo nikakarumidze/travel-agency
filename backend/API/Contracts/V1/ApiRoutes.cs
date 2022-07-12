@@ -36,7 +36,6 @@ public class ApiRoutes
     {
         private const string CityBase = Base + "/City";
         public const string GetAll = CityBase + "/GetAll";
-        public const string Create = CityBase + "/Create";
     }
 
     public static class Order

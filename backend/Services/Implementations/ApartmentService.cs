@@ -99,8 +99,10 @@ public class ApartmentService : IApartmentService
         
         var cityObj = await _cityRepository.GetCityByNameAsync(request.CityName);
         if (cityObj is null)
-            throw new NotFoundException(ExceptionMessages.CityNotFound);
-        
+        {
+            cityObj = await _cityRepository.CreateCityAsync(new City{Name=request.CityName});
+        }
+
         request.CityId = cityObj.Id;
 
         return await _apartmentRepository
@@ -177,9 +179,10 @@ public class ApartmentService : IApartmentService
         obj.Parking = request.Parking;
         obj.Pool = request.Pool;
         obj.Wifi = request.Wifi;
-        obj.BedsNumber = request.BedsNumber;
+        obj.MaxGuest = request.MaxGuest;
         obj.DistanceToCenter = request.DistanceToCenter;
-
+        obj.Description = request.Description;
+        
         return obj;
     }
     

@@ -23,12 +23,4 @@ public class CityController : Controller
     {
         return Ok(await _cityService.GetAllCitiesAsync());
     }
-
-    [AllowAnonymous]
-    [HttpGet(ApiRoutes.City.Create)]
-    public async Task<IActionResult> CreateAsync(string name)
-    {
-        var id = await _cityService.CreateCityAsync(new CityServiceModel{Name = name});
-        return Ok(id);
-    }
 }

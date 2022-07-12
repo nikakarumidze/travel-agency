@@ -14,7 +14,7 @@ public class UpdateApartmentRequestValidator : AbstractValidator<UpdateApartment
         RuleFor(x=>x.Address)
             .NotNull()
             .WithMessage(ErrorMessages.InputNull);
-        RuleFor(x=>x.BedsNumber)
+        RuleFor(x=>x.MaxGuest)
             .NotNull()
             .WithMessage(ErrorMessages.InputNull);
         RuleFor(x => x.DistanceToCenter)

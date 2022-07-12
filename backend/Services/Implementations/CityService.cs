@@ -29,9 +29,4 @@ public class CityService : ICityService
         return entities.Adapt<List<CityServiceModel>>();
     }
 
-    public async Task<int> CreateCityAsync(CityServiceModel city)
-    {
-        return await _cityRepository
-            .CreateCityAsync(city.Adapt<City>());
-    }
 }

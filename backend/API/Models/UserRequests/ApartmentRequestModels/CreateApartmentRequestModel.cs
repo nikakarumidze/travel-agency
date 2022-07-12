@@ -11,7 +11,8 @@ public class CreateApartmentRequestModel
     [Required]
     public string DistanceToCenter { get; set; }
     [Required]
-    public int BedsNumber { get; set; }
+    public int MaxGuest { get; set; }
+    public string? Description { get; set; }
     public byte[]? Image { get; set; }
     public bool? Wifi { get; set; }
     public bool? Pool { get; set; }
