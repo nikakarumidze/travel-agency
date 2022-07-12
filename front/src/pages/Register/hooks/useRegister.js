@@ -8,7 +8,7 @@ const useRegister = () => {
     async (obj) => {
       try {
         const res = await fetch(
-          `https://${REACT_APP_CUSTOM_URL}/api/v1/User/Register`,
+          `${REACT_APP_CUSTOM_URL}/api/v1/User/Register`,
           {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

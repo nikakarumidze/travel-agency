@@ -34,6 +34,7 @@ C:\Users\nikak\Documents\travel-agency\backend\DBContext\obj\Debug\net6.0\DBCont
 C:\Users\nikak\Documents\travel-agency\backend\DBContext\obj\Debug\net6.0\DBContext.genruntimeconfig.cache
 C:\Users\nikak\Documents\travel-agency\backend\DBContext\obj\Debug\net6.0\ref\DBContext.dll
 =======
+>>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1
 C:\Users\naten\RiderProjects\travel-agency\backend\DBContext\bin\Debug\net6.0\DBContext.deps.json
 C:\Users\naten\RiderProjects\travel-agency\backend\DBContext\bin\Debug\net6.0\DBContext.runtimeconfig.json
 C:\Users\naten\RiderProjects\travel-agency\backend\DBContext\bin\Debug\net6.0\DBContext.dll
@@ -51,4 +52,3 @@ C:\Users\naten\RiderProjects\travel-agency\backend\DBContext\obj\Debug\net6.0\re
 C:\Users\naten\RiderProjects\travel-agency\backend\DBContext\obj\Debug\net6.0\DBContext.pdb
 C:\Users\naten\RiderProjects\travel-agency\backend\DBContext\obj\Debug\net6.0\DBContext.genruntimeconfig.cache
 C:\Users\naten\RiderProjects\travel-agency\backend\DBContext\obj\Debug\net6.0\ref\DBContext.dll
->>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1

@@ -2,21 +2,37 @@ import { Box, Button, CardMedia, Container, TextField } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import validator from 'validator';
+
 import React, { useState } from 'react';
 import useProfileInfo from './hooks/useProfileInfo';
+import { useEffect } from 'react';
 
 const Profile = () => {
-  const profileData = useProfileInfo();
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [email, setEmail] = useState();
-  const [description, setDescription] = useState();
-
-  const [profileImage, setProfileImage] = useState(
-    'https://picsum.photos/318/354'
-  );
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [description, setDescription] = useState('');
+  const [profileImage, setProfileImage] = useState('');
   const [addAppartmentIsOpen, setAddAppartmentIsOpen] = useState(false);
-  console.log(profileData);
+
+  const { data, getInfo } = useProfileInfo();
+  useEffect(() => {
+    getInfo().then((data) => {
+      console.log(data);
+      setFirstName(data.firstname);
+      setLastName(data.lastname);
+      setEmail(data.userName);
+      if (data.image) {
+        setProfileImage(data.image);
+      }
+      if (data.description) {
+        setDescription(data.description);
+      }
+    });
+  }, []);
+  console.log(data);
+
+ 
 
   // fetch to get user's data, then put it in usestate as a default value. first name, last name etc.
 
@@ -81,12 +97,14 @@ const Profile = () => {
               label='First Name'
               variant='outlined'
               onChange={(event) => setFirstName(event.target.value)}
+              value={firstName}
               sx={{ mr: 1 }}
             />
             <TextField
               required
               label='Last Name'
               variant='outlined'
+              value={lastName}
               onChange={(event) => setLastName(event.target.value)}
             />
           </Box>
@@ -97,6 +115,7 @@ const Profile = () => {
             variant='outlined'
             type='email'
             onChange={(event) => setEmail(event.target.value)}
+            value={email}
             sx={{ my: 1 }}
           />
           <TextField
@@ -104,6 +123,7 @@ const Profile = () => {
             label='Something About Yourself'
             variant='outlined'
             onChange={(event) => setDescription(event.target.value)}
+            value={description}
             multiline
             minRows='2'
             sx={{ my: 1 }}

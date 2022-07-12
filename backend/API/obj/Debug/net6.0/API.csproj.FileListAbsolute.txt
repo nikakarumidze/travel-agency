@@ -216,6 +216,7 @@ C:\Users\nikak\Documents\travel-agency\backend\API\obj\Debug\net6.0\API.pdb
 C:\Users\nikak\Documents\travel-agency\backend\API\obj\Debug\net6.0\API.genruntimeconfig.cache
 C:\Users\nikak\Documents\travel-agency\backend\API\obj\Debug\net6.0\ref\API.dll
 =======
+>>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1
 C:\Users\naten\RiderProjects\travel-agency\backend\API\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\naten\RiderProjects\travel-agency\backend\API\bin\Debug\net6.0\appsettings.json
 C:\Users\naten\RiderProjects\travel-agency\backend\API\bin\Debug\net6.0\API.exe
@@ -324,4 +325,3 @@ C:\Users\naten\RiderProjects\travel-agency\backend\API\obj\Debug\net6.0\API.xml
 C:\Users\naten\RiderProjects\travel-agency\backend\API\obj\Debug\net6.0\API.pdb
 C:\Users\naten\RiderProjects\travel-agency\backend\API\obj\Debug\net6.0\API.genruntimeconfig.cache
 C:\Users\naten\RiderProjects\travel-agency\backend\API\obj\Debug\net6.0\ref\API.dll
->>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1

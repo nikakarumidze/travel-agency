@@ -42,6 +42,7 @@ C:\Users\nikak\Documents\travel-agency\backend\Services\obj\Debug\net6.0\refint\
 C:\Users\nikak\Documents\travel-agency\backend\Services\obj\Debug\net6.0\Services.pdb
 C:\Users\nikak\Documents\travel-agency\backend\Services\obj\Debug\net6.0\ref\Services.dll
 =======
+>>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1
 C:\Users\naten\RiderProjects\travel-agency\backend\Services\bin\Debug\net6.0\Services.deps.json
 C:\Users\naten\RiderProjects\travel-agency\backend\Services\bin\Debug\net6.0\Services.dll
 C:\Users\naten\RiderProjects\travel-agency\backend\Services\bin\Debug\net6.0\Services.pdb
@@ -63,4 +64,3 @@ C:\Users\naten\RiderProjects\travel-agency\backend\Services\obj\Debug\net6.0\Ser
 C:\Users\naten\RiderProjects\travel-agency\backend\Services\obj\Debug\net6.0\refint\Services.dll
 C:\Users\naten\RiderProjects\travel-agency\backend\Services\obj\Debug\net6.0\Services.pdb
 C:\Users\naten\RiderProjects\travel-agency\backend\Services\obj\Debug\net6.0\ref\Services.dll
->>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1

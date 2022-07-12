@@ -9,10 +9,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c48202d-187b-49d5-a513-942a7b1af28b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../API/Contracts/Queries/PaginationQuery.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../API/Contracts/Responses/AuthSuccessResponse.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../API/Contracts/Responses/PagedResponse.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../API/Infrastructure/Helpers/PaginationHelpers.cs" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/src/components/RequireAuth.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/src/context/AuthProvider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/src/hooks/useAuth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/src/pages/Missing/Missing.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/components/header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/components/header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/hooks/useRefreshToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/hooks/useRefreshToken.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/pages/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/pages/Login/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/pages/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/pages/Profile/Profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/pages/Profile/hooks/useProfileInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/pages/Profile/hooks/useProfileInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/pages/Register/hooks/useRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/pages/Register/hooks/useRegister.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +139,7 @@
       <workItem from="1656596795948" duration="5382000" />
       <workItem from="1656680950311" duration="2086000" />
       <workItem from="1657110194596" duration="3245000" />
-      <workItem from="1657274291398" duration="394000" />
+      <workItem from="1657274291398" duration="1972000" />
     </task>
     <task id="LOCAL-00001" summary="added sln file">
       <created>1654771476330</created>

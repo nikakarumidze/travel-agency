@@ -30,6 +30,7 @@ C:\Users\nikak\Documents\travel-agency\backend\Repositories\obj\Debug\net6.0\ref
 C:\Users\nikak\Documents\travel-agency\backend\Repositories\obj\Debug\net6.0\Repositories.pdb
 C:\Users\nikak\Documents\travel-agency\backend\Repositories\obj\Debug\net6.0\ref\Repositories.dll
 =======
+>>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1
 C:\Users\naten\RiderProjects\travel-agency\backend\Repositories\bin\Debug\net6.0\Repositories.deps.json
 C:\Users\naten\RiderProjects\travel-agency\backend\Repositories\bin\Debug\net6.0\Repositories.dll
 C:\Users\naten\RiderProjects\travel-agency\backend\Repositories\bin\Debug\net6.0\Repositories.pdb
@@ -45,4 +46,3 @@ C:\Users\naten\RiderProjects\travel-agency\backend\Repositories\obj\Debug\net6.0
 C:\Users\naten\RiderProjects\travel-agency\backend\Repositories\obj\Debug\net6.0\refint\Repositories.dll
 C:\Users\naten\RiderProjects\travel-agency\backend\Repositories\obj\Debug\net6.0\Repositories.pdb
 C:\Users\naten\RiderProjects\travel-agency\backend\Repositories\obj\Debug\net6.0\ref\Repositories.dll
->>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1
