@@ -24,9 +24,9 @@ public class CityRepository : ICityRepository
         return await _baseRepository.GetAllAsync();
     }
 
-    public async Task<int> CreateCityAsync(City city)
+    public async Task<City> CreateCityAsync(City city)
     {
         var obj = await _baseRepository.CreateAsync(city);
-        return obj.Id;
+        return obj;
     }
 }

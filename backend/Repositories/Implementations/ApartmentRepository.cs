@@ -109,8 +109,8 @@ public class ApartmentRepository : IApartmentRepository
         var skip = (paginationFilter.PageNumber - 1) * paginationFilter.PageSize;
         
         var apartments = _baseRepository.Table.AsQueryable();
-        if (model.BedsNumber != null)
-            apartments = apartments.Where(x => x.BedsNumber == model.BedsNumber);
+        if (model.MaxGuest != null)
+            apartments = apartments.Where(x => x.MaxGuest == model.MaxGuest);
         if (model.City is not null)
             apartments = apartments.Where(x => x.City.Name.Contains(model.City));
         if (model.Wifi is not null)

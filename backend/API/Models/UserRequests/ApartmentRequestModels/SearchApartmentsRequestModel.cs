@@ -18,7 +18,7 @@ public class SearchApartmentsRequestModel
     [DateValidation("Invalid Date, given value is in the past.")]
     public DateTime? AvailableTo { get; set; }
     public string? City { get; set; }
-    public int? BedsNumber { get; set; }
+    public int? MaxGuest { get; set; }
     public bool? Wifi { get; set; }
     public bool? Pool { get; set; }
     public bool? Gym { get; set; }

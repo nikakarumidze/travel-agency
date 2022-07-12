@@ -108,6 +108,7 @@ C:\Users\naten\RiderProjects\travel-agency\API\bin\Debug\net6.0\FluentValidation
 C:\Users\naten\RiderProjects\travel-agency\API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
 <<<<<<< HEAD
 =======
+>>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1
 C:\Users\naten\RiderProjects\travel-agency\backend\API\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\naten\RiderProjects\travel-agency\backend\API\bin\Debug\net6.0\appsettings.json
 C:\Users\naten\RiderProjects\travel-agency\backend\API\bin\Debug\net6.0\API.exe
@@ -216,6 +217,7 @@ C:\Users\naten\RiderProjects\travel-agency\backend\API\obj\Debug\net6.0\API.xml
 C:\Users\naten\RiderProjects\travel-agency\backend\API\obj\Debug\net6.0\API.pdb
 C:\Users\naten\RiderProjects\travel-agency\backend\API\obj\Debug\net6.0\API.genruntimeconfig.cache
 C:\Users\naten\RiderProjects\travel-agency\backend\API\obj\Debug\net6.0\ref\API.dll
+<<<<<<< HEAD
 >>>>>>> c6e61b8143a90c86e5b6a44e5e87dc5ad7f618d1
 C:\Users\nikak\Documents\travel-agency\backend\API\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\nikak\Documents\travel-agency\backend\API\bin\Debug\net6.0\appsettings.json
@@ -325,3 +327,5 @@ C:\Users\nikak\Documents\travel-agency\backend\API\obj\Debug\net6.0\API.xml
 C:\Users\nikak\Documents\travel-agency\backend\API\obj\Debug\net6.0\API.pdb
 C:\Users\nikak\Documents\travel-agency\backend\API\obj\Debug\net6.0\API.genruntimeconfig.cache
 C:\Users\nikak\Documents\travel-agency\backend\API\obj\Debug\net6.0\ref\API.dll
+=======
+>>>>>>> e588aabc2837e1a7f22e7419c0ff446f0a2266f7

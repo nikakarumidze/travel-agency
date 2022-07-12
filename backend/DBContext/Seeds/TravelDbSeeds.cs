@@ -55,7 +55,7 @@ public static class TravelDbSeeds
             Apartment = new Apartment
             {
                 Address = "Viktor Dolidze 25",
-                BedsNumber = 2,
+                MaxGuest = 2,
                 City = new City()
                 {
                     Name = "Tbilisi"
