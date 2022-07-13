@@ -7,5 +7,5 @@ public class CreateUserServiceModel
     public string Password { get; set; }
     public string Firstname  { get; set; }
     public string Lastname { get; set; }
-    public byte[]? Image { get; set; }
+    public string Image { get; set; }
 }

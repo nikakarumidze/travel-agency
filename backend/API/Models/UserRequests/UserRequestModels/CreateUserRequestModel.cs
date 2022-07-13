@@ -16,7 +16,7 @@ public class CreateUserRequestModel
     [Required]
     public string Lastname { get; set; }
     /// <summary>
-    /// send as byte array  . . .
+    /// send as base64  . . .
     /// </summary>
-    public byte[]? Image { get; set; }
+    public string? Image { get; set; }
 }

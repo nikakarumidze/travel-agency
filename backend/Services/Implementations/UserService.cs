@@ -70,6 +70,7 @@ public class UserService : IUserService
             Email = user.Email,
             Firstname = user.Firstname,
             Lastname = user.Lastname,
+            Image = Convert.FromBase64String(user.Image),
             SecurityStamp = Guid.NewGuid().ToString()
         };
 
@@ -97,7 +98,7 @@ public class UserService : IUserService
         user.UserName = request.UserName;
         user.Firstname = request.Firstname;
         user.Lastname = request.Lastname;
-        user.Image = request.Image;
+        user.Image = Convert.FromBase64String(request.Image);
         user.Bio = request.Bio;
         
         await _userManager.UpdateAsync(user);

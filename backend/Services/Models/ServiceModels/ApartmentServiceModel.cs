@@ -23,6 +23,8 @@ public class ApartmentServiceModel
 
     public CityServiceModel City { get; set; }
     public int CityId { get; set; }
-
+    
+    public string ImageAsBase64 { get; set; }
+    
     public List<DateTime> BusyDates { get; set; }
 }

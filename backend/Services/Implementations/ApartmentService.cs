@@ -105,6 +105,10 @@ public class ApartmentService : IApartmentService
 
         request.CityId = cityObj.Id;
 
+        var adapted = request.Adapt<Apartment>();
+
+        adapted.Image = Convert.FromBase64String(request.ImageAsBase64);
+        
         return await _apartmentRepository
             .CreateAsync(request.Adapt<Apartment>());
     }
@@ -182,6 +186,7 @@ public class ApartmentService : IApartmentService
         obj.MaxGuest = request.MaxGuest;
         obj.DistanceToCenter = request.DistanceToCenter;
         obj.Description = request.Description;
+        obj.Image = Convert.FromBase64String(request.ImageAsBase64);
         
         return obj;
     }
