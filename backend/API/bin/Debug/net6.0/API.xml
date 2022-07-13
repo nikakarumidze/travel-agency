@@ -98,12 +98,12 @@
         </member>
         <member name="P:API.Models.UserRequests.UserRequestModels.CreateUserRequestModel.Image">
             <summary>
-            send as byte array  . . .
+            send as base64  . . .
             </summary>
         </member>
         <member name="P:API.Models.UserRequests.UserRequestModels.UpdateUserInfoRequestModel.Image">
             <summary>
-            send as a byte array . . . .
+            send as a base64 . . . .
             </summary>
         </member>
     </members>

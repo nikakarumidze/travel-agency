@@ -26,7 +26,12 @@ public class UserController : Controller
     public async Task<IActionResult> GetInfoAsync()
     {
         var user = await _userService.GetInfoAsync();
-        return Ok(user.Adapt<ApplicationUserDTO>());
+
+        var adapted = user.Adapt<ApplicationUserDTO>();
+
+        if (user.Image != null) adapted.ImageBase64 = Convert.ToBase64String(user.Image);
+        
+        return Ok(adapted);
     }
     
     [AllowAnonymous]

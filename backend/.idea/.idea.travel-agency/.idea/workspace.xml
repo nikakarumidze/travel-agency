@@ -124,7 +124,7 @@
       <workItem from="1657110194596" duration="3245000" />
       <workItem from="1657274291398" duration="1972000" />
       <workItem from="1657620817005" duration="1951000" />
-      <workItem from="1657730256093" duration="641000" />
+      <workItem from="1657730256093" duration="4509000" />
     </task>
     <task id="LOCAL-00001" summary="added sln file">
       <created>1654771476330</created>
@@ -240,6 +240,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/API/Controllers/UserController.cs</url>
+          <line>52</line>
+          <properties documentPath="C:\Users\naten\RiderProjects\travel-agency\backend\API\Controllers\UserController.cs" initialLine="52" containingFunctionPresentation="method 'RegistrationAsync'">
+            <startOffsets>
+              <option value="1450" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1535" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/API/Controllers/UserController.cs</url>
+          <line>29</line>
+          <properties documentPath="C:\Users\naten\RiderProjects\travel-agency\backend\API\Controllers\UserController.cs" initialLine="29" containingFunctionPresentation="method 'GetInfoAsync'">
+            <startOffsets>
+              <option value="707" />
+            </startOffsets>
+            <endOffsets>
+              <option value="754" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

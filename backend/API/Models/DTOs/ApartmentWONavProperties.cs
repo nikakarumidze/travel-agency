@@ -7,7 +7,7 @@ public class ApartmentWONavProperties
     public string DistanceToCenter { get; set; }
     public int MaxGuest { get; set; }
     public string Description { get; set; }
-    public byte[]? Image { get; set; }
+    public string ImageBase64 { get; set; }
     public bool? Wifi { get; set; }
     public bool? Pool { get; set; }
     public bool? Gym { get; set; }

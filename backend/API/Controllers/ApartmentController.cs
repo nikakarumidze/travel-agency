@@ -2,6 +2,7 @@ using API.Contracts.Queries;
 using API.Contracts.Responses;
 using API.Contracts.V1;
 using API.Infrastructure.Helpers;
+using API.Models.DTOs;
 using API.Models.UserRequests.ApartmentRequestModels;
 using Domain;
 using Mapster;
@@ -30,10 +31,20 @@ public class ApartmentController : Controller
         var objs = await _apartmentService
             .GetAllAsync(pagination.Adapt<PaginationFilter>());
         
+        var adapted = objs.Adapt<List<ApartmentDTO>>();
+        for (var index = 0; index < objs.Count; index++)
+        {
+            var item = objs[index];
+            if (item.Image != null)
+            {
+                adapted[index].ImageBase64 = Convert.ToBase64String(item.Image);
+            }
+        }
+        
         if (pagination == null || pagination.PageNumber < 1 || pagination.PageSize < 1)
-            return Ok(new PagedResponse<ApartmentServiceModel>(objs));
+            return Ok(new PagedResponse<ApartmentDTO>(adapted));
 
-        var paginationResponse = PaginationHelpers.CreatePaginatedResponse(_uriService, pagination, objs);
+        var paginationResponse = PaginationHelpers.CreatePaginatedResponse(_uriService, pagination, adapted);
         return Ok(paginationResponse);
     }
     
@@ -71,10 +82,20 @@ public class ApartmentController : Controller
         var objs = await _apartmentService
             .Search(model.Adapt<ApartmentSearchServiceModel>(), pagination.Adapt<PaginationFilter>());
         
+        var adapted = objs.Adapt<List<ApartmentDTO>>();
+        for (var index = 0; index < objs.Count; index++)
+        {
+            var item = objs[index];
+            if (item.Image != null)
+            {
+                adapted[index].ImageBase64 = Convert.ToBase64String(item.Image);
+            }
+        }
+        
         if (pagination == null || pagination.PageNumber < 1 || pagination.PageSize < 1)
-            return Ok(new PagedResponse<ApartmentServiceModel>(objs));
+            return Ok(new PagedResponse<ApartmentDTO>(adapted));
 
-        var paginationResponse = PaginationHelpers.CreatePaginatedResponse(_uriService, pagination, objs);
+        var paginationResponse = PaginationHelpers.CreatePaginatedResponse(_uriService, pagination, adapted);
         return Ok(paginationResponse);
     }
 
@@ -85,10 +106,20 @@ public class ApartmentController : Controller
     {
         var objs = await _apartmentService.GetAllByCityAsync(city, pagination.Adapt<PaginationFilter>());
         
+        var adapted = objs.Adapt<List<ApartmentDTO>>();
+        for (var index = 0; index < objs.Count; index++)
+        {
+            var item = objs[index];
+            if (item.Image != null)
+            {
+                adapted[index].ImageBase64 = Convert.ToBase64String(item.Image);
+            }
+        }
+        
         if (pagination == null || pagination.PageNumber < 1 || pagination.PageSize < 1)
-            return Ok(new PagedResponse<ApartmentServiceModel>(objs));
+            return Ok(new PagedResponse<ApartmentDTO>(adapted));
 
-        var paginationResponse = PaginationHelpers.CreatePaginatedResponse(_uriService, pagination, objs);
+        var paginationResponse = PaginationHelpers.CreatePaginatedResponse(_uriService, pagination, adapted);
         return Ok(paginationResponse);
     }
     
@@ -98,6 +129,17 @@ public class ApartmentController : Controller
     public async Task<IActionResult> GetAllByAddress(string address)
     {
         var objs = await _apartmentService.GetAllByAddressAsync(address);
+
+        var adapted = objs.Adapt<List<ApartmentDTO>>();
+        for (var index = 0; index < objs.Count; index++)
+        {
+            var item = objs[index];
+            if (item.Image != null)
+            {
+                adapted[index].ImageBase64 = Convert.ToBase64String(item.Image);
+            }
+        }
+
         return Ok(objs);
     }
     
@@ -106,7 +148,13 @@ public class ApartmentController : Controller
     public async Task<IActionResult> GetMyApartmentAsync()
     {
         var obj = await _apartmentService.GetMineAsync();
-        return Ok(obj);
+        var adapted = obj.Adapt<ApartmentDTO>();
+        if (obj.Image != null)
+        {
+            adapted.ImageBase64 = Convert.ToBase64String(obj.Image);
+        }
+
+        return Ok(adapted);
     }
 
     [Authorize]
