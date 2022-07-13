@@ -1,35 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Services\\Services.csproj": {}
+    "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Services\\Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\DBContext.csproj": {
+    "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\DBContext.csproj",
+        "projectUniqueName": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj",
         "projectName": "DBContext",
-        "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\DBContext.csproj",
-        "packagesPath": "C:\\Users\\naten\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\obj\\",
+        "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj",
+        "packagesPath": "C:\\Users\\nikak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\nikak\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj"
+              "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj"
               }
             }
           }
@@ -100,28 +98,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj": {
+    "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\naten\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\nikak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\nikak\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -172,36 +168,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Repositories\\Repositories.csproj": {
+    "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Repositories\\Repositories.csproj",
-        "packagesPath": "C:\\Users\\naten\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Repositories\\obj\\",
+        "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Repositories\\Repositories.csproj",
+        "packagesPath": "C:\\Users\\nikak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\nikak\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj"
+              "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj"
               }
             }
           }
@@ -252,42 +246,40 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Services\\Services.csproj": {
+    "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\naten\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Services\\obj\\",
+        "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\nikak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\naten\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\nikak\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\DBContext.csproj": {
-                "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\DBContext\\DBContext.csproj"
+              "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj": {
+                "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\DBContext\\DBContext.csproj"
               },
-              "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Domain\\Domain.csproj"
+              "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Repositories\\Repositories.csproj": {
-                "projectPath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\Repositories\\Repositories.csproj"
+              "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Repositories\\Repositories.csproj": {
+                "projectPath": "C:\\Users\\nikak\\Documents\\travel-agency\\backend\\Repositories\\Repositories.csproj"
               }
             }
           }
@@ -358,7 +350,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -13,7 +13,7 @@ const MyAppartment = () => {
   const [distance, setDistance] = useState('');
   const [maxGuests, setMaxGuests] = useState('');
   const [description, setDescription] = useState('');
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState({display: null, send: null});
 
   const { getMyAppartment, changeApartmentInfo } = useMyAppartment();
 
@@ -23,17 +23,24 @@ const MyAppartment = () => {
         setCity(data.cityName);
         setAddress(data.address);
         setDistance(data.distanceToCenter);
-        setMaxGuests(data.bedsNumber);
-        setImage(data.image);
-        // setEverything data . smth
-        console.log(data);
+        setMaxGuests(data.maxGuest);
+        console.log(data)
+        if (data.image) {
+          setImage(data.image);
+        }
+        setDescription(data.description)
       }
     });
   }, []);
 
   const imageChangeHandler = (event) => {
     const fileURL = URL.createObjectURL(event.target.files[0]);
-    setImage(fileURL);
+
+    let reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = e => {
+      setImage({display: fileURL  , send:e.target.result})
+    }
   };
 
   const saveChangesHandler = () => {
@@ -41,8 +48,9 @@ const MyAppartment = () => {
       cityName: city,
       address,
       distanceToCenter: distance,
-      bedsNumber: maxGuests,
-      image,
+      maxGuest: maxGuests,
+      description,
+      image: image.send,
       'wifi': true,
       'pool': true,
       'gym': false,
@@ -134,7 +142,7 @@ const MyAppartment = () => {
                 component='img'
                 height='300'
                 width='300'
-                image={image}
+                image={image.display}
                 alt='Your Image'
                 sx={{ mb: 1 }}
               />
