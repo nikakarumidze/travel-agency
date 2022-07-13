@@ -4,17 +4,15 @@ import validator from 'validator';
 
 import useForm from '../../hooks/useForm';
 import useAuth from '../../hooks/useAuth';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
   const { formState, onTypingHandler, validityChangeHandler } = useForm();
   const { setAuth } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
   const { REACT_APP_CUSTOM_URL } = process.env;
-  // Redirects to previous location, if not found, to profile page
-  const from = location.state?.from.pathname || '/Profile'
-
+  // Redirects to profile page
+  const from = '/Profile';
 
   const loginHandler = (e) => {
     e.preventDefault();
@@ -55,10 +53,11 @@ const Login = (props) => {
       })
       .catch((err) => console.log(err))
       .then((res) => {
-        setAuth(res);
-        navigate(from, {replace: true})
-      })
-      
+        setAuth((prevState) => {
+          return { ...prevState, ...res };
+        });
+        navigate(from, { replace: true });
+      });
   };
 
   return (

@@ -487,7 +487,7 @@
           "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/6.0.5": {
+      "Microsoft.EntityFrameworkCore.Analyzers/7.0.0-preview.5.22302.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -2305,17 +2305,17 @@
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/6.0.5": {
-      "sha512": "QUeDIhs+O+MoDEc3k60mNyVDbwyDURCqZQlZoKShuZUcSfXSrDMbHKuFSxBIDNQBt092qSjfnwf7w0Ua/IB3Zw==",
+    "Microsoft.EntityFrameworkCore.Analyzers/7.0.0-preview.5.22302.2": {
+      "sha512": "X39oFMtgMp7ANNChLmcoklOvW3ZBAT/ThwQ5ixHr0WRMbH/wJ5Puhf9uhgpoCcvsZXAYNurNiaD+u1r7r4Bt7A==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/6.0.5",
+      "path": "microsoft.entityframeworkcore.analyzers/7.0.0-preview.5.22302.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "lib/netstandard2.0/_._",
-        "microsoft.entityframeworkcore.analyzers.6.0.5.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.7.0.0-preview.5.22302.2.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
@@ -4391,6 +4391,7 @@
       "Microsoft.AspNetCore.Cors >= 2.2.0",
       "Microsoft.EntityFrameworkCore >= 6.0.5",
       "Microsoft.EntityFrameworkCore.Abstractions >= 6.0.5",
+      "Microsoft.EntityFrameworkCore.Analyzers >= 7.0.0-preview.5.22302.2",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.5",
       "Microsoft.EntityFrameworkCore.Relational >= 6.0.5",
       "Microsoft.EntityFrameworkCore.Relational.Design >= 2.0.0-preview1-final",
@@ -4485,6 +4486,10 @@
           "Microsoft.EntityFrameworkCore.Abstractions": {
             "target": "Package",
             "version": "[6.0.5, )"
+          },
+          "Microsoft.EntityFrameworkCore.Analyzers": {
+            "target": "Package",
+            "version": "[7.0.0-preview.5.22302.2, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "w0XBzPLfLN2RBBvpxlHfMOmqQN5RiGSOiVa1YrXT4m96neoRceDOYa5KwqmW8DAoSsg0OECL1+MGsQNhBr42Ig==",
+  "dgSpecHash": "S1Xgh4wXrz/TQcMHe5rN3OTFWJ/nd2P3lNGfcH6yjqKpHRlUziT3ku/8yFFrc79P17la/DqTssjr/O+xOUxVZA==",
   "success": true,
   "projectFilePath": "C:\\Users\\naten\\RiderProjects\\travel-agency\\backend\\API\\API.csproj",
   "expectedPackageFiles": [
@@ -38,7 +38,7 @@
     "C:\\Users\\naten\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\naten\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.5\\microsoft.entityframeworkcore.6.0.5.nupkg.sha512",
     "C:\\Users\\naten\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.5\\microsoft.entityframeworkcore.abstractions.6.0.5.nupkg.sha512",
-    "C:\\Users\\naten\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.5\\microsoft.entityframeworkcore.analyzers.6.0.5.nupkg.sha512",
+    "C:\\Users\\naten\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.0-preview.5.22302.2\\microsoft.entityframeworkcore.analyzers.7.0.0-preview.5.22302.2.nupkg.sha512",
     "C:\\Users\\naten\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.5\\microsoft.entityframeworkcore.design.6.0.5.nupkg.sha512",
     "C:\\Users\\naten\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.5\\microsoft.entityframeworkcore.relational.6.0.5.nupkg.sha512",
     "C:\\Users\\naten\\.nuget\\packages\\microsoft.entityframeworkcore.relational.design\\2.0.0-preview1-final\\microsoft.entityframeworkcore.relational.design.2.0.0-preview1-final.nupkg.sha512",
