@@ -9,7 +9,7 @@ public class UpdateApartmentRequestModel
     public string DistanceToCenter { get; set; }
     public int MaxGuest { get; set; }
     public string Description { get; set; }
-    public string ImageAsBase64 { get; set; }
+    public string? ImageAsBase64 { get; set; }
     public bool? Wifi { get; set; }
     public bool? Pool { get; set; }
     public bool? Gym { get; set; }

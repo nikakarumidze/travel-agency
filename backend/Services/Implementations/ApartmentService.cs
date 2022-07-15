@@ -122,7 +122,9 @@ public class ApartmentService : IApartmentService
 
         var cityObj = await _cityRepository.GetCityByNameAsync(request.CityName);
         if (cityObj is null)
-            throw new NotFoundException(ExceptionMessages.CityNotFound);
+        {
+            cityObj = await _cityRepository.CreateCityAsync(new City{Name=request.CityName});
+        }
 
         if (obj.City.Name != request.CityName)
             obj.City = cityObj;

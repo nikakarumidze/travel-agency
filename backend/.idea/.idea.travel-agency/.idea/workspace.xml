@@ -124,7 +124,8 @@
       <workItem from="1657110194596" duration="3245000" />
       <workItem from="1657274291398" duration="1972000" />
       <workItem from="1657620817005" duration="1951000" />
-      <workItem from="1657730256093" duration="4509000" />
+      <workItem from="1657730256093" duration="4705000" />
+      <workItem from="1657889170193" duration="770000" />
     </task>
     <task id="LOCAL-00001" summary="added sln file">
       <created>1654771476330</created>
@@ -266,6 +267,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/API/Controllers/ApartmentController.cs</url>
+          <line>172</line>
+          <properties documentPath="C:\Users\naten\RiderProjects\travel-agency\backend\API\Controllers\ApartmentController.cs" initialLine="172" containingFunctionPresentation="method 'UpdateAsync'">
+            <startOffsets>
+              <option value="6034" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6127" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
