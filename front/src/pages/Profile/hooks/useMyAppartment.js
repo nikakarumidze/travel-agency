@@ -8,7 +8,6 @@ const useMyAppartment = () => {
   const [isCreated, setIsCreated] = useState(false);
   const { auth } = useAuth();
   const tokenRequest = `Bearer ${auth.token}`;
-  console.log(isCreated)
 
   const getMyAppartment = useCallback(async () => {
     try {

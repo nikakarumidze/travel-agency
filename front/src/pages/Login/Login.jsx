@@ -3,16 +3,11 @@ import TextField from '@mui/material/TextField';
 import validator from 'validator';
 
 import useForm from '../../hooks/useForm';
-import useAuth from '../../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
+import useLogin from './hooks/useLogin';
 
 const Login = (props) => {
   const { formState, onTypingHandler, validityChangeHandler } = useForm();
-  const { setAuth } = useAuth();
-  const navigate = useNavigate();
-  const { REACT_APP_CUSTOM_URL } = process.env;
-  // Redirects to profile page
-  const from = '/Profile';
+  const {LoginHandler} = useLogin();
 
   const loginHandler = (e) => {
     e.preventDefault();
@@ -36,28 +31,12 @@ const Login = (props) => {
     }
 
     const obj = { username: formState.userName, password: formState.password };
-
-    fetch(`https://${REACT_APP_CUSTOM_URL}/api/v1/User/SignIn`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(obj),
+    LoginHandler(obj)
+    .catch((err)=> {
+      alert(err.data.Title);
+      validityChangeHandler('isUserNameValid', false);
+      validityChangeHandler('isPasswordValid', false);
     })
-      .then((res) => {
-        if (!res.ok) {
-          console.log(res);
-          validityChangeHandler('isUserNameValid', false);
-          validityChangeHandler('isPasswordValid', false);
-        } else {
-          return res.json();
-        }
-      })
-      .catch((err) => console.log(err))
-      .then((res) => {
-        setAuth((prevState) => {
-          return { ...prevState, ...res };
-        });
-        navigate(from, { replace: true });
-      });
   };
 
   return (

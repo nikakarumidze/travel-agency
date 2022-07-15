@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Header from './components/header/Header';
 import RequireAuth from './components/RequireAuth';
 import Profile from './pages/Profile/Profile';
@@ -15,6 +15,8 @@ const App = () => {
       <BrowserRouter>
         <Header />
         <Routes>
+          <Route path='/' element={<Navigate to='/Login' replace/>}/>
+          
           <Route path='/Login' element={<Login />} />
           <Route path='/Register' element={<Register />} />
 

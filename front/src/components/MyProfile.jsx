@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import useProfileInfo from '../pages/Profile/hooks/useProfileInfo';
 import validator from 'validator';
+import useRefreshToken from '../hooks/useRefreshToken';
 
 const MyProfile = () => {
   const [firstName, setFirstName] = useState('');
@@ -12,6 +13,7 @@ const MyProfile = () => {
   const [profileImage, setProfileImage] = useState('');
 
   const { getInfo, updateMyInfo } = useProfileInfo();
+  const {refreshTokenRequest} = useRefreshToken();
 
   useEffect(() => {
     getInfo().then((data) => {
@@ -19,8 +21,8 @@ const MyProfile = () => {
       setFirstName(data.firstname);
       setLastName(data.lastname);
       setEmail(data.email);
-      if (data.image) {
-        setProfileImage(data.image);
+      if (data.imageBase64) {
+        setProfileImage({display: `data:image/jpeg;base64,${data.imageBase64}`});
       }
       if (data.description) {
         setBio(data.description);
@@ -29,9 +31,13 @@ const MyProfile = () => {
   }, []);
 
   const profileImageChangeHandler = (event) => {
-    console.log(event.target.files[0]);
-    let fileURL = URL.createObjectURL(event.target.files[0]);
-    setProfileImage(fileURL);
+    const fileURL = URL.createObjectURL(event.target.files[0]);
+
+    let reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = e => {
+      setProfileImage({display: fileURL  , send:e.target.result})
+    }
   };
 
   const saveChangesHandler = () => {
@@ -54,7 +60,7 @@ const MyProfile = () => {
       lastname: lastName,
       email,
       bio,
-      image: profileImage,
+      imageBase64: profileImage.send,
     };
     console.log(data);
     updateMyInfo(data).then((res) => console.log(res));
@@ -75,7 +81,7 @@ const MyProfile = () => {
           component='img'
           height='300'
           width='300'
-          image={profileImage}
+          image={profileImage.display}
           alt='Your Image'
           sx={{ mb: 1 }}
         />
@@ -113,6 +119,8 @@ const MyProfile = () => {
             onChange={(event) => setLastName(event.target.value)}
           />
         </Box>
+        
+      <button onClick={() => refreshTokenRequest()}>ZD</button>
         <TextField
           required
           fullWidth

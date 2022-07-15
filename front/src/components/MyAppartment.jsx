@@ -20,13 +20,14 @@ const MyAppartment = () => {
   useEffect(() => {
     getMyAppartment().then((data) => {
       if (data) {
-        setCity(data.cityName);
+        // Because we dont get any
+        // setCity(data.cityName);
         setAddress(data.address);
         setDistance(data.distanceToCenter);
         setMaxGuests(data.maxGuest);
         console.log(data)
-        if (data.image) {
-          setImage(data.image);
+        if (data.imageBase64) {
+          setImage({display: `data:image/jpeg;base64,${data.imageBase64}`});
         }
         setDescription(data.description)
       }
@@ -50,7 +51,7 @@ const MyAppartment = () => {
       distanceToCenter: distance,
       maxGuest: maxGuests,
       description,
-      image: image.send,
+      imageAsBase64: image.send,
       'wifi': true,
       'pool': true,
       'gym': false,
