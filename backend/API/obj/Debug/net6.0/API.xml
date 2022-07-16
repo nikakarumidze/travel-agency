@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API</name>
+    </assembly>
+    <members>
+        <member name="M:API.Controllers.ApartmentController.Search(API.Models.UserRequests.ApartmentRequestModels.SearchApartmentsRequestModel,API.Contracts.Queries.PaginationQuery)">
+            <summary>
+            Only fill in the fields the user wants to search, leave others null
+            </summary>
+        </member>
+        <member name="T:API.Infrastructure.APIResources.ErrorMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:API.Infrastructure.APIResources.ErrorMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:API.Infrastructure.APIResources.ErrorMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:API.Infrastructure.APIResources.ErrorMessages.InputNull">
+            <summary>
+              Looks up a localized string similar to Input is null..
+            </summary>
+        </member>
+        <member name="P:API.Infrastructure.APIResources.ErrorMessages.InvalidEmail">
+            <summary>
+              Looks up a localized string similar to Email is not valid..
+            </summary>
+        </member>
+        <member name="P:API.Infrastructure.APIResources.ErrorMessages.InvalidName">
+            <summary>
+              Looks up a localized string similar to Input should be only latin letters and minimum 3 characters..
+            </summary>
+        </member>
+        <member name="P:API.Infrastructure.APIResources.ErrorMessages.InvalidPassword">
+            <summary>
+              Looks up a localized string similar to Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character..
+            </summary>
+        </member>
+        <member name="P:API.Infrastructure.APIResources.ErrorMessages.InvalidUsername">
+            <summary>
+              Looks up a localized string similar to It should be only latin letters and at least 3 characters..
+            </summary>
+        </member>
+        <member name="T:API.Infrastructure.APIResources.Regexes">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:API.Infrastructure.APIResources.Regexes.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:API.Infrastructure.APIResources.Regexes.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:API.Infrastructure.APIResources.Regexes.Name">
+            <summary>
+              Looks up a localized string similar to ^[a-zA-Z]{3,}$.
+            </summary>
+        </member>
+        <member name="P:API.Infrastructure.APIResources.Regexes.Password">
+            <summary>
+              Looks up a localized string similar to ^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&amp;*-]).{8,}$.
+            </summary>
+        </member>
+        <member name="P:API.Models.UserRequests.ApartmentRequestModels.SearchApartmentsRequestModel.AvailableFrom">
+            <summary>
+            Format - YY-MM-DD
+            </summary>
+        </member>
+        <member name="P:API.Models.UserRequests.ApartmentRequestModels.SearchApartmentsRequestModel.AvailableTo">
+            <summary>
+            Format - YY-MM-DD
+            </summary>
+        </member>
+        <member name="P:API.Models.UserRequests.OrderRequestModels.OrderBookingRequestModel.From">
+            <summary>
+            Format - YY-MM-DD
+            </summary>
+        </member>
+        <member name="P:API.Models.UserRequests.OrderRequestModels.OrderBookingRequestModel.To">
+            <summary>
+            Format - YY-MM-DD
+            </summary>
+        </member>
+        <member name="P:API.Models.UserRequests.UserRequestModels.CreateUserRequestModel.Image">
+            <summary>
+            send as base64  . . .
+            </summary>
+        </member>
+        <member name="P:API.Models.UserRequests.UserRequestModels.UpdateUserInfoRequestModel.Image">
+            <summary>
+            send as a base64 . . . .
+            </summary>
+        </member>
+    </members>
+</doc>

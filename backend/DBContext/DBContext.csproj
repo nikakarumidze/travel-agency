@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.Identity.Stores">
+        <HintPath>..\..\..\.nuget\packages\microsoft.extensions.identity.stores\7.0.0-preview.4.22251.1\lib\netstandard2.0\Microsoft.Extensions.Identity.Stores.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Domain\Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Mapster" Version="7.4.0-pre02" />
+      <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.5" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Relational.Design" Version="2.0.0-preview1-final" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
+    </ItemGroup>
+
+</Project>
